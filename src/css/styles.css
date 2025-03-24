@@ -1,0 +1,10 @@
+:root{
+    --fondo : #213555;
+    --contenedores: #3E5879;
+    --navegadores: #D8C4B6;
+    --delineados: #F5EFE7;
+
+    --titulos: "Quicksand", sans-serif;
+    --alertas: "Roboto Condensed", sans-serif; 
+    --texto: "Raleway", sans-serif;
+}
