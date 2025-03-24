@@ -3,6 +3,8 @@
     --contenedores: #3E5879;
     --navegadores: #D8C4B6;
     --delineados: #F5EFE7;
+    --blanco: #fff;
+    --negro: #000;
 
     --titulos: "Quicksand", sans-serif;
     --alertas: "Roboto Condensed", sans-serif; 
@@ -21,6 +23,7 @@ body{
     font-family: var(--texto);
     font-size: 1.6rem;
     line-height: 1.8;
+    margin: 0;
 }
 a{
     text-decoration: none;
@@ -39,10 +42,44 @@ h2{
 h3{
     font-size: 3rem;
 }
+
+/* utilidades */
 .contenedor{
     width: 95%;
     max-width: 150rem;
     margin: 0 auto;
 }
-
+.noMargin{
+    margin: 0;
+}
 /* navegador */
+.navegador{
+    background-color: var(--navegadores);
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.logo{
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+}
+.logo img {
+    width: 7rem;
+    height: 7rem;
+    text-align: center;
+    margin: .5rem 1rem;
+}
+
+.enlaces{
+    display: flex;
+    align-items: center;
+}
+.enlaces a{
+    margin: 0 1rem;
+    color: var(--negro);
+    &:hover{
+        color: var(--contenedores)
+    }
+}
