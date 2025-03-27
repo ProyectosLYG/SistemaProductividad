@@ -57,6 +57,9 @@ h3{
     justify-content: center;
     align-content: center;
 }
+.boton{
+    
+}
 /* navegador */
 .navegador{
     background-color: var(--fondo);
@@ -203,4 +206,12 @@ h3{
 }
 
 /* Proyectos */
-
+.proyecto{
+    background-color: var(--contenedores);
+    padding: 2rem;
+    margin: 2rem auto;
+    border-radius: 20px;
+}
+.proyecto p{
+    color: var(--blanco);
+}
