@@ -60,6 +60,7 @@ h3{
 /* navegador */
 .navegador{
     background-color: var(--fondo);
+    padding: 1rem;
 }
 .nav-contenedor{
     margin: 0 auto;
@@ -173,8 +174,33 @@ h3{
     opacity: 1;
     visibility: visible;
 }
-/* principal */
 
+
+
+/* principal */
 .principal{
-    background-color: var(--fondo);
+    background-color: var(--blanco);
 }
+.header-proyectos{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.header-proyectos h2{
+    font-weight: 700;
+    font-family: var(--titulos);
+    text-align: left;
+    margin: 2rem 0;
+}
+.busqueda input{
+    border-radius: 10px;
+    padding: .8rem;
+    margin: 0;
+}
+.busqueda{
+    align-items: center;
+    align-content: center;
+}
+
+/* Proyectos */
+
