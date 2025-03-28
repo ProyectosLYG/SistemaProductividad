@@ -57,13 +57,27 @@ h3{
     justify-content: center;
     align-content: center;
 }
-.boton{
-    
+.boton-claro{
+    background-color: var(--delineados);
+    border-radius: 10px;
+    padding: 1rem 2rem;
+    margin: 1rem 2rem;
+    color: var(--fondo);
+    font-weight: 700;
+    &:hover{
+        transition: 500ms;
+        color: var(--negro);
+        background-color: var(--navegadores);
+    }
 }
 /* navegador */
 .navegador{
     background-color: var(--fondo);
     padding: 1rem;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
 }
 .nav-contenedor{
     margin: 0 auto;
@@ -139,13 +153,22 @@ h3{
     opacity: 1;
     visibility: visible;
 }
-/* principal */
 
+
+/* principal */
 .principal{
-    background-color: var(--fondo);
+    background-color: var(--blanco);
+    margin-top: 15rem;
+}
+.mobile-menu{
+    display: block;
+    
 }
 
 @media(min-width: 850px){
+    .principal{
+        margin-top: 14rem;
+    }
     .nav-contenedor{
         flex-direction: row;
         justify-content: space-between;
@@ -156,21 +179,21 @@ h3{
         opacity: 1;
         visibility: visible;
     }
-  
-}
-.mobile-menu{
-    display: block;
-    
-}
-.mobile-menu img{
-    width: 5rem;
-}
-
-@media (min-width: 850px) {
     .mobile-menu{
         display: none;
     }
 
+  
+}
+
+.mobile-menu img{
+    width: 5rem;
+}
+
+@media(min-width: 970px){
+    .principal{
+        margin-top: 12rem;
+    }
 }
 .mostrar{
     height: auto;
@@ -180,21 +203,21 @@ h3{
 
 
 
-/* principal */
-.principal{
-    background-color: var(--blanco);
-}
+/* proyecto arrba */
+
 .header-proyectos{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
+    margin: 2rem 0 0 0;
+    align-items: center;
 }
 .header-proyectos h2{
     font-weight: 700;
     font-family: var(--titulos);
     text-align: left;
-    margin: 2rem 0;
-}
+
+    }
 .busqueda input{
     border-radius: 10px;
     padding: .8rem;
@@ -204,14 +227,42 @@ h3{
     align-items: center;
     align-content: center;
 }
+.busqueda a{
+    padding:1rem;
+}
 
 /* Proyectos */
 .proyecto{
     background-color: var(--contenedores);
-    padding: 2rem;
+    padding: 1.5rem;
     margin: 2rem auto;
     border-radius: 20px;
+    box-shadow: -5px 5px 5px var(--negro);
 }
 .proyecto p{
     color: var(--blanco);
+}
+.titulo-proyecto{
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 0 1rem;
+}
+.descripcion-proyecto{
+    margin: 0 2.5rem;
+}
+.fecha-proyecto{
+    text-align: right;
+    margin: 1rem 3rem;
+}
+.footer-proyecto{
+    display: flex; 
+    flex-flow: row;
+    align-content: center;
+    justify-content: space-between;
+}   
+.nombre-alumno{
+    align-content: center;
+    margin: 0 1rem;
+    font-size: 1.8rem;
+    font-style: italic;
 }
