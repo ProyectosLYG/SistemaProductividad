@@ -22,11 +22,11 @@
                 <img src="src/img/barras.svg" alt="Barras menú">
             </div>
             <nav class="enlaces mostrar">
-                <a href="#">Tesis</a>
-                <a href="#">Artículos</a>
-                <a href="#">Congresos</a>
-                <a href="#">Libros</a>
-                <a href="#">Proyectos</a>
+                <a href="tesis.php">Tesis</a>
+                <a href="articulos.php">Artículos</a>
+                <a href="congresos.php">Congresos</a>
+                <a href="libros.php">Libros</a>
+                <a href="index.php">Proyectos</a>
                 <a href="#">Ayuda</a>
                 <a href="#">Cerrar sesión</a>
             </nav>
