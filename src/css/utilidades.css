@@ -64,6 +64,9 @@ h3{
     margin: 1rem 2rem;
     color: var(--fondo);
     font-weight: 700;
+    border-color: var(--fondo);
+    border-style: solid;
+    border-width: 1px;
     &:hover{
         transition: 500ms;
         color: var(--negro);
