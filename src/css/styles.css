@@ -153,7 +153,38 @@ h3{
     opacity: 1;
     visibility: visible;
 }
+/* footer */
 
+.footer{
+    background-color: var(--fondo);
+    padding:  2rem;
+}
+.footer p{
+    color: var(--blanco);
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-top: 2rem;
+}
+.footer-logo{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+.prueba{
+    background-color: var(--blanco);
+    border-radius: 50%;
+}
+.footer-logo img{
+    width: 7rem;
+    height: auto;
+    padding: .5rem;
+}
+.footer-logo h1{
+    color: var(--blanco);
+}
 
 /* principal */
 .principal{
@@ -199,6 +230,9 @@ h3{
     height: auto;
     opacity: 1;
     visibility: visible;
+}
+.submenu{
+    display: none;
 }
 
 
