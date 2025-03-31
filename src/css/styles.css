@@ -70,155 +70,19 @@ h3{
         background-color: var(--navegadores);
     }
 }
-/* navegador */
-.navegador{
-    background-color: var(--fondo);
-    padding: 1rem;
-    left: 0;
-    position: fixed;
-    top: 0;
-    width: 100%;
-}
-.nav-contenedor{
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-.logo{
-    display: flex;
-    flex-flow: row;
-    align-items: center;
-    justify-content: center;
-}
-.logo img {
-    width: 7rem;
-    height: 7rem;
-    text-align: center;
-    margin: .5rem 1rem;
-}
-.logo h1{
-    color: var(--blanco);
-    margin: .5rem 1rem;
-    font-weight: 500;
-}
-.enlaces{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 0;
-    opacity: 0;
-    visibility: hidden;
-    transition: visibility .3s ease-in-out,opacity .5s linear,height 1s linear;
-}
-.enlaces a{
-    margin: 0 1rem;
-    color: var(--blanco);
-    margin: 1rem 1rem;
-    font-size: 2rem;
-    &:hover{
-        color: var(--delineados);
-    }
-}
 
-@media(min-width: 850px){
-    .nav-contenedor{
-        flex-direction: row;
-        justify-content: space-between;
-    }
-    .enlaces{
-        flex-direction: row;
-        height: auto;
-        opacity: 1;
-        visibility: visible;
-    }
-  
-}
-.mobile-menu{
-    display: block;
-    
-}
-.mobile-menu img{
-    width: 5rem;
-}
 
-@media (min-width: 850px) {
-    .mobile-menu{
-        display: none;
-    }
-
-}
-.mostrar{
-    height: auto;
-    opacity: 1;
-    visibility: visible;
-}
-/* footer */
-
-.footer{
-    background-color: var(--fondo);
-    padding:  2rem;
-}
-.footer p{
-    color: var(--blanco);
-    text-align: center;
-    font-size: 2rem;
-    font-weight: 600;
-    margin-top: 2rem;
-}
-.footer-logo{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-}
-.prueba{
-    background-color: var(--blanco);
-    border-radius: 50%;
-}
-.footer-logo img{
-    width: 7rem;
-    height: auto;
-    padding: .5rem;
-}
-.footer-logo h1{
-    color: var(--blanco);
-}
-
-/* principal */
+/* mostrar proyectos */
 .principal{
     background-color: var(--blanco);
     margin-top: 15rem;
 }
-.mobile-menu{
-    display: block;
-    
-}
+
 
 @media(min-width: 850px){
     .principal{
         margin-top: 14rem;
     }
-    .nav-contenedor{
-        flex-direction: row;
-        justify-content: space-between;
-    }
-    .enlaces{
-        flex-direction: row;
-        height: auto;
-        opacity: 1;
-        visibility: visible;
-    }
-    .mobile-menu{
-        display: none;
-    }
-
-  
-}
-
-.mobile-menu img{
-    width: 5rem;
 }
 
 @media(min-width: 970px){
@@ -226,17 +90,6 @@ h3{
         margin-top: 12rem;
     }
 }
-.mostrar{
-    height: auto;
-    opacity: 1;
-    visibility: visible;
-}
-.submenu{
-    display: none;
-}
-
-
-
 /* proyecto arrba */
 
 .header-proyectos{
