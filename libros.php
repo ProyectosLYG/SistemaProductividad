@@ -6,7 +6,7 @@
             <h2>Libros</h2>
 
             <div class="busqueda">
-            <a class="boton-claro" href="#">Nuevo Libro</a>
+            <a class="boton-claro" href="nuevo-libro.php">Nuevo Libro</a>
 
                 <input id="filtro-Proyectos" type="text" placeholder="Buscar...">
                 <a id="buscar-Proyectos" href="#">
