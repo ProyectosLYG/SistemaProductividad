@@ -1,0 +1,31 @@
+@use "variables" as v;
+
+.contenedor{
+    width: 95%;
+    max-width: 150rem;
+    margin: 0 auto;
+}
+.noMargin{
+    margin: 0;
+}
+.centrar {
+    margin: 0 auto;
+    justify-content: center;
+    align-content: center;
+}
+.boton-claro{
+    background-color: v.$delineados;
+    border-radius: 10px;
+    padding: 1rem 2rem;
+    margin: 1rem 2rem;
+    color: var(--fondo);
+    font-weight: 700;
+    border-color: v.$fondo;
+    border-style: solid;
+    border-width: 1px;
+    &:hover{
+        transition: 500ms;
+        color: v.$negro;
+        background-color: v.$navegadores;
+    }
+}

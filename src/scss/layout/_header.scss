@@ -1,6 +1,83 @@
+@use "../globales/variables" as v;
+
+.principal{
+    background-color: v.$blanco;
+    margin-top: 15rem;
+}
+@media(min-width: 850px){
+    .principal{
+        margin-top: 14rem;
+    }
+}
+@media(min-width: 970px){
+    .principal{
+        margin-top: 12rem;
+    }
+}
+
+.header-proyectos{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 2rem 0 0 0;
+    align-items: center;
+}
+.header-proyectos h2{
+    font-weight: 700;
+    font-family: v.$titulos;
+    text-align: left;
+
+    }
+.busqueda input{
+    border-radius: 10px;
+    padding: .8rem;
+    margin: 0;
+}
+.busqueda{
+    align-items: center;
+    align-content: center;
+}
+.busqueda a{
+    padding:1rem;
+}
+.proyecto{
+    background-color: v.$contenedores;
+    padding: 1.5rem;
+    margin: 2rem auto;
+    border-radius: 20px;
+    box-shadow: -5px 5px 5px v.$negro;
+}
+.proyecto p{
+    color: v.$blanco;
+}
+.titulo-proyecto{
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 0 1rem;
+}
+.descripcion-proyecto{
+    margin: 0 2.5rem;
+}
+.fecha-proyecto{
+    text-align: right;
+    margin: 1rem 3rem;
+}
+.footer-proyecto{
+    display: flex; 
+    flex-flow: row;
+    align-content: center;
+    justify-content: space-between;
+}   
+.nombre-alumno{
+    align-content: center;
+    margin: 0 1rem;
+    font-size: 1.8rem;
+    font-style: italic;
+}
+
 /* navegador */
 .navegador{
-    background-color: var(--fondo);
+    background-color: v.$fondo;
     padding: 1rem;
     left: 0;
     position: fixed;
@@ -26,7 +103,7 @@
     margin: .5rem 1rem;
 }
 .logo h1{
-    color: var(--blanco);
+    color: v.$blanco;
     margin: .5rem 1rem;
     font-weight: 500;
 }
@@ -41,11 +118,11 @@
 }
 .enlaces a{
     margin: 0 1rem;
-    color: var(--blanco);
+    color: v.$blanco;
     margin: 1rem 1rem;
     font-size: 2rem;
     &:hover{
-        color: var(--delineados);
+        color: v.$delineados;
     }
 }
 
@@ -84,11 +161,11 @@
 /* footer */
 
 .footer{
-    background-color: var(--fondo);
+    background-color: v.$fondo;
     padding:  2rem;
 }
 .footer p{
-    color: var(--blanco);
+    color: v.$blanco;
     text-align: center;
     font-size: 2rem;
     font-weight: 600;
@@ -102,7 +179,7 @@
     gap: 1rem;
 }
 .prueba{
-    background-color: var(--blanco);
+    background-color: v.$blanco;
     border-radius: 50%;
 }
 .footer-logo img{
@@ -111,7 +188,7 @@
     padding: .5rem;
 }
 .footer-logo h1{
-    color: var(--blanco);
+    color: v.$blanco;
 }
 
 
