@@ -24,6 +24,12 @@ h1, h2, h3 {
   text-align: center;
 }
 
+legend {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 300;
+  font-size: 3.4rem;
+}
+
 h1 {
   font-size: 3.8rem;
 }
@@ -52,18 +58,73 @@ h3 {
   align-content: center;
 }
 
+.proyecto {
+  background-color: #3E5879;
+  padding: 1.5rem;
+  margin: 2rem auto;
+  border-radius: 20px;
+  box-shadow: -5px 5px 5px #000;
+  color: #fff;
+}
+
+.titulo {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0 1rem;
+}
+
+.descripcion {
+  margin: 0 2.5rem;
+}
+
+.fecha {
+  text-align: right;
+  margin: 1rem 3rem;
+}
+
+.footerCont {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: space-between;
+}
+
+.nombre-alumno {
+  align-content: center;
+  margin: 0 1rem;
+  font-size: 1.8rem;
+  font-style: italic;
+}
+
 .boton-claro {
   background-color: #F5EFE7;
   border-radius: 10px;
   padding: 1rem 2rem;
   margin: 1rem 2rem;
-  color: var(--fondo);
+  color: #000;
   font-weight: 700;
   border-color: #213555;
   border-style: solid;
   border-width: 1px;
 }
 .boton-claro:hover {
+  transition: 500ms;
+  color: #000;
+  background-color: #D8C4B6;
+}
+
+.boton-obscuro {
+  background-color: #F5EFE7;
+  border-radius: 10px;
+  padding: 1rem 2rem;
+  margin: 1rem 2rem;
+  color: #000;
+  font-weight: 700;
+  border-color: #213555;
+  border-style: solid;
+  border-width: 1px;
+}
+.boton-obscuro:hover {
   transition: 500ms;
   color: #000;
   background-color: #D8C4B6;
@@ -84,76 +145,6 @@ h3 {
     margin-top: 12rem;
   }
 }
-.header-proyectos {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 2rem 0 0 0;
-  align-items: center;
-}
-
-.header-proyectos h2 {
-  font-weight: 700;
-  font-family: "Quicksand", sans-serif;
-  text-align: left;
-}
-
-.busqueda input {
-  border-radius: 10px;
-  padding: 0.8rem;
-  margin: 0;
-}
-
-.busqueda {
-  align-items: center;
-  align-content: center;
-}
-
-.busqueda a {
-  padding: 1rem;
-}
-
-.proyecto {
-  background-color: #3E5879;
-  padding: 1.5rem;
-  margin: 2rem auto;
-  border-radius: 20px;
-  box-shadow: -5px 5px 5px #000;
-}
-
-.proyecto p {
-  color: #fff;
-}
-
-.titulo-proyecto {
-  font-size: 3rem;
-  font-weight: 700;
-  margin: 0 1rem;
-}
-
-.descripcion-proyecto {
-  margin: 0 2.5rem;
-}
-
-.fecha-proyecto {
-  text-align: right;
-  margin: 1rem 3rem;
-}
-
-.footer-proyecto {
-  display: flex;
-  flex-flow: row;
-  align-content: center;
-  justify-content: space-between;
-}
-
-.nombre-alumno {
-  align-content: center;
-  margin: 0 1rem;
-  font-size: 1.8rem;
-  font-style: italic;
-}
-
 /* navegador */
 .navegador {
   background-color: #213555;
@@ -306,6 +297,90 @@ h3 {
   height: auto;
   opacity: 1;
   visibility: visible;
+}
+
+.header-proyectos {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 2rem 0 0 0;
+  align-items: center;
+}
+
+.header-proyectos h2 {
+  font-weight: 700;
+  font-family: "Quicksand", sans-serif;
+  text-align: left;
+}
+
+.busqueda input {
+  border-radius: 10px;
+  padding: 0.8rem;
+  margin: 0;
+}
+
+.busqueda {
+  align-items: center;
+  align-content: center;
+}
+
+.busqueda a {
+  padding: 1rem;
+}
+
+fieldset {
+  border: 1px solid #3E5879;
+  padding: 20px;
+  border-radius: 4px;
+  margin: 0 0 4rem 0;
+}
+fieldset legend {
+  box-sizing: border-box;
+  color: #213555;
+  padding: 0 1rem;
+  float: none;
+  width: auto;
+  margin: 0;
+}
+fieldset .formulario-nuevo-libro {
+  padding: 2rem;
+  margin: 0;
+  display: grid;
+  gap: 2rem;
+  border-radius: 20px;
+}
+
+.campo {
+  margin: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+}
+.campo label {
+  font-weight: 700;
+  font-size: 2rem;
+}
+.campo input {
+  padding: 0.7rem;
+  border-radius: 10px;
+  border: 1px solid #3E5879;
+}
+
+.boton-nuevo_libro {
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .formulario-nuevo-libro {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .boton-nuevo_libro {
+    width: 15rem;
+    height: 5rem;
+    justify-self: right;
+    align-self: flex-end;
+  }
 }
 
 /*# sourceMappingURL=app.css.map */

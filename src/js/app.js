@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function(){
     menuHamb();
+    modoFocus();
 });
 function menuHamb (){
     const nav = document.querySelector('.mobile-menu');
@@ -7,6 +8,9 @@ function menuHamb (){
 }
 function mostrarNav(){
     const nav = document.querySelector('.enlaces');
-    nav.classList.toggle('mostrar');
-    
+    nav.classList.toggle('mostrar');   
+}
+
+function modoFocus(){
+    document.querySelector('#libroTitulo').focus();
 }

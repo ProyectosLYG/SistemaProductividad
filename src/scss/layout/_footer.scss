@@ -1,0 +1,65 @@
+@use "../globales/variables" as v;
+
+/* footer */
+
+.footer{
+    background-color: v.$fondo;
+    padding:  2rem;
+}
+.footer p{
+    color: v.$blanco;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-top: 2rem;
+}
+
+.footer-logo{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+.prueba{
+    background-color: v.$blanco;
+    border-radius: 50%;
+}
+.footer-logo img{
+    width: 7rem;
+    height: auto;
+    padding: .5rem;
+}
+.footer-logo h1{
+    color: v.$blanco;
+}
+
+
+.mobile-menu{
+    display: block;
+    
+}
+
+@media (min-width: 850px){
+    .nav-contenedor{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .enlaces{
+        flex-direction: row;
+        height: auto;
+        opacity: 1;
+        visibility: visible;
+    }
+    .mobile-menu{
+        display: none;
+    }
+}
+.mobile-menu img{
+    width: 5rem;
+}
+.mostrar{
+    height: auto;
+    opacity: 1;
+    visibility: visible;
+}

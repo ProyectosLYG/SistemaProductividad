@@ -1,0 +1,55 @@
+@use "../globales/variables" as v;
+
+fieldset{
+    border: 1px solid v.$contenedores;
+    padding: 20px;
+    border-radius: 4px;
+    margin: 0 0 4rem 0;
+
+    legend{
+        box-sizing: border-box;
+        color: v.$fondo;
+        padding: 0 1rem;
+        float: none ;
+        width: auto;
+        margin: 0;
+    }
+    .formulario-nuevo-libro{
+        padding: 2rem;
+        margin: 0;
+        display: grid;
+        gap: 2rem;
+        border-radius: 20px;
+    }
+    
+}
+.campo{
+    margin: 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    label{
+        font-weight: 700;
+        font-size: 2rem;
+    }
+    input{
+        padding: .7rem;
+        border-radius: 10px;
+        border: 1px solid v.$contenedores;
+    }
+}
+.boton-nuevo_libro{
+    width: 100%;
+    height: auto;
+    margin: 0 ;
+}
+@media(min-width: v.$tablet){
+    .formulario-nuevo-libro{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .boton-nuevo_libro{
+        width: 15rem;
+        height: 5rem;
+        justify-self:right;
+        align-self:flex-end;
+    }
+}

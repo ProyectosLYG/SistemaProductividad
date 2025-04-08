@@ -15,66 +15,6 @@
     }
 }
 
-.header-proyectos{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 2rem 0 0 0;
-    align-items: center;
-}
-.header-proyectos h2{
-    font-weight: 700;
-    font-family: v.$titulos;
-    text-align: left;
-
-    }
-.busqueda input{
-    border-radius: 10px;
-    padding: .8rem;
-    margin: 0;
-}
-.busqueda{
-    align-items: center;
-    align-content: center;
-}
-.busqueda a{
-    padding:1rem;
-}
-.proyecto{
-    background-color: v.$contenedores;
-    padding: 1.5rem;
-    margin: 2rem auto;
-    border-radius: 20px;
-    box-shadow: -5px 5px 5px v.$negro;
-}
-.proyecto p{
-    color: v.$blanco;
-}
-.titulo-proyecto{
-    font-size: 3rem;
-    font-weight: 700;
-    margin: 0 1rem;
-}
-.descripcion-proyecto{
-    margin: 0 2.5rem;
-}
-.fecha-proyecto{
-    text-align: right;
-    margin: 1rem 3rem;
-}
-.footer-proyecto{
-    display: flex; 
-    flex-flow: row;
-    align-content: center;
-    justify-content: space-between;
-}   
-.nombre-alumno{
-    align-content: center;
-    margin: 0 1rem;
-    font-size: 1.8rem;
-    font-style: italic;
-}
-
 /* navegador */
 .navegador{
     background-color: v.$fondo;
@@ -152,68 +92,6 @@
         display: none;
     }
 
-}
-.mostrar{
-    height: auto;
-    opacity: 1;
-    visibility: visible;
-}
-/* footer */
-
-.footer{
-    background-color: v.$fondo;
-    padding:  2rem;
-}
-.footer p{
-    color: v.$blanco;
-    text-align: center;
-    font-size: 2rem;
-    font-weight: 600;
-    margin-top: 2rem;
-}
-.footer-logo{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-}
-.prueba{
-    background-color: v.$blanco;
-    border-radius: 50%;
-}
-.footer-logo img{
-    width: 7rem;
-    height: auto;
-    padding: .5rem;
-}
-.footer-logo h1{
-    color: v.$blanco;
-}
-
-
-.mobile-menu{
-    display: block;
-    
-}
-
-@media (min-width: 850px){
-    .nav-contenedor{
-        flex-direction: row;
-        justify-content: space-between;
-    }
-    .enlaces{
-        flex-direction: row;
-        height: auto;
-        opacity: 1;
-        visibility: visible;
-    }
-    .mobile-menu{
-        display: none;
-    }
-}
-.mobile-menu img{
-    width: 5rem;
 }
 .mostrar{
     height: auto;
