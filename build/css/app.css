@@ -343,9 +343,8 @@ fieldset legend {
   margin: 0;
 }
 fieldset .formulario-nuevo-libro {
-  padding: 2rem;
   margin: 0;
-  display: grid;
+  display: block;
   gap: 2rem;
   border-radius: 20px;
 }
@@ -359,16 +358,47 @@ fieldset .formulario-nuevo-libro {
   font-weight: 700;
   font-size: 2rem;
 }
+.campo label span {
+  color: #e82f2f;
+}
 .campo input {
   padding: 0.7rem;
   border-radius: 10px;
   border: 1px solid #3E5879;
+}
+.campo .textarea {
+  height: 15rem;
+  border-radius: 10px;
+}
+.campo .pp_inputs {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  align-items: center;
+  font-size: 2rem;
+}
+.campo .pp_inputs input {
+  width: 10rem;
+  margin: 0 2rem;
+}
+.campo select {
+  padding: 1.5rem 0;
+  width: 30rem;
+  padding-left: 0.5rem;
+  background-color: #fff;
+  border-radius: 10px;
 }
 
 .boton-nuevo_libro {
   width: 100%;
   height: auto;
   margin: 0;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 @media (min-width: 768px) {

@@ -7,41 +7,115 @@
 
         <form>
             <fieldset>
-            <legend>Agregar nuevo libro</legend>
-            <div class=" formulario-nuevo-libro">
+                <legend>Datos principales del libro</legend>
+                <div class="formulario-nuevo-libro">
 
                 <div class="campo">
                     <label
                     class="campo-label" 
                     for="nombre"
-                    >Titulo del libro: </label>
+                    >Titulo del capítulo: <span>*</span> </label>
                     <input
                     id = "libroTitulo"
                     class="input-label" 
                     placeholder="Nombre del libro"
-                    type="text" >
+                    type="text" 
+                    required>
                 </div>
-                    
                 <div class="campo">
-                        <label
+                    <label for="resumen_libro" class="campo-label">
+                    Resumen del capitulo: <span>*</span>
+                    </label>
+                    <textarea 
+                    name="resumen_libro" 
+                    class="textarea" 
+                    id="resumen_libro"
+                    placeholder="Ingresa el resumen del capítulo" 
+                    required></textarea>
+                </div>
+                
+                <div class="campo">
+                    <label
                     class="campo-label" 
                     for="nombre"
-                    >Nombre del autor:  </label>
+                    >Autores: <span>*</span>  </label>
                     <input
                     class="input-label" 
-                    placeholder="Nombre del autor"
+                    placeholder="Ejemplo: Osorio Lillian, Galicia Gerardo, Meza Maria Cruz"
                     type="text" >
                 </div>
                 <div class="campo">
                     <label
                     class="campo-label" 
                     for="nombre"
-                    >Nombre de los colaboradores:  </label>
-                    <input
-                    class="input-label" 
-                    placeholder="Nombres separados por comillas"
-                    type="text" >
+                    >Rango de las páginas: <span>*</span></label>
+                    <div class="pp_inputs">
+                        De
+                        <input
+                        id="pp_inicio"
+                        class="input-label" 
+                        placeholder="Inicio"
+                        type="number" 
+                        required >
+                        a
+                        <input
+                        id="pp_fin"
+                        class="input-label" 
+                        placeholder="Fin"
+                        type="number"
+                        required >
+                    </div>
                 </div>
+                
+            </fieldset>
+
+            <fieldset>
+                <legend>Área, sector y disciplina.</legend>
+                <div class="flex-row">
+
+                    <div class="campo">
+                            <label
+                            class="campo-label" 
+                        for="sector_estrategico"
+                        >Sector estratégico:  </label>
+                        
+                        <select name="sector_estratégico" id="sector_estrategico">
+                            <option value="0">[Seleccione sector estratégico]</option>
+                        </select>
+                    </div>
+                    <div class="campo">
+                        <label
+                        class="campo-label" 
+                        for="subsector_estrategico"
+                        >Subsector estratégico:  </label>
+                        
+                        <select name="subsector_estratégico" id="subsector_estrategico">
+                            <option value="0">[Seleccione subsector estratégico]</option>
+                        </select>
+                    </div>
+                    <div class="campo">
+                        <label
+                        class="campo-label" 
+                        for="area_prioritaria"
+                        >Área prioritaria del país:  </label>
+                        
+                        <select name="area_prioritaria" id="area_prioritaria">
+                            <option value="0">[Seleccione un área]</option>
+                        </select>
+                    </div>
+                    <div class="campo">
+                        <label
+                        class="campo-label" 
+                        for="area_conocimiento"
+                        >Área del conocimiento:  </label>
+                        
+                        <select name="area_conocimiento" id="area_conocimiento">
+                            <option value="0">[Seleccione un área]</option>
+                        </select>
+                    </div>
+                </div>
+            </fieldset>
+
                 <div class="campo">
                     <label
                     class="campo-label" 
@@ -84,7 +158,6 @@
                 </div>
                 <input class="boton-obscuro boton-nuevo_libro" type="submit" value="Crear">
             </div>
-            </fieldset>
         </form>
         
     
