@@ -5,6 +5,7 @@
         <div class="header-proyectos">
             <h2>Artículos</h2>
             <div class="busqueda">
+                <a class="boton-claro" href="nuevo-articulo.php">Nuevo Artículo</a>
                 <input id="filtro-Proyectos" type="text" placeholder="Buscar...">
                 <a id="buscar-Proyectos" href="#">
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#000" class="bi bi-search" viewBox="0 0 16 16">
@@ -20,79 +21,72 @@
         </div>
 
         <div class="proyectos">
-
             <div class="proyecto">
-                <p class="titulo">Artículo de ejemplo</p>
-                <p class="descripcion">
-                    Praesent finibus tempus eros at placerat. Nam vehicula porta libero, vitae commodo quam. In cursus erat felis, gravida mattis felis pulvinar a. Proin commodo elit ac leo fermentum tincidunt. Nulla porttitor lacus malesuada efficitur malesuada. Sed id ligula at augue rhoncus imperdiet. Sed egestas condimentum vulputate. Aenean ultricies dignissim maximus. Ut vestibulum neque lacus, a laoreet arcu vehicula id. Donec eu fermentum felis. Sed sit amet diam neque. 
-                </p>
-                <p class="fecha">
-                    13/03/23
-                </p>
-                <div class="footerCont">
-                    <p class="nombre-alumno">Galicia Flores Gerardo Oswaldo | ISC</p>
-                    <a href="#" class="boton-claro">Ver articulo</a>
+                <div>
+                    <p class="titulo">Artículo de ejemplo</p>
+                    <p class="descripcion">
+                        Praesent finibus tempus eros at placerat. Nam vehicula porta libero, vitae commodo quam. In cursus erat felis, gravida mattis felis pulvinar a. Proin commodo elit ac leo fermentum tincidunt. Nulla porttitor lacus malesuada efficitur malesuada. Sed id ligula at augue rhoncus imperdiet. Sed egestas condimentum vulputate. Aenean ultricies dignissim maximus. Ut vestibulum neque lacus, a laoreet arcu vehicula id. Donec eu fermentum felis. Sed sit amet diam neque. 
+                    </p>
+                    <p class="fecha">
+                        13/03/23
+                    </p>
+                    <div class="footerCont">
+                        <p class="nombre-alumno">Galicia Flores Gerardo Oswaldo | ISC</p>
+                        <a href="#" class="boton-claro">Ver articulo</a>
+                    </div>
                 </div>
             </div>
-
+        </div>
+        <div class="proyectos">
             <div class="proyecto">
-                <p class="titulo">Artículo de ejemplo</p>
-                <p class="descripcion">
-                    Praesent finibus tempus eros at placerat. Nam vehicula porta libero, vitae commodo quam. In cursus erat felis, gravida mattis felis pulvinar a. Proin commodo elit ac leo fermentum tincidunt. Nulla porttitor lacus malesuada efficitur malesuada. Sed id ligula at augue rhoncus imperdiet. Sed egestas condimentum vulputate. Aenean ultricies dignissim maximus. Ut vestibulum neque lacus, a laoreet arcu vehicula id. Donec eu fermentum felis. Sed sit amet diam neque. 
-                </p>
-                <p class="fecha">
-                    13/03/23
-                </p>
-                <div class="footerCont">
-                    <p class="nombre-alumno">Galicia Flores Gerardo Oswaldo | ISC</p>
-                    <a href="#" class="boton-claro">Ver articulo</a>
+                <div>
+                    <p class="titulo">Artículo de ejemplo</p>
+                    <p class="descripcion">
+                        Praesent finibus tempus eros at placerat. Nam vehicula porta libero, vitae commodo quam. In cursus erat felis, gravida mattis felis pulvinar a. Proin commodo elit ac leo fermentum tincidunt. Nulla porttitor lacus malesuada efficitur malesuada. Sed id ligula at augue rhoncus imperdiet. Sed egestas condimentum vulputate. Aenean ultricies dignissim maximus. Ut vestibulum neque lacus, a laoreet arcu vehicula id. Donec eu fermentum felis. Sed sit amet diam neque. 
+                    </p>
+                    <p class="fecha">
+                        13/03/23
+                    </p>
+                    <div class="footerCont">
+                        <p class="nombre-alumno">Galicia Flores Gerardo Oswaldo | ISC</p>
+                        <a href="#" class="boton-claro">Ver articulo</a>
+                    </div>
                 </div>
             </div>
-
+        </div>
+        <div class="proyectos">
             <div class="proyecto">
-                <p class="titulo">Artículo de ejemplo</p>
-                <p class="descripcion">
-                    Praesent finibus tempus eros at placerat. Nam vehicula porta libero, vitae commodo quam. In cursus erat felis, gravida mattis felis pulvinar a. Proin commodo elit ac leo fermentum tincidunt. Nulla porttitor lacus malesuada efficitur malesuada. Sed id ligula at augue rhoncus imperdiet. Sed egestas condimentum vulputate. Aenean ultricies dignissim maximus. Ut vestibulum neque lacus, a laoreet arcu vehicula id. Donec eu fermentum felis. Sed sit amet diam neque. 
-                </p>
-                <p class="fecha">
-                    13/03/23
-                </p>
-                <div class="footerCont">
-                    <p class="nombre-alumno">Galicia Flores Gerardo Oswaldo | ISC</p>
-                    <a href="#" class="boton-claro">Ver articulo</a>
+                <div>
+                    <p class="titulo">Artículo de ejemplo</p>
+                    <p class="descripcion">
+                        Praesent finibus tempus eros at placerat. Nam vehicula porta libero, vitae commodo quam. In cursus erat felis, gravida mattis felis pulvinar a. Proin commodo elit ac leo fermentum tincidunt. Nulla porttitor lacus malesuada efficitur malesuada. Sed id ligula at augue rhoncus imperdiet. Sed egestas condimentum vulputate. Aenean ultricies dignissim maximus. Ut vestibulum neque lacus, a laoreet arcu vehicula id. Donec eu fermentum felis. Sed sit amet diam neque. 
+                    </p>
+                    <p class="fecha">
+                        13/03/23
+                    </p>
+                    <div class="footerCont">
+                        <p class="nombre-alumno">Galicia Flores Gerardo Oswaldo | ISC</p>
+                        <a href="#" class="boton-claro">Ver articulo</a>
+                    </div>
                 </div>
             </div>
-
+        </div>
+        <div class="proyectos">
             <div class="proyecto">
-                <p class="titulo">Artículo de ejemplo</p>
-                <p class="descripcion">
-                    Praesent finibus tempus eros at placerat. Nam vehicula porta libero, vitae commodo quam. In cursus erat felis, gravida mattis felis pulvinar a. Proin commodo elit ac leo fermentum tincidunt. Nulla porttitor lacus malesuada efficitur malesuada. Sed id ligula at augue rhoncus imperdiet. Sed egestas condimentum vulputate. Aenean ultricies dignissim maximus. Ut vestibulum neque lacus, a laoreet arcu vehicula id. Donec eu fermentum felis. Sed sit amet diam neque. 
-                </p>
-                <p class="fecha">
-                    13/03/23
-                </p>
-                <div class="footerCont">
-                    <p class="nombre-alumno">Galicia Flores Gerardo Oswaldo | ISC</p>
-                    <a href="#" class="boton-claro">Ver articulo</a>
+                <div>
+                    <p class="titulo">Artículo de ejemplo</p>
+                    <p class="descripcion">
+                        Praesent finibus tempus eros at placerat. Nam vehicula porta libero, vitae commodo quam. In cursus erat felis, gravida mattis felis pulvinar a. Proin commodo elit ac leo fermentum tincidunt. Nulla porttitor lacus malesuada efficitur malesuada. Sed id ligula at augue rhoncus imperdiet. Sed egestas condimentum vulputate. Aenean ultricies dignissim maximus. Ut vestibulum neque lacus, a laoreet arcu vehicula id. Donec eu fermentum felis. Sed sit amet diam neque. 
+                    </p>
+                    <p class="fecha">
+                        13/03/23
+                    </p>
+                    <div class="footerCont">
+                        <p class="nombre-alumno">Galicia Flores Gerardo Oswaldo | ISC</p>
+                        <a href="#" class="boton-claro">Ver articulo</a>
+                    </div>
                 </div>
             </div>
-
-            <div class="proyecto">
-                <p class="titulo">Artículo de ejemplo</p>
-                <p class="descripcion">
-                    Praesent finibus tempus eros at placerat. Nam vehicula porta libero, vitae commodo quam. In cursus erat felis, gravida mattis felis pulvinar a. Proin commodo elit ac leo fermentum tincidunt. Nulla porttitor lacus malesuada efficitur malesuada. Sed id ligula at augue rhoncus imperdiet. Sed egestas condimentum vulputate. Aenean ultricies dignissim maximus. Ut vestibulum neque lacus, a laoreet arcu vehicula id. Donec eu fermentum felis. Sed sit amet diam neque. 
-                </p>
-                <p class="fecha">
-                    13/03/23
-                </p>
-                <div class="footerCont">
-                    <p class="nombre-alumno">Galicia Flores Gerardo Oswaldo | ISC</p>
-                    <a href="#" class="boton-claro">Ver articulo</a>
-                </div>
-            </div>
-            
-           
-
         </div>
         
     

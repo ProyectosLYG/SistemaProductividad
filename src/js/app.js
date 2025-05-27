@@ -12,5 +12,5 @@ function mostrarNav(){
 }
 
 function modoFocus(){
-    document.querySelector('#libroTitulo').focus();
+    document.querySelector('.focus').focus();
 }

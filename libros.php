@@ -6,6 +6,7 @@
             <h2>Libros</h2>
 
             <div class="busqueda">
+            <a class="boton-claro" href="nuevo-capitulo-libro.php">Nuevo capitulo en Libro</a>
             <a class="boton-claro" href="nuevo-libro.php">Nuevo Libro</a>
 
                 <input id="filtro-Proyectos" type="text" placeholder="Buscar...">
@@ -22,8 +23,41 @@
             </div>
         </div>
 
-        
-    
+        <div class="proyectos">
+
+            <div class="proyecto">
+                <img class="imagen-ejemplo" src="src/img/libroEjemplo1.webp" alt="Imágen de libro">
+                <div>
+                    <p class="titulo">Libro de ejemplo</p>
+                    <p class="descripcion">
+                        Praesent finibus tempus eros at placerat. Nam vehicula porta libero, vitae commodo quam. In cursus erat felis, gravida mattis felis pulvinar a. Proin commodo elit ac leo fermentum tincidunt. Nulla porttitor lacus malesuada efficitur malesuada. Sed id ligula at augue rhoncus imperdiet. Sed egestas condimentum vulputate. Aenean ultricies dignissim maximus. Ut vestibulum neque lacus, a laoreet arcu vehicula id. Donec eu fermentum felis. Sed sit amet diam neque. 
+                    </p>
+                    <p class="fecha">
+                        13/03/23
+                    </p>
+                    <div class="footerCont">
+                        <p class="nombre-alumno">Mtro. José Luis Camacho Campero | ISC</p>
+                        <a href="#" class="boton-claro">Ver libro</a>
+                    </div>
+                </div>
+            </div>
+            <div class="proyecto">
+                <img class="imagen-ejemplo" src="src/img/libro_ejemplo2.jpg" alt="Imágen de libro">
+                <div>
+                    <p class="titulo">Libro de ejemplo</p>
+                    <p class="descripcion">
+                        Praesent finibus tempus eros at placerat. Nam vehicula porta libero, vitae commodo quam. In cursus erat felis, gravida mattis felis pulvinar a. Proin commodo elit ac leo fermentum tincidunt. Nulla porttitor lacus malesuada efficitur malesuada. Sed id ligula at augue rhoncus imperdiet. Sed egestas condimentum vulputate. Aenean ultricies dignissim maximus. Ut vestibulum neque lacus, a laoreet arcu vehicula id. Donec eu fermentum felis. Sed sit amet diam neque. 
+                    </p>
+                    <p class="fecha">
+                        13/03/23
+                    </p>
+                    <div class="footerCont">
+                        <p class="nombre-alumno">Mtro. José Luis Camacho Campero | ISC</p>
+                        <a href="#" class="boton-claro">Ver libro</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
 <?php include 'base/footer.php'; 

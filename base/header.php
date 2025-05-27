@@ -24,7 +24,7 @@
                 <a href="articulos.php">Artículos</a>
                 <a href="congresos.php">Congresos</a>
                 <a href="libros.php">Libros</a>
-                <a href="index.php">Proyectos</a>
+                <!-- <a href="index.php">Proyectos</a> -->
                 <a href="#">Ayuda</a>
                 <a href="#">Cerrar sesión</a>
             </nav>

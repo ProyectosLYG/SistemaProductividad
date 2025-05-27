@@ -1,0 +1,39 @@
+@use "../globales/variables" as v;
+
+fieldset{
+    border: 1px solid v.$contenedores;
+    padding: 20px;
+    border-radius: 4px;
+    margin: 0 0 4rem 0;
+
+    legend{
+        box-sizing: border-box;
+        padding: 0 1rem;
+        float: none ;
+        width: auto;
+        margin: 0;
+    }
+
+}
+
+.boton-nuevo-cap{
+    width: 100%;
+    height: auto;
+    margin: 0 0 auto auto;
+}
+.flex-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+@media(min-width: v.$tablet){
+    .formulario-nuevo-libro{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .boton-nuevo-cap{
+        width: 15rem;
+        height: 5rem;
+        justify-self:right;
+        align-self:flex-end;
+    }
+}

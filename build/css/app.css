@@ -26,8 +26,13 @@ h1, h2, h3 {
 
 legend {
   font-family: "Quicksand", sans-serif;
-  font-weight: 300;
-  font-size: 3.4rem;
+  font-weight: 500;
+  font-size: 2.4rem;
+  color: #537D5D;
+}
+
+form {
+  margin: 1rem 0 2rem 0;
 }
 
 h1 {
@@ -65,31 +70,35 @@ h3 {
   border-radius: 20px;
   box-shadow: -5px 5px 5px #000;
   color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
 }
-
-.titulo {
+.proyecto .imagen-ejemplo {
+  max-width: 40rem;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+.proyecto .titulo {
   font-size: 3rem;
   font-weight: 700;
   margin: 0 1rem;
 }
-
-.descripcion {
+.proyecto .descripcion {
   margin: 0 2.5rem;
 }
-
-.fecha {
+.proyecto .fecha {
   text-align: right;
   margin: 1rem 3rem;
 }
-
-.footerCont {
+.proyecto .footerCont {
   display: flex;
   flex-direction: row;
   align-content: center;
   justify-content: space-between;
 }
-
-.nombre-alumno {
+.proyecto .nombre-alumno {
   align-content: center;
   margin: 0 1rem;
   font-size: 1.8rem;
@@ -128,6 +137,87 @@ h3 {
   transition: 500ms;
   color: #000;
   background-color: #D8C4B6;
+}
+
+.aviso-rojo {
+  font-size: "Roboto Condensed", sans-serif;
+  color: #e82f2f;
+}
+
+.flex-responsive {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+@media (width <= 992px) {
+  .flex-responsive {
+    flex-direction: column;
+  }
+}
+.spc-arr {
+  justify-content: space-around;
+}
+
+.spc-bet {
+  justify-content: space-between;
+}
+
+/* Estilos de formularios */
+.campo {
+  margin: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+}
+.campo label {
+  font-weight: 700;
+  font-size: 2rem;
+  padding: 1rem 0 0.2rem 0;
+}
+.campo label .requerido {
+  color: #e82f2f;
+}
+.campo label .parentesis {
+  font-size: 1.4rem;
+}
+.campo input {
+  width: 35rem;
+  padding: 0.7rem;
+  border-radius: 10px;
+  border: 1px solid #3E5879;
+}
+.campo .input-largo {
+  width: 55rem;
+}
+.campo textarea {
+  width: 100%;
+  height: 10rem;
+  border-radius: 10px;
+}
+.campo select {
+  padding: 1.5rem 0;
+  width: 100%;
+  max-width: 40rem;
+  padding-left: 0.5rem;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+@media (width <= 992px) {
+  .input-largo {
+    width: 40rem;
+  }
+}
+.pp_inputs {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  align-items: center;
+  font-size: 2rem;
+}
+.pp_inputs input {
+  width: 10rem;
+  margin: 0 2rem;
 }
 
 .principal {
@@ -336,63 +426,16 @@ fieldset {
 }
 fieldset legend {
   box-sizing: border-box;
-  color: #213555;
   padding: 0 1rem;
   float: none;
   width: auto;
   margin: 0;
 }
-fieldset .formulario-nuevo-libro {
-  margin: 0;
-  display: block;
-  gap: 2rem;
-  border-radius: 20px;
-}
 
-.campo {
-  margin: 1rem 2rem;
-  display: flex;
-  flex-direction: column;
-}
-.campo label {
-  font-weight: 700;
-  font-size: 2rem;
-}
-.campo label span {
-  color: #e82f2f;
-}
-.campo input {
-  padding: 0.7rem;
-  border-radius: 10px;
-  border: 1px solid #3E5879;
-}
-.campo .textarea {
-  height: 15rem;
-  border-radius: 10px;
-}
-.campo .pp_inputs {
-  display: flex;
-  flex-direction: row;
-  text-align: center;
-  align-items: center;
-  font-size: 2rem;
-}
-.campo .pp_inputs input {
-  width: 10rem;
-  margin: 0 2rem;
-}
-.campo select {
-  padding: 1.5rem 0;
-  width: 30rem;
-  padding-left: 0.5rem;
-  background-color: #fff;
-  border-radius: 10px;
-}
-
-.boton-nuevo_libro {
+.boton-nuevo-cap {
   width: 100%;
   height: auto;
-  margin: 0;
+  margin: 0 0 auto auto;
 }
 
 .flex-row {
@@ -405,7 +448,7 @@ fieldset .formulario-nuevo-libro {
   .formulario-nuevo-libro {
     grid-template-columns: repeat(2, 1fr);
   }
-  .boton-nuevo_libro {
+  .boton-nuevo-cap {
     width: 15rem;
     height: 5rem;
     justify-self: right;
