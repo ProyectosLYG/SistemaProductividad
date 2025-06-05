@@ -37,6 +37,10 @@
     }
     .descripcion {
         margin: 0 2.5rem;
+
+    }
+    p{
+        font-size: 2rem;
     }
     .fecha {
         text-align: right;
@@ -155,6 +159,9 @@
 @media(width <= v.$desktop){
     .input-largo{
         width: 40rem;
+    }
+    .proyecto{
+        flex-direction: column;
     }
 }
 .pp_inputs{

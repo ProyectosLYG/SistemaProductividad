@@ -14,7 +14,7 @@
     <header class="navegador">
         <div class="contenedor nav-contenedor">
             <div class="logo">
-                <h1 class="noMargin">TESCI || ISC</h1>
+                <h1 class="noMargin">ISC || TESCI</h1>
             </div>
             <div class="mobile-menu centrar">
                 <img src="src/img/barras.svg" alt="Barras menú">

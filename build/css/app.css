@@ -88,6 +88,9 @@ h3 {
 .proyecto .descripcion {
   margin: 0 2.5rem;
 }
+.proyecto p {
+  font-size: 2rem;
+}
 .proyecto .fecha {
   text-align: right;
   margin: 1rem 3rem;
@@ -206,6 +209,9 @@ h3 {
 @media (width <= 992px) {
   .input-largo {
     width: 40rem;
+  }
+  .proyecto {
+    flex-direction: column;
   }
 }
 .pp_inputs {
