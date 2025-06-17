@@ -14,7 +14,7 @@
                         <label
                         class="campo-label" 
                         for="nombre"
-                        >Titulo del capítulo: <span class="requerido">*</span> </label>
+                        >Titulo del capítulo: <span class="--bs-danger">*</span> </label>
                         <input
                         id = "libroTitulo"
                         class="input-label focus" 

@@ -26,7 +26,7 @@
         <div class="proyectos">
 
             <div class="proyecto">
-                <img class="imagen-ejemplo" src="src/img/libroEjemplo1.webp" alt="Imágen de libro">
+                <img class="imagen-ejemplo" src="build/img/libroEjemplo1.webp" alt="Imágen de libro">
                 <div>
                     <p class="titulo">Libro de ejemplo</p>
                     <p class="descripcion">
@@ -42,7 +42,7 @@
                 </div>
             </div>
             <div class="proyecto">
-                <img class="imagen-ejemplo" src="src/img/libro_ejemplo2.jpg" alt="Imágen de libro">
+                <img class="imagen-ejemplo" src="build/img/libro_ejemplo2.jpg" alt="Imágen de libro">
                 <div>
                     <p class="titulo">Libro de ejemplo</p>
                     <p class="descripcion">
