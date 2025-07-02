@@ -1,0 +1,17 @@
+@use "../globales/variables" as v;
+
+.login-bg{
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 110%;
+    min-height: 100vh;
+    background-image: url(../img/fondoLogin.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    object-fit: cover;
+    transform: scale(1.1);
+    filter: blur(30px);
+    z-index: -1;
+}

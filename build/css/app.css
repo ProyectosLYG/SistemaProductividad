@@ -12150,9 +12150,6 @@ h3 {
   margin: 1rem 1rem;
   font-size: 2rem;
 }
-.enlaces a:hover {
-  color: #F5EFE7;
-}
 
 @media (min-width: 850px) {
   .nav-contenedor {
@@ -12316,6 +12313,21 @@ fieldset legend {
     justify-self: right;
     align-self: flex-end;
   }
+}
+.login-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 110%;
+  min-height: 100vh;
+  background-image: url(../img/fondoLogin.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  object-fit: cover;
+  transform: scale(1.1);
+  filter: blur(30px);
+  z-index: -1;
 }
 
 /*# sourceMappingURL=app.css.map */
