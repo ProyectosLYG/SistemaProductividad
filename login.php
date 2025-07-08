@@ -2,19 +2,19 @@
 <body class="login-bg overflow-hidden">
 
 <section class="d-flex justify-content-center align-items-center vh-100">
-    <div class="card shadow p-4 login-card align-items-center" style="width: 100%; max-width: 600px; height: 600px;">
+    <div class="card rounded-4 shadow p-4 login-card align-items-center login-container" >
         <form action="" class="formlogin" method="POST">
 
         <div class="d-flex justify-content-center my-4">
         <img src="build/img/escudo_isc.png" alt="Descripción" class="img-fluid" style="max-width: 200px;">
         </div>
 
-            <h3 class="text-center mb-5 letra1 letra44">Iniciar sesión</h3>
+            <h3 class="text-center mb-5 letra1 letra44">Iniciar Sesión</h3>
 
 
             <div>
             <fieldset class='mb-5 fildset-border'>
-            <legend class="legend-border mb-2 letra44">usuario</legend>
+            <legend class="legend-border mb-2 letra44">Usuario</legend>
                  <input type="text" class="form-control letra2 input-borde input-bg" id="usuario" name="usuario">
 
             </fieldset>
@@ -32,7 +32,7 @@
             <div class="form-check mb-5 d-flex justify-content-between">
             
             <div class="check-letra"> 
-                <input class="form-check-input check-borde" type="checkbox" id="recordar" name="recordar">
+                <input class="form-check-input form-check-input" type="checkbox" id="recordar" name="recordar">
                 <label class="form-check-label letra3" for="recordar"> Recordar contraseña</label>
             </div>
             

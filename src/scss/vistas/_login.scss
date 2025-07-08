@@ -1,17 +1,99 @@
 @use "../globales/variables" as v;
 
-.login-bg{
-    position: fixed;
-    top: 0;
-    left: 0;
-    min-width: 110%;
-    min-height: 100vh;
-    background-image: url(../img/fondoLogin.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    object-fit: cover;
-    transform: scale(1.1);
-    filter: blur(30px);
-    z-index: -1;
+
+/*LOGIN*/
+
+login-card{
+ background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+
 }
+
+.login-container {
+  width: 100%;
+  max-width: 600px;
+  height: 700px;
+}
+
+.login-bg {
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100vh;
+  background-image: url(../img/fondoLogin.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  backdrop-filter: blur(30px);
+  object-fit: cover;
+  background-size: cover;
+  z-index: -2;
+}
+
+.check-letra {
+  color: #fff;
+}
+
+.formlogin{
+width: 500px;
+
+}
+.legend-border{
+
+  line-height: 0;
+}
+.fildset-border{
+  margin: 0;
+  padding: 0;
+}
+.letra1{
+font-size: 30px;
+font-weight: 600;
+}
+
+.letra2{
+font-size: 20px;
+font-weight: 600;
+}
+
+.letra3{
+font-size: 18px;
+font-weight: 400;
+}
+
+#recordar:checked + .letra3 {
+  color: #000;
+  font-weight: 600;
+}
+
+.letra4{
+font-weight: 400;
+color: #000;
+}
+.letra44{
+font-weight: 400;
+color: white;
+}
+.card{
+background-color: rgba(255, 255, 255, 0.6);
+}
+
+.input-bg{
+  background-color: rgba(255, 255, 255, 0.0);
+}
+
+.input-borde{
+  border: 0px solid #333;
+  width: 100%;
+  height: 100%;
+  padding-top: 2rem;
+}
+
+.input-borde:focus {
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: none;
+  outline: none;
+}
+/*# sourceMappingURL=app.css.map */

@@ -12315,20 +12315,19 @@ fieldset legend {
   }
 }
 /*LOGIN*/
-.bg-azul{
-background-color: #000;
-}
-
-login-card{
- background: rgba(255, 255, 255, 0.1);
+login-card {
+  background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.3);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-
 }
 
+.login-container {
+  width: 100%;
+  max-width: 600px;
+  height: 700px;
+}
 
 .login-bg {
   top: 0;
@@ -12336,81 +12335,82 @@ login-card{
   min-width: 100%;
   min-height: 100vh;
   background-image: url(../img/fondoLogin.jpg);
-  background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
   backdrop-filter: blur(30px);
   object-fit: cover;
-  transform: scale(1.1);
+  background-size: cover;
   z-index: -2;
-}
-
-.input-borde{
-  border: 0px solid #333;
-  width: 100%;
-  height: 100%;
-  padding-top: 2rem;
-}
-
-.check-borde {
-  width: 18px;
-  height: 18px;
-  border: 2px solid #333; /* borde oscuro */
-  background-color: transparent; /* sin fondo blanco */
-}
-
-.check-borde:checked {
-  background-color: #333; /* cambia el fondo */
-  border-color: #333;
 }
 
 .check-letra {
   color: #fff;
 }
 
-.formlogin{
-width: 500px;
-
+.formlogin {
+  width: 500px;
 }
-.legend-border{
 
+.legend-border {
   line-height: 0;
 }
 
-.fildset-border{
+.fildset-border {
   margin: 0;
   padding: 0;
 }
-.letra1{
-font-size: 30px;
-font-weight: 600;
+
+.letra1 {
+  font-size: 30px;
+  font-weight: 600;
 }
 
-.letra2{
-font-size: 20px;
-font-weight: 600;
+.letra2 {
+  font-size: 20px;
+  font-weight: 600;
 }
 
-.letra3{
-font-size: 15px;
-font-weight: 400;
+.letra3 {
+  font-size: 18px;
+  font-weight: 400;
 }
 
-.letra4{
-font-weight: 400;
-color: #000;
-}
-.letra44{
-font-weight: 400;
-color: white;
-}
-.card{
-
-background-color: rgba(255, 255, 255, 0.6);
-border-radius: 20px;
+#recordar:checked + .letra3 {
+  color: #000;
+  font-weight: 600;
 }
 
-.input-bg{
-  background-color: rgba(255, 255, 255, 0.0);
+.letra4 {
+  font-weight: 400;
+  color: #000;
 }
+
+.letra44 {
+  font-weight: 400;
+  color: white;
+}
+
+.card {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.input-bg {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.input-borde {
+  border: 0px solid #333;
+  width: 100%;
+  height: 100%;
+  padding-top: 2rem;
+}
+
+.input-borde:focus {
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: none;
+  outline: none;
+}
+
+
+
 /*# sourceMappingURL=app.css.map */
