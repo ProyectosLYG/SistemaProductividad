@@ -12343,10 +12343,6 @@ login-card {
   z-index: -2;
 }
 
-.check-letra {
-  color: #fff;
-}
-
 .formlogin {
   width: 500px;
 }
@@ -12385,17 +12381,20 @@ login-card {
   color: #000;
 }
 
-.letra44 {
-  font-weight: 400;
-  color: white;
-}
-
 .card {
   background-color: rgba(255, 255, 255, 0.6);
 }
 
 .input-bg {
   background-color: rgba(255, 255, 255, 0);
+}
+
+input:-webkit-autofill {
+  background-color: rgba(255, 255, 255, 0) !important;
+}
+
+input:-moz-autofill {
+  background-color: rgba(255, 255, 255, 0) !important;
 }
 
 .input-borde {
