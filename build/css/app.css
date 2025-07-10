@@ -12411,5 +12411,69 @@ input:-moz-autofill {
 }
 
 
+.hero {
+  height: 100vh; /* ocupa toda la pantalla */
+  background-image: url("../img/tesci.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* oscurece un poco para resaltar texto */
+  z-index: 1;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 1; /* para que quede encima del fondo oscuro */
+}
+
+.lead_hero {
+  font-size: 23px;
+}
+
+/*slider*/
+.carousel-image {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.bg-img1 {
+  background-image: url("../img/slide1.jpg"); /* reemplaza por tu imagen */
+}
+
+.bg-img2 {
+  background-image: url("../img/slide2.jpg");
+}
+
+/* Panel oscuro encima de la imagen */
+.carousel-image::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Opacidad */
+  z-index: 1;
+}
+
+/* Asegura que el texto quede arriba de la sombra */
+.carousel-caption {
+  z-index: 2;
+  color: white;
+  text-shadow: 1px 1px 3px #000;
+  height: 100vh;
+}
 
 /*# sourceMappingURL=app.css.map */
