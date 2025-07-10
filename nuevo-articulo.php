@@ -1,5 +1,5 @@
 <?php 
-    include 'base/header.php';
+    include 'base/nav.php';
 ?>
 <main class="principal contenedor"> 
     <div class="header-proyectos">
