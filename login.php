@@ -15,7 +15,7 @@
             <div>
             <fieldset class='mb-5 fildset-border'>
             <legend class="legend-border mb-2 text-white fw-bold">Usuario</legend>
-                 <input type="text" class="form-control letra2 input-borde input-bg" id="usuario" name="usuario">
+                 <input type="text" class="form-control letra2 input-borde input-bg fw-bold" id="usuario" name="usuario">
 
             </fieldset>
             </div>
@@ -24,7 +24,7 @@
             <div>
             <fieldset class='mb-3 fildset-border'>
             <legend class="legend-border mb-2 text-white fw-bold">Contraseña</legend>
-                 <input type="password" class="form-control letra2 input-borde input-bg" id="contra" name="contra"required>
+                 <input type="password" class="form-control letra2 input-borde input-bg fw-bold" id="contra" name="contra"required>
 
             </fieldset>
             </div>
@@ -41,7 +41,7 @@
 
 
             <div class="d-grid">
-                <button type="submit" class="btn btn-dark letra2 py-4">Entrar</button>
+                <button type="submit" class="btn btn-dark letra2 py-4 fw-bold">Entrar</button>
             </div>
         </form>
     </div>

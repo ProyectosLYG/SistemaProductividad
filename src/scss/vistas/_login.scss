@@ -33,11 +33,9 @@ login-card{
 }
 
 .formlogin{
-width: 500px;
-
+  width: 500px;
 }
 .legend-border{
-
   line-height: 0;
 }
 .fildset-border{
@@ -45,41 +43,24 @@ width: 500px;
   padding: 0;
 }
 .letra1{
-font-size: 30px;
-font-weight: 600;
+font-size: 3rem;
 }
-
 .letra2{
-font-size: 20px;
-font-weight: 600;
+font-size: 2rem;
 }
-
 .letra3{
-font-size: 18px;
-font-weight: 400;
+font-size: 1.8rem;
 }
-
 #recordar:checked + .letra3 {
   color: #000;
   font-weight: 600;
 } 
-
-.letra4{
-font-weight: 400;
-color: #000;
-}
 .card{
 background-color: rgba(255, 255, 255, 0.6);
 }
 
 .input-bg{
   background-color: rgba(255, 255, 255, 0.0);
-}
-input:-webkit-autofill {
-    background-color: rgba(255, 255, 255, 0.0) !important;
-}
-input:-moz-autofill {
-    background-color: rgba(255, 255, 255, 0.0) !important;
 }
 .input-borde{
   border: 0px solid #333;
@@ -93,4 +74,3 @@ input:-moz-autofill {
   box-shadow: none;
   outline: none;
 }
-/*# sourceMappingURL=app.css.map */
