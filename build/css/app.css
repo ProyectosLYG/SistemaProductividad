@@ -12449,11 +12449,23 @@ input:-moz-autofill {
 }
 
 .bg-img1 {
-  background-image: url("../img/slide1.jpg"); /* reemplaza por tu imagen */
+  background-image: url("../img/f2.jpeg");
+  height: 100vh;
 }
 
 .bg-img2 {
-  background-image: url("../img/slide2.jpg");
+  background-image: url("../img/f5.jpeg");
+  height: 100vh;
+}
+
+.bg-img3 {
+  background-image: url("../img/f3.jpeg");
+  height: 100vh;
+}
+
+.bg-img4 {
+  background-image: url("../img/f6.jpeg");
+  height: 100vh;
 }
 
 /* Panel oscuro encima de la imagen */
@@ -12474,6 +12486,10 @@ input:-moz-autofill {
   color: white;
   text-shadow: 1px 1px 3px #000;
   height: 100vh;
+}
+
+.text {
+  font-size: 3rem;
 }
 
 /*# sourceMappingURL=app.css.map */

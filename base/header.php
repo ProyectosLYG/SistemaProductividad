@@ -16,7 +16,7 @@
                 <!-- <a href="index.php">Proyectos</a> -->
                 <a href="#">Ayuda</a>
                 <div class="d-flex">
-                    <a href="#" class=" col btn btn-outline-light me-2">Login</a>
+                    <a href="login.php" class=" col btn btn-outline-light me-2">Login</a>
                     <a href="#" class=" col btn btn-warning me-2">Registrarse</a>
                 </div>
             </nav>
