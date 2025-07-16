@@ -1,15 +1,62 @@
 <?php include "base/header.php" 
 
 ?>
-<section class="hero d-flex align-items-center justify-content-center text-center text-white">
-  <div class="container">
-    <h1 class="display-4 fw-bold">¡Bienvenido a  Desempeño ISC!</h1>
-    <p class="lead lead_hero"> Herramienta de registro y consulta de producción académica.</p>
-    <a href="login.php" class="btn btn-warning mt-3 fs-4">INICIAR
-    </a>
-  </div>
+
+<section class="mt-xxl">
 
 </section>
+
+<section class="container my-5">
+  <div class="row g-3 text-white text-center">
+
+    <!-- 1 -->
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="p-4 bg-salmon rounded h-100">
+        <i class="bi bi-megaphone fs-1"></i>
+        <h3 class="fw-bold mt-2">600</h3>
+        <p class="text-uppercase m-0">Artículos Nacionales</p>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="col-md-4">
+      <div class="p-4 bg-lightblue rounded h-100">
+        <i class="bi bi-cpu fs-1"></i>
+        <h3 class="fw-bold mt-2">600</h3>
+        <p class="text-uppercase m-0">Competencias Nacionales</p>
+      </div>
+    </div>
+
+    <!-- 3 -->
+     <div class="col-4">
+      <div class="p-4 bg-purple rounded h-100">
+        <i class="bi bi-mortarboard fs-1"></i>
+        <h3 class="fw-bold mt-2">6000</h3>
+        <p class="text-uppercase m-0">Proyectos de Titulación</p>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="col-md-4">
+      <div class="p-4 bg-indigo rounded h-100">
+        <i class="bi bi-globe-americas fs-1"></i>
+        <h3 class="fw-bold mt-2">600</h3>
+        <p class="text-uppercase m-0">Artículos Internacionales</p>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="col-md-4">
+      <div class="p-4 bg-rose rounded h-100">
+        <i class="bi bi-book fs-1"></i>
+        <h3 class="fw-bold mt-2">6</h3>
+        <p class="text-uppercase m-0">Libros Publicados</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <section>
 
 <div id="heroSlider" class="carousel slide">
@@ -124,7 +171,15 @@
     </p>
   </div>
 </div>
+</section>
 
+<section class="hero d-flex align-items-center justify-content-center text-center text-white">
+  <div class="container">
+    <h1 class="display-4 fw-bold">¡Bienvenido a  Desempeño ISC!</h1>
+    <p class="lead lead_hero"> Herramienta de registro y consulta de producción académica.</p>
+    <a href="login.php" class="btn btn-warning mt-3 fs-4">INICIAR
+    </a>
+  </div>
 
 </section>
 
