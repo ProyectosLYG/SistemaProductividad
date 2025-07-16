@@ -36,7 +36,7 @@
                 <label class="form-check-label letra3 text-white fw-bold" for="recordar"> Recordar contraseña</label>
             </div>
             
-            <a class="text-white fw-bold" href="#">¿Olvidaste tu contraseña?</a>
+            <a class="text-white" href="#">¿Olvidaste tu contraseña?</a>
         </div>
 
 
