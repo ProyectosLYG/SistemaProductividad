@@ -1,82 +1,188 @@
-    <?php include 'base/header.php'; ?>
+<?php include "./build/utilities/nav.php" 
 
-    
-    <main class="principal contenedor">
-        <div class="header-proyectos">
-            <h2>Buscar proyectos</h2>
-            <div class="busqueda">
-                <input id="filtro-Proyectos" type="text" placeholder="Buscar...">
-                <a id="buscar-Proyectos" href="#">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#000" class="bi bi-search" viewBox="0 0 16 16">
-                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-                    </svg>
-                </a>
-                <a id="Filtrar-Proyectos" href="#">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#000" class="bi bi-funnel" viewBox="0 0 16 16">
-                        <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5zm1 .5v1.308l4.372 4.858A.5.5 0 0 1 7 8.5v5.306l2-.666V8.5a.5.5 0 0 1 .128-.334L13.5 3.308V2z"/>
-                    </svg>
-                </a>
-            </div>
+?>
+
+<section class="mt-xxl">
+
+</section>
+
+<section class="container my-5">
+  <div class="row g-3 text-white text-center">
+
+    <!-- 1 -->
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="p-4 bg-salmon rounded h-100">
+        <i class="bi bi-megaphone fs-1"></i>
+        <h3 class="fw-bold mt-2">600</h3>
+        <p class="text-uppercase m-0">Artículos Nacionales</p>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="col-md-4">
+      <div class="p-4 bg-lightblue rounded h-100">
+        <i class="bi bi-cpu fs-1"></i>
+        <h3 class="fw-bold mt-2">600</h3>
+        <p class="text-uppercase m-0">Competencias Nacionales</p>
+      </div>
+    </div>
+
+    <!-- 3 -->
+     <div class="col-4">
+      <div class="p-4 bg-purple rounded h-100">
+        <i class="bi bi-mortarboard fs-1"></i>
+        <h3 class="fw-bold mt-2">6000</h3>
+        <p class="text-uppercase m-0">Proyectos de Titulación</p>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="col-md-4">
+      <div class="p-4 bg-indigo rounded h-100">
+        <i class="bi bi-globe-americas fs-1"></i>
+        <h3 class="fw-bold mt-2">600</h3>
+        <p class="text-uppercase m-0">Artículos Internacionales</p>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="col-md-4">
+      <div class="p-4 bg-rose rounded h-100">
+        <i class="bi bi-book fs-1"></i>
+        <h3 class="fw-bold mt-2">6</h3>
+        <p class="text-uppercase m-0">Libros Publicados</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section>
+
+<div id="heroSlider" class="carousel slide">
+  <div class="carousel-inner">
+
+    <!-- Slide 1 -->
+    <div class="carousel-item active">
+      <div class="carousel-image bg-img1">
+        <div class="carousel-caption d-flex flex-column justify-content-center align-items-center">
+          <h1 class="display-4 fw-bold">Bienvenido</h1>
+          <p class="lead lead_hero">Tu plataforma confiable para gestión académica.</p>
         </div>
+      </div>
+    </div>
 
-        <div class="proyectos">
-
-            <div class="proyecto">
-                <p class="titulo">Titulo de ejemplo</p>
-                <p class="descripcion">
-                    Praesent finibus tempus eros at placerat. Nam vehicula porta libero, vitae commodo quam. In cursus erat felis, gravida mattis felis pulvinar a. Proin commodo elit ac leo fermentum tincidunt. Nulla porttitor lacus malesuada efficitur malesuada. Sed id ligula at augue rhoncus imperdiet. Sed egestas condimentum vulputate. Aenean ultricies dignissim maximus. Ut vestibulum neque lacus, a laoreet arcu vehicula id. Donec eu fermentum felis. Sed sit amet diam neque. 
-                </p>
-                <p class="fecha">
-                    13/03/23
-                </p>
-                <div class="footerCont">
-                    <p class="nombre-alumno">Galicia Flores Gerardo Oswaldo | ISC</p>
-                    <a href="#" class="boton-claro">Elegir proyecto</a>
-                </div>
-            </div>
-            <div class="proyecto">
-                <p class="titulo">Titulo de ejemplo</p>
-                <p class="descripcion">
-                    Praesent finibus tempus eros at placerat. Nam vehicula porta libero, vitae commodo quam. In cursus erat felis, gravida mattis felis pulvinar a. Proin commodo elit ac leo fermentum tincidunt. Nulla porttitor lacus malesuada efficitur malesuada. Sed id ligula at augue rhoncus imperdiet. Sed egestas condimentum vulputate. Aenean ultricies dignissim maximus. Ut vestibulum neque lacus, a laoreet arcu vehicula id. Donec eu fermentum felis. Sed sit amet diam neque. 
-                </p>
-                <p class="fecha">
-                    13/03/23
-                </p>
-                <div class="footerCont">
-                    <p class="nombre-alumno">Galicia Flores Gerardo Oswaldo | ISC</p>
-                    <a href="#" class="boton-claro">Elegir proyecto</a>
-                </div>
-            </div>
-            <div class="proyecto">
-                <p class="titulo">Titulo de ejemplo</p>
-                <p class="descripcion">
-                    Praesent finibus tempus eros at placerat. Nam vehicula porta libero, vitae commodo quam. In cursus erat felis, gravida mattis felis pulvinar a. Proin commodo elit ac leo fermentum tincidunt. Nulla porttitor lacus malesuada efficitur malesuada. Sed id ligula at augue rhoncus imperdiet. Sed egestas condimentum vulputate. Aenean ultricies dignissim maximus. Ut vestibulum neque lacus, a laoreet arcu vehicula id. Donec eu fermentum felis. Sed sit amet diam neque. 
-                </p>
-                <p class="fecha">
-                    13/03/23
-                </p>
-                <div class="footerCont">
-                    <p class="nombre-alumno">Galicia Flores Gerardo Oswaldo | ISC</p>
-                    <a href="#" class="boton-claro">Elegir proyecto</a>
-                </div>
-            </div>
-            <div class="proyecto">
-                <p class="titulo">Titulo de ejemplo</p>
-                <p class="descripcion">
-                    Praesent finibus tempus eros at placerat. Nam vehicula porta libero, vitae commodo quam. In cursus erat felis, gravida mattis felis pulvinar a. Proin commodo elit ac leo fermentum tincidunt. Nulla porttitor lacus malesuada efficitur malesuada. Sed id ligula at augue rhoncus imperdiet. Sed egestas condimentum vulputate. Aenean ultricies dignissim maximus. Ut vestibulum neque lacus, a laoreet arcu vehicula id. Donec eu fermentum felis. Sed sit amet diam neque. 
-                </p>
-                <p class="fecha">
-                    13/03/23
-                </p>
-                <div class="footerCont">
-                    <p class="nombre-alumno">Galicia Flores Gerardo Oswaldo | ISC</p>
-                    <a href="#" class="boton-claro">Elegir proyecto</a>
-                </div>
-            </div>
-
+    <!-- Slide 2 -->
+    <div class="carousel-item">
+      <div class="carousel-image bg-img2">
+        <div class="carousel-caption d-flex flex-column justify-content-center align-items-center">
+          <h1 class="display-4 fw-bold">Propuesta de proyectos</h1>
+          <p class="lead lead_hero">Propon tus ideas de proyectos para el área de ISC.</p>
         </div>
-        
-        
-    </main>
+      </div>
+    </div>
 
-<?php include 'base/footer.php'; 
+    <!-- Slide 3 -->
+    <div class="carousel-item">
+      <div class="carousel-image bg-img3">
+        <div class="carousel-caption d-flex flex-column justify-content-center align-items-center">
+          <h1 class="display-4 fw-bold">Registro</h1>
+          <p class="lead lead_hero"> de actividades científicas y académicas desde un solo lugar.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 4 -->
+    <div class="carousel-item">
+      <div class="carousel-image bg-img4">
+        <div class="carousel-caption d-flex flex-column justify-content-center align-items-center">
+          <h1 class="display-4 fw-bold">DESEMPEÑO ISC</h1>
+          <p class="lead lead_hero">Impulsa tu productividad, fortalece tu impacto.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Controles manuales -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#heroSlider" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#heroSlider" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+
+</div>
+</section>
+
+<section>
+<div class="d-flex flex-row justify-content-between ms-4 me-4 p-4">
+
+    <div class="card" style="width: 38rem;">
+      <img src="build/img/c1.jpeg"class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Convocatorias</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+        <a href="#" class="btn btn-warning mt-3 fs-4">Ver más</a>
+      </div>
+    </div>
+
+  <div class="card" style="width: 38rem;">
+      <img src="build/img/c2.jpeg"class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Convocatorias</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+        <a href="#" class="btn btn-warning mt-3 fs-4">Ver más</a>
+      </div>
+    </div>
+
+  <div class="card" style="width: 38rem;">
+      <img src="build/img/c3.jpeg"class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Convocatorias</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+        <a href="#" class="btn btn-warning mt-3 fs-4">Ver más</a>
+      </div>
+    </div>
+
+    <div class="card" style="width: 38rem;">
+      <img src="build/img/c4.jpeg"class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Convocatorias</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+        <a href="#" class="btn btn-warning mt-3 fs-4">Ver más</a>
+      </div>
+  </div>
+
+</div>
+</section>
+
+<section>
+<div class="d-flex flex-row justify-content-center ms-0 me-0">
+
+<div class="card border-0" style="width: 98rem;">
+    <img src="build/img/c4.jpeg" alt="">
+</div>
+
+<div class="card border-0 d-flex justify-content-center align-items-center" style="width: 70rem;">
+  <div class="text p-4 text-center">
+    <p class="display-4 fw-bold">
+      Some quick example text to build on the card title and make up the bulk of the card’s content.
+    </p>
+  </div>
+</div>
+</section>
+
+<section class="hero d-flex align-items-center justify-content-center text-center text-white">
+  <div class="container">
+    <h1 class="display-4 fw-bold">¡Bienvenido a  Desempeño ISC!</h1>
+    <p class="lead lead_hero"> Herramienta de registro y consulta de producción académica.</p>
+    <a href="login.php" class="btn btn-warning mt-3 fs-4">INICIAR
+    </a>
+  </div>
+
+</section>
+
+<?php include "./build/utilities/footer.php"
+
+?>

@@ -1,10 +1,13 @@
-<?php include 'base/header.php'; ?>
+<?php include 'base/nav.php'; ?>
 
     
     <main class="principal contenedor">
         <div class="header-proyectos">
-            <h2>Congresos</h2>
+            <h2>Control de alumnos por tesis</h2>
             <div class="busqueda">
+            <a class="boton-claro" href="agregar-tesis.php">Agregar Tesis Dirigida</a>
+
+</>
                 <input id="filtro-Proyectos" type="text" placeholder="Buscar...">
                 <a id="buscar-Proyectos" href="#">
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#000" class="bi bi-search" viewBox="0 0 16 16">

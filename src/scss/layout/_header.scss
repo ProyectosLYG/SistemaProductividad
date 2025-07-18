@@ -30,23 +30,6 @@
     flex-direction: column;
     justify-content: center;
 }
-.logo{
-    display: flex;
-    flex-flow: row;
-    align-items: center;
-    justify-content: center;
-}
-.logo img {
-    width: 7rem;
-    height: 7rem;
-    text-align: center;
-    margin: .5rem 1rem;
-}
-.logo h1{
-    color: v.$blanco;
-    margin: .5rem 1rem;
-    font-weight: 500;
-}
 .enlaces{
     display: flex;
     flex-direction: column;

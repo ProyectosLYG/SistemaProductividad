@@ -12114,26 +12114,6 @@ h3 {
   justify-content: center;
 }
 
-.logo {
-  display: flex;
-  flex-flow: row;
-  align-items: center;
-  justify-content: center;
-}
-
-.logo img {
-  width: 7rem;
-  height: 7rem;
-  text-align: center;
-  margin: 0.5rem 1rem;
-}
-
-.logo h1 {
-  color: #fff;
-  margin: 0.5rem 1rem;
-  font-weight: 500;
-}
-
 .enlaces {
   display: flex;
   flex-direction: column;
@@ -12357,28 +12337,20 @@ login-card {
 }
 
 .letra1 {
-  font-size: 30px;
-  font-weight: 600;
+  font-size: 3rem;
 }
 
 .letra2 {
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 2rem;
 }
 
 .letra3 {
-  font-size: 18px;
-  font-weight: 400;
+  font-size: 1.8rem;
 }
 
 #recordar:checked + .letra3 {
   color: #000 !important;
   font-weight: 600;
-}
-
-.letra4 {
-  font-weight: 400;
-  color: #000;
 }
 
 .card {
@@ -12387,14 +12359,6 @@ login-card {
 
 .input-bg {
   background-color: rgba(255, 255, 255, 0);
-}
-
-input:-webkit-autofill {
-  background-color: rgba(255, 255, 255, 0) !important;
-}
-
-input:-moz-autofill {
-  background-color: rgba(255, 255, 255, 0) !important;
 }
 
 .input-borde {
@@ -12409,7 +12373,6 @@ input:-moz-autofill {
   box-shadow: none;
   outline: none;
 }
-
 
 .hero {
   height: 100vh; /* ocupa toda la pantalla */

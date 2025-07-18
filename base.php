@@ -1,4 +1,4 @@
-<?php include 'base/header.php'; ?>
+<?php include 'base/nav.php'; ?>
 
     
 <main class="principal contenedor">
