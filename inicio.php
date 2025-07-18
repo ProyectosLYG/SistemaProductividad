@@ -6,7 +6,7 @@
 
 </section>
 
-<section class="container my-5">
+<section class="container-xxl my-5">
   <div class="row g-3 text-white text-center">
 
     <!-- 1 -->
