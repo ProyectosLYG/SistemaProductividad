@@ -92,9 +92,8 @@
     }
 }
 
-.aviso-rojo{
-    font-size: v.$alertas;
-    color: v.$rojo
+.alertas{
+    font-family: v.$alertas;
 }
 
 .flex-responsive{

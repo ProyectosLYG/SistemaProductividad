@@ -1,19 +1,14 @@
 @use "../globales/variables" as v;
 
 .principal{
-    background-color: v.$blanco;
-    margin-top: 15rem;
+    margin-top: 18rem;
 }
 @media(min-width: 850px){
     .principal{
         margin-top: 14rem;
     }
 }
-@media(min-width: 970px){
-    .principal{
-        margin-top: 12rem;
-    }
-}
+
 
 /* navegador */
 .navegador{
