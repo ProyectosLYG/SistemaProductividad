@@ -1,13 +1,13 @@
-<?php include 'base/nav.php'; ?>
+<?php include '../build/utilities/nav.php'; ?>
 
     
-    <main class="principal contenedor">
-        <div class="header-proyectos">
+    <main class="principal container">
+        <div class="d-flex align-items-center ms-4">
             <h1>Añadir capitulo de libro</h1>
         </div>
 
         <form>
-            <div class="aviso-rojo">Los campos con (*) son obligatorios.</div>
+            <div class="alertas text-danger">Los campos con (*) son obligatorios.</div>
             <fieldset>
                 <legend>Datos principales del libro</legend>
                     <div class="campo">
@@ -28,11 +28,12 @@
                         </label>
                         
                         <textarea 
+                        maxlength="850"
                         name="resumen_libro" 
                         id="resumen_libro"
                         placeholder="Ingresa el resumen del capítulo" 
                         required></textarea>
-                        <div class="texto-extra" id="limite-palabras" >0/350</div>
+                        <div class="texto-extra" id="limite-letras" >0/850</div>
                     </div>
                     <div class="flex-responsive spc-arr">
                             
@@ -51,7 +52,7 @@
                             class="campo-label" 
                             for="nombre"
                             >Posición del autor: <span class="requerido">*</span>  </label>
-                            <select name="" id="">
+                            <select name="" id="capitulo-posicion-autor">
                                 <option value="0">[Seleccione un área]</option>
                                 <option value="1">1ra Posición</option>
                                 <option value="2">2da Posición</option>
@@ -231,5 +232,5 @@
         
         
     </main>
-    
-<?php include 'base/footer.php'; 
+    <script src="../build/js/validacionForms.js"></script>
+<?php include '../build/utilities/footer.php'; 

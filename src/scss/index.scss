@@ -1,3 +1,11 @@
-@use "globales";
+@use "globales/variables" as *;
+
+@use "../bootstrap/scss/bootstrap" with (
+    $font-family-base: $font-family-texto,
+    $headings-font-family: $font-family-titulos
+);
+
+@use "globales/globales";
+@use "globales/utilidades";
 @use "layout";
 @use "vistas"; 

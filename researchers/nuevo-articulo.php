@@ -1,5 +1,5 @@
 <?php 
-    include 'base/nav.php';
+    include '../build/utilities/nav.php';
 ?>
 <main class="principal contenedor"> 
     <div class="header-proyectos">
@@ -269,5 +269,5 @@
     </form>
 </main>
 <?php 
-    include 'base/footer.php';
+    include '../build/utilities/footer.php';
  ?>

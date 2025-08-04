@@ -1,63 +1,54 @@
-<?php include 'base/nav.php'; ?>
+<?php include '../build/utilities/nav.php'; ?>
 
-    
-    <main class="principal contenedor">
-        <div class="header-proyectos">
-            <h2>Libros</h2>
 
-            <div class="busqueda">
-            <a class="boton-claro" href="nuevo-capitulo-libro.php">Nuevo capitulo en Libro</a>
-            <a class="boton-claro" href="nuevo-libro.php">Nuevo Libro</a>
+    <!-- titulo u busqueda -->    
+    <section class="principal container">
+        <div class="d-flex flex-column flex-lg-row justify-content-between align-items-center">
+            <h2 class="text-start fw-bold">Libros</h2>
 
-                <input id="filtro-Proyectos" type="text" placeholder="Buscar...">
-                <a id="buscar-Proyectos" href="#">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#000" class="bi bi-search" viewBox="0 0 16 16">
-                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-                    </svg>
-                </a>
-                <a id="Filtrar-Proyectos" href="#">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#000" class="bi bi-funnel" viewBox="0 0 16 16">
-                        <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5zm1 .5v1.308l4.372 4.858A.5.5 0 0 1 7 8.5v5.306l2-.666V8.5a.5.5 0 0 1 .128-.334L13.5 3.308V2z"/>
-                    </svg>
-                </a>
+            <div class=" d-flex flex-column flex-lg-row busqueda align-items-center align-content-center">
+                <div class="d-flex flex-row align-items-center justify-content-center">
+                    <a class="boton-claro" href="nuevo-capitulo-libro.php">Nuevo capitulo en Libro</a>
+                    <a class="boton-claro" href="nuevo-libro.php">Nuevo Libro</a>
+                </div>
+
+                <div class=" d-flex flex-row align-items-center justify-content-between">
+                    <input class="p-2 m-0 rounded-3" id="filtro-Proyectos" type="text" placeholder="Buscar...">
+                    <a id="buscar" href="#">
+                        <svg width="30" height="30" fill="#000">
+                            <use xlink:href="../build/assets/sprites.svg#search" />
+                        </svg>
+                    </a>
+                    <a id="Filtrar" href="#">
+                        <svg width="30" height="30" fill="000">
+                            <use xlink:href="../build/assets/sprites.svg#filter" />
+                        </svg>
+                    </a>
+                </div>
             </div>
         </div>
 
-        <div class="proyectos">
 
+        <!-- libros de bd -->
+        <div class="">
+            <!-- Estructura de un libro -->
             <div class="proyecto">
-                <img class="imagen-ejemplo" src="/build/img/libroEjemplo1.webp" alt="Imágen de libro">
-                <div>
-                    <p class="titulo">Libro de ejemplo</p>
-                    <p class="descripcion">
+                <img src="/build/img/libroEjemplo1.webp" class="img-fluid mx-auto" width="300" height="400" alt="Imágen de libro">
+                <div class="mx-5">
+                    <p class="fs-1 fw-bold">Libro de ejemplo</p>
+                    <p class="">
                         Praesent finibus tempus eros at placerat. Nam vehicula porta libero, vitae commodo quam. In cursus erat felis, gravida mattis felis pulvinar a. Proin commodo elit ac leo fermentum tincidunt. Nulla porttitor lacus malesuada efficitur malesuada. Sed id ligula at augue rhoncus imperdiet. Sed egestas condimentum vulputate. Aenean ultricies dignissim maximus. Ut vestibulum neque lacus, a laoreet arcu vehicula id. Donec eu fermentum felis. Sed sit amet diam neque. 
                     </p>
-                    <p class="fecha">
+                    <p class="text-end">
                         13/03/23
                     </p>
-                    <div class="footerCont">
-                        <p class="nombre-alumno">Mtro. José Luis Camacho Campero | ISC</p>
-                        <a href="#" class="boton-claro">Ver libro</a>
-                    </div>
-                </div>
-            </div>
-            <div class="proyecto">
-                <img class="imagen-ejemplo" src="build/img/libro_ejemplo2.jpg" alt="Imágen de libro">
-                <div>
-                    <p class="titulo">Libro de ejemplo</p>
-                    <p class="descripcion">
-                        Praesent finibus tempus eros at placerat. Nam vehicula porta libero, vitae commodo quam. In cursus erat felis, gravida mattis felis pulvinar a. Proin commodo elit ac leo fermentum tincidunt. Nulla porttitor lacus malesuada efficitur malesuada. Sed id ligula at augue rhoncus imperdiet. Sed egestas condimentum vulputate. Aenean ultricies dignissim maximus. Ut vestibulum neque lacus, a laoreet arcu vehicula id. Donec eu fermentum felis. Sed sit amet diam neque. 
-                    </p>
-                    <p class="fecha">
-                        13/03/23
-                    </p>
-                    <div class="footerCont">
-                        <p class="nombre-alumno">Mtro. José Luis Camacho Campero | ISC</p>
+                    <div class="d-flex- flex-row align-content-center justify-content-between">
+                        <p class="align-content-center fs-2 fst-italic">Mtro. José Luis Camacho Campero | ISC</p>
                         <a href="#" class="boton-claro">Ver libro</a>
                     </div>
                 </div>
             </div>
         </div>
-    </main>
+    </section>
 
-<?php include 'base/footer.php'; 
+<?php include '../build/utilities/footer.php'; 
