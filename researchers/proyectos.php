@@ -1,4 +1,4 @@
-    <?php include './build/utilities/nav.php'; ?>
+    <?php include '../build/utilities/nav.php'; ?>
 
     
     <main class="principal contenedor">
@@ -79,4 +79,4 @@
         
     </main>
 
-<?php include './build/utilities/footer.php'; 
+<?php include '../build/utilities/footer.php'; 
