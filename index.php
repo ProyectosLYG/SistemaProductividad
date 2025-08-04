@@ -2,59 +2,9 @@
 
 ?>
 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
 <section class="mt-xxl">
-
-</section>
-
-<section class="container my-5">
-  <div class="row g-3 text-white text-center">
-
-    <!-- 1 -->
-    <div class="col-12 col-md-6 col-lg-4">
-      <div class="p-4 bg-salmon rounded h-100">
-        <i class="bi bi-megaphone fs-1"></i>
-        <h3 class="fw-bold mt-2">600</h3>
-        <p class="text-uppercase m-0">Artículos Nacionales</p>
-      </div>
-    </div>
-
-    <!-- 2 -->
-    <div class="col-md-4">
-      <div class="p-4 bg-lightblue rounded h-100">
-        <i class="bi bi-cpu fs-1"></i>
-        <h3 class="fw-bold mt-2">600</h3>
-        <p class="text-uppercase m-0">Competencias Nacionales</p>
-      </div>
-    </div>
-
-    <!-- 3 -->
-     <div class="col-4">
-      <div class="p-4 bg-purple rounded h-100">
-        <i class="bi bi-mortarboard fs-1"></i>
-        <h3 class="fw-bold mt-2">6000</h3>
-        <p class="text-uppercase m-0">Proyectos de Titulación</p>
-      </div>
-    </div>
-
-    <!-- 4 -->
-    <div class="col-md-4">
-      <div class="p-4 bg-indigo rounded h-100">
-        <i class="bi bi-globe-americas fs-1"></i>
-        <h3 class="fw-bold mt-2">600</h3>
-        <p class="text-uppercase m-0">Artículos Internacionales</p>
-      </div>
-    </div>
-
-    <!-- 5 -->
-    <div class="col-md-4">
-      <div class="p-4 bg-rose rounded h-100">
-        <i class="bi bi-book fs-1"></i>
-        <h3 class="fw-bold mt-2">6</h3>
-        <p class="text-uppercase m-0">Libros Publicados</p>
-      </div>
-    </div>
-
-  </div>
 </section>
 
 <section>
@@ -116,7 +66,55 @@
 </section>
 
 <section>
-<div class="d-flex flex-row justify-content-between ms-4 me-4 p-4">
+
+<div class="parent container-fluid text-center mx-auto">
+  <div class="item div1 bg-salmon">
+    <div class="h-100 d-flex flex-column justify-content-center">
+        <i class="bi bi-megaphone" style="font-size:100px;" ></i>
+        <h3 class="fw-bold mt-2">600</h3>
+        <p class="text-uppercase m-0">Artículos Nacionales</p>
+      </div>
+  </div>
+
+  <div class="item div2 bg-lightblue">
+     <div class="p-4 rounded h-100">
+        <i class="bi bi-cpu" style="font-size:80px;"></i>
+        <h3 class="fw-bold mt-2">600</h3>
+        <p class="text-uppercase m-0">Competencias Nacionales</p>
+      </div>
+
+  </div>
+
+  <div class="item div3 bg-purple">
+    <div class="h-100 d-flex flex-column justify-content-center">
+        <i class="bi bi-mortarboard" style="font-size:100px;"></i>
+        <h3 class="fw-bold mt-2">6000</h3>
+        <p class="text-uppercase m-0">Proyectos de Titulación</p>
+      </div>
+  </div>
+  
+  <div class="item div4 bg-indigo">
+    <div class="p-4 rounded h-100">
+        <i class="bi bi-globe-americas" style="font-size:80px;"></i>
+        <h3 class="fw-bold mt-2">600</h3>
+        <p class="text-uppercase m-0">Artículos Internacionales</p>
+      </div>
+
+  </div>
+
+  <div class="item div5 bg-rose">
+    <div class="p-4 rounded h-100">
+        <i class="bi bi-book" style="font-size:80px;"></i>
+        <h3 class="fw-bold mt-2">6</h3>
+        <p class="text-uppercase m-0">Libros Publicados</p>
+      </div>
+  </div>
+
+</div>
+</section>
+
+<section class="container">
+<div class="d-flex flex-row justify-content-center ms-4 me-4 p-4 gap-5">
 
     <div class="card" style="width: 38rem;">
       <img src="build/img/c1.jpeg"class="card-img-top" alt="...">
@@ -157,7 +155,8 @@
 </div>
 </section>
 
-<section>
+
+<section class="container b-4">
 <div class="d-flex flex-row justify-content-center ms-0 me-0">
 
 <div class="card border-0" style="width: 98rem;">
@@ -172,6 +171,7 @@
   </div>
 </div>
 </section>
+<section class="mt-l"></section>
 
 <section class="hero d-flex align-items-center justify-content-center text-center text-white">
   <div class="container">

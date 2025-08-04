@@ -92,7 +92,7 @@ font-size: 3rem;
 }
 
 .bg-indigo {
-  background-color: #575b9e;
+  background-color: #799EFF;
   color: black;
 }
 
@@ -100,10 +100,60 @@ font-size: 3rem;
   background-color: #d2909b;
   color: black;
 }
+
+/*margen de arriba */
 .mt-xxl {
-    margin-top: 13rem; /* o más si quieres */
+    margin-top: 12rem; /* o más si quieres */
   }
 
-  .grid-container{
-    
+  .mt-l {
+    margin-top: 2rem; /* o más si quieres */
   }
+/* Caja grande (como el bloque azul en el video) */
+
+.item {
+
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0px;
+}
+
+.parent {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 10px;
+    min-height: 75vh;
+    width: 90vw;
+    padding: 15px;    /* Quita márgenes/paddings heredados */
+    margin: 0;
+    line-height: 1;
+
+}
+    
+.div1 {
+    grid-row: span 3 / span 3;
+}
+
+.div2 {
+    grid-column: span 2 / span 2;
+}
+
+.div3 {
+    grid-row: span 2 / span 2;
+    grid-column-start: 2;
+    grid-row-start: 2;
+}
+
+.div4 {
+    grid-column-start: 3;
+    grid-row-start: 2;
+}
+
+.div5 {
+    grid-column-start: 3;
+    grid-row-start: 3;
+}
+        
