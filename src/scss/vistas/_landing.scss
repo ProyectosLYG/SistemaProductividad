@@ -34,24 +34,26 @@
 }
 
 .bg-img1 {
-  background-image: url('../img/f2.jpeg');
+  background-image: url('../img/f14.jpg');
   height: 100vh;
 }
 
 .bg-img2 {
-  background-image: url('../img/f5.jpeg');
+  background-image: url('../img/f13.jpg');
   height: 100vh;
 }
 
 .bg-img3 {
-  background-image: url('../img/f3.jpeg');
+  background-image: url('../img/f5.jpeg');
   height: 100vh;
 }
 
 .bg-img4 {
-  background-image: url('../img/f6.jpeg');
+  background-image: url('../img/f10.png');
   height: 100vh;
 }
+
+
 /* Panel oscuro encima de la imagen */
 .carousel-image::before {
   content: '';
@@ -101,9 +103,27 @@ font-size: 3rem;
   color: black;
 }
 
+.zoom-hover {
+  transition: transform 0.2s ease;
+}
+
+.zoom-hover:hover {
+  transform: scale(1.1);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+
+}
+
+.borde-difuminado {
+  border: 0.5px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+}
+
+
+
 /*margen de arriba */
-.mt-xxl {
-    margin-top: 12rem; /* o más si quieres */
+.mt-xxll {
+    margin-top: 11rem; /* o más si quieres */
   }
 
   .mt-l {
