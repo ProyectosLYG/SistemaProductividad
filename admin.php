@@ -19,6 +19,10 @@
                 </section>
             </div>
 
+            <div class="d-flex justify-content-start mt-5">
+            <a href="rendimiento.php" class="btn btn-warning me-2 d-flex justify-content-around fs-4 fw-medium">Regresar</a>
+            </div>
+
          </div>
 
     </div>

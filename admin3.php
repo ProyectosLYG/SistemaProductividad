@@ -10,14 +10,18 @@
     
         <div class="card texto-card p-5 text-center"> 
             <div>
-                <h3 class="fw-semibold lh-2">Investigador 2</h3>
+                <h3 class="fw-semibold lh-2">Investigador 3</h3>
                 <p class="lh-1">Matricula: 223107066</p>
 
                 <section>
-                    <canvas id="admingrafic3" height="600" width="1000"></canvas>
+                    <canvas id="admingrafics4" height="600" width="1000"></canvas>
                 </section>
             </div>
 
+            
+            <div class="d-flex justify-content-start mt-5">
+            <a href="rendimiento.php" class="btn btn-warning me-2 d-flex justify-content-around fs-4 fw-medium">Regresar</a>
+            </div>
          </div>
 
     </div>
