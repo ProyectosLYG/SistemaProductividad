@@ -6,17 +6,18 @@
             <h1>Añadir capitulo de libro</h1>
         </div>
 
-        <form>
+        <form action="./res-consultas/ConsultaNuevoCapitulo.php" method="POST" enctype="multipart/form-data">
             <div class="alertas text-danger">Los campos con (*) son obligatorios.</div>
             <fieldset>
                 <legend>Datos principales del libro</legend>
                     <div class="campo">
                         <label
                         class="campo-label" 
-                        for="nombre"
+                        for="tituloCapitulo"
                         >Titulo del capítulo: <span class="--bs-danger">*</span> </label>
                         <input
-                        id = "libroTitulo"
+                        id = "tituloCapitulo"
+                        name="tituloCapitulo"
                         class="input-label focus" 
                         placeholder="Nombre del libro"
                         type="text" 
@@ -29,8 +30,8 @@
                         
                         <textarea 
                         maxlength="850"
-                        name="resumen_libro" 
-                        id="resumen_libro"
+                        id="resumenCapitulo"
+                        name="resumenCapitulo" 
                         placeholder="Ingresa el resumen del capítulo" 
                         required></textarea>
                         <div class="texto-extra" id="limite-letras" >0/850</div>
@@ -40,33 +41,39 @@
                             <div class="campo">
                             <label
                             class="campo-label" 
-                            for="nombre"
+                            for="autoresCapitulo"
                             >Autor(es) del capítulo: <span class="requerido">*</span>  </label>
                             <input
                             class="input-label" 
+                            name="autoresCapitulo"
+                            id="autoresCapitulo"
                             placeholder="Ejemplo: Osorio Lillian, Galicia Gerardo, Meza Maria Cruz"
                             type="text" >
                         </div>
                         <div class="campo">
                             <label
                             class="campo-label" 
-                            for="nombre"
-                            >Posición del autor: <span class="requerido">*</span>  </label>
-                            <select name="" id="capitulo-posicion-autor">
-                                <option value="0">[Seleccione un área]</option>
+                            for="posicionAutorCapitulo"
+                            >Posición del autor: </label>
+                            <select 
+                            id="posicionAutorCapitulo"
+                            name="posicionAutorCapitulo" 
+                            >
+                                <option selected disabled>[Seleccione un área]</option>
                                 <option value="1">1ra Posición</option>
                                 <option value="2">2da Posición</option>
+                                <option value="3">3ra Posición</option>
                             </select>
                         </div>
                         <div class="campo">
                             <label
                             class="campo-label" 
-                            for="nombre"
                             >Rango de las páginas: <span class="requerido">*</span></label>
                         <div class="pp_inputs">
                             De
                             <input
                             id="pp_inicio"
+                            name="pp_inicio"
                             class="input-label" 
                             placeholder="Inicio"
                             type="number" 
@@ -74,6 +81,7 @@
                             a
                             <input
                             id="pp_fin"
+                            name="pp_fin"
                             class="input-label" 
                             placeholder="Fin"
                             type="number"
@@ -84,39 +92,31 @@
             </fieldset>
 
             <fieldset>
-                <legend>Área, sector y disciplina.</legend>
+                <legend>Área y sector.</legend>
                 <div class="flex-responsive spc-arr">
 
                     <div class="campo">
-                            <label
-                            class="campo-label" 
+                        <label
+                        class="campo-label" 
                         for="sector_estrategico"
-                        >Sector estratégico: <span class="requerido">*</span> </label>
+                        >Sector estratégico: <span class="requerido">*</span> 
+                        </label>
                         
-                        <select name="sector_estratégico" id="sector_estrategico">
-                            <option value="0">[Seleccione sector estratégico]</option>
+                        <select 
+                        name="sector_estratégico" 
+                        id="sector_estrategico"
+                        >
+                            <option selected disabled>[Seleccione sector estratégico]</option>
+                            <option value="Energías renovables">Energías renovables</option>
+                            <option value="Eficiencia energética">Eficiencia energética</option>
+                            <option value="Gestión de residuos">Gestión de residuos</option>
+                            <option value="Inteligencia artificial">Inteligencia artificial</option>
+                            <option value="Ciberseguridad">Ciberseguridad</option>
+                            <option value="Internet de las cosas">Internet de las cosas</option>
+                            <option value="Computación en la nube">Computación en la nube</option>
                         </select>
                     </div>
-                    <div class="campo">
-                        <label
-                        class="campo-label" 
-                        for="subsector_estrategico"
-                        >Subsector estratégico: <span class="requerido">*</span> </label>
-                        
-                        <select name="subsector_estratégico" id="subsector_estrategico">
-                            <option value="0">[Seleccione subsector estratégico]</option>
-                        </select>
-                    </div>
-                    <div class="campo">
-                        <label
-                        class="campo-label" 
-                        for="area_prioritaria"
-                        >Área prioritaria del país: <span class="requerido">*</span> </label>
-                        
-                        <select name="area_prioritaria" id="area_prioritaria">
-                            <option value="0">[Seleccione un área]</option>
-                        </select>
-                    </div>
+                    
                     <div class="campo">
                         <label
                         class="campo-label" 
@@ -124,7 +124,12 @@
                         >Área del conocimiento: <span class="requerido">*</span> </label>
                         
                         <select name="area_conocimiento" id="area_conocimiento">
-                            <option value="0">[Seleccione un área]</option>
+                            <option selected disabled>[Seleccione un área]</option>
+                            <option value="Ingeniería y tecnología">Ingeniería y tecnología</option>
+                            <option value="Ciancias naturales">Ciencias Naturales</option>
+                            <option value="Ciencias ambientales">Ciencias ambientales</option>
+                            <option value="Ciencias de la computación">Ciencias de la computación</option>
+                            <option value="Redes y conmutaciónes">Redes y conmutaciónes</option>
                         </select>
                     </div>
                 </div>
@@ -178,30 +183,10 @@
                     <label
                     class="campo-label" 
                     for="nombre"
-                    >País de publicación: <span class="requerido">*</span> </label>
-                    <input
-                    class="input-label" 
-                    placeholder="Ingresa el capitulado"
-                    type="text" >
-                </div>
-                <div class="campo">
-                    <label
-                    class="campo-label" 
-                    for="nombre"
                     >ISBN: <span class="requerido">*</span></label>
                     <input
                     class="input-label" 
                     placeholder="Ingresa el ESBN"
-                    type="text" >
-                </div>
-                <div class="campo">
-                    <label
-                    class="campo-label" 
-                    for="nombre"
-                    >Propósito: <span class="requerido">*</span> </label>
-                    <input
-                    class="input-label" 
-                    placeholder="Ingresa el capitulado"
                     type="text" >
                 </div>
                 <div class="campo">
@@ -218,11 +203,15 @@
                     <label
                     class="campo-label" 
                     for="nombre"
-                    >Evidencia <span class="parentesis">(Portada y primera hoja del capítulo):</span><span class="requerido">*</span> </label>
+                    >Evidencia <span class="parentesis">(Hasta 3 imagenes solo: jpeg/png):</span><span class="requerido">*</span> </label>
                     <input
                     class="input-label" 
+                    id="imagen"
+                    name="imagen"
+                    accept="image/jpeg image/png"
                     placeholder="Ingresa le edición"
-                    type="file" >
+                    type="file" 
+                    multiple>
                 </div>
             </div>
             </fieldset>
