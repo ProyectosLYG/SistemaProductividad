@@ -3,16 +3,24 @@
 
 function connect(){
 
-    $dir = 'localhost';
+    $host = 'localhost';
     $user = 'root';
     $pwd = '428655';
     $db = 'desemp';
+    $charset = "utf8mb4";
 
-    $conn = mysqli_connect($dir, $user, $pwd, $db);
+    $dbc = "mysql:host=$host;dbname=$db;charset=$charset";
+    $opt = [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+        PDO::ATTR_EMULATE_PREPARES => false,
+    ];
 
-    if(!$conn){
-        echo "Hubo un error en la base de datos.";
-    }else{
+    try{
+        $conn = new PDO($dbc, $user, $pwd, $opt);
         return $conn;
+    }catch(PDOException $e){
+        echo "Connexion fallida: " . $e->getMessage();
+        exit;
     }
 }
