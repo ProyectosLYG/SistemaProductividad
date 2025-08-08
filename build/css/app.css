@@ -12268,7 +12268,7 @@ fieldset legend {
   }
 }
 /*LOGIN*/
-login-card {
+.login-card {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -12385,22 +12385,22 @@ login-card {
 }
 
 .bg-img1 {
-  background-image: url("../img/f2.jpeg");
+  background-image: url("../img/f14.jpg");
   height: 100vh;
 }
 
 .bg-img2 {
-  background-image: url("../img/f5.jpeg");
+  background-image: url("../img/f13.jpg");
   height: 100vh;
 }
 
 .bg-img3 {
-  background-image: url("../img/f3.jpeg");
+  background-image: url("../img/f5.jpeg");
   height: 100vh;
 }
 
 .bg-img4 {
-  background-image: url("../img/f6.jpeg");
+  background-image: url("../img/f10.png");
   height: 100vh;
 }
 
@@ -12453,9 +12453,24 @@ login-card {
   color: black;
 }
 
+.zoom-hover {
+  transition: transform 0.2s ease;
+}
+
+.zoom-hover:hover {
+  transform: scale(1.1);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.borde-difuminado {
+  border: 0.5px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+}
+
 /*margen de arriba */
-.mt-xxl {
-  margin-top: 12rem; /* o más si quieres */
+.mt-xxll {
+  margin-top: 11rem; /* o más si quieres */
 }
 
 .mt-l {
@@ -12507,6 +12522,10 @@ login-card {
   grid-row-start: 3;
 }
 
+.imp {
+  font-size: 3rem;
+}
+
 .mt-xxl {
   margin-top: 13rem;
 }
@@ -12521,6 +12540,20 @@ login-card {
 .porcentajes {
   position: relative;
   z-index: 1;
+}
+
+.login-card2 {
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 0px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.2);
+}
+
+.fildset-border1 {
+  margin: 0;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /*# sourceMappingURL=app.css.map */
