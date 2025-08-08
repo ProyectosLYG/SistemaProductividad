@@ -103,7 +103,7 @@
                         </label>
                         
                         <select 
-                        name="sector_estratégico" 
+                        name="sectorEstratégico" 
                         id="sector_estrategico"
                         >
                             <option selected disabled>[Seleccione sector estratégico]</option>
@@ -123,7 +123,7 @@
                         for="area_conocimiento"
                         >Área del conocimiento: <span class="requerido">*</span> </label>
                         
-                        <select name="area_conocimiento" id="area_conocimiento">
+                        <select name="areaConocimiento" id="area_conocimiento">
                             <option selected disabled>[Seleccione un área]</option>
                             <option value="Ingeniería y tecnología">Ingeniería y tecnología</option>
                             <option value="Ciancias naturales">Ciencias Naturales</option>
@@ -176,7 +176,8 @@
                     >Fecha de publicación: <span class="requerido">*</span> </label>
                     <input
                     class="input-label" 
-                    placeholder="Ingresa el capitulado"
+                    name="fechaPublicacion"
+                    placeholder="Fecha de publicación."
                     type="date" >
                 </div>
                 <div class="campo">
