@@ -187,7 +187,7 @@
                     >ISBN: <span class="requerido">*</span></label>
                     <input
                     class="input-label" 
-                    placeholder="Ingresa el ESBN"
+                    placeholder="Formato: 978-3-16-148410-0"
                     type="text" >
                 </div>
                 <div class="campo">
