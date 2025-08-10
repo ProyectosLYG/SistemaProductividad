@@ -1,4 +1,4 @@
-<?php include '../build/utilities/nav.php'; ?>
+<?php include '../build/utilities/nav.php';?>
 
 
     <!-- titulo u busqueda -->    

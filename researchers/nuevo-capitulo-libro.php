@@ -1,10 +1,20 @@
-<?php include '../build/utilities/nav.php'; ?>
+<?php 
+    include '../build/utilities/nav.php'; 
+    $errores = [];
+    if(isset($_SESSION['errores']) ){
+        $errores = $_SESSION['errores'];
+        unset($_SESSION['errores']);  
+    }
+?>
 
     
     <main class="principal container">
         <div class="d-flex align-items-center ms-4">
             <h1>Añadir capitulo de libro</h1>
         </div>
+        <?php foreach($errores as $error): ?>
+            <p class="alert alert-danger"><?php echo $error; ?></p>
+        <?php endforeach; ?>
 
         <form action="./res-consultas/ConsultaNuevoCapitulo.php" method="POST" enctype="multipart/form-data">
             <div class="alertas text-danger">Los campos con (*) son obligatorios.</div>
@@ -21,7 +31,7 @@
                         class="input-label focus" 
                         placeholder="Nombre del libro"
                         type="text" 
-                        required>
+                        >
                     </div>
                     <div class="campo">
                         <label for="resumen_libro" class="campo-label">
@@ -33,7 +43,7 @@
                         id="resumenCapitulo"
                         name="resumenCapitulo" 
                         placeholder="Ingresa el resumen del capítulo" 
-                        required></textarea>
+                        ></textarea>
                         <div class="texto-extra" id="limite-letras" >0/850</div>
                     </div>
                     <div class="flex-responsive spc-arr">
@@ -77,7 +87,7 @@
                             class="input-label" 
                             placeholder="Inicio"
                             type="number" 
-                            required >
+                             >
                             a
                             <input
                             id="pp_fin"
@@ -85,7 +95,7 @@
                             class="input-label" 
                             placeholder="Fin"
                             type="number"
-                            required >
+                            >
                         </div>
                     </div>
                 </div>
@@ -207,9 +217,9 @@
                     >Evidencia <span class="parentesis">(Hasta 3 imagenes solo: jpeg/png):</span><span class="requerido">*</span> </label>
                     <input
                     class="input-label" 
-                    id="imagen"
-                    name="imagen"
-                    accept="image/jpeg image/png"
+                    id="imgCapituloLibro"
+                    name="imgCapituloLibro[]"
+                    accept="image/jpeg, image/png"
                     placeholder="Ingresa le edición"
                     type="file" 
                     multiple>
