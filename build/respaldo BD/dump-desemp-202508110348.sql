@@ -29,23 +29,23 @@ CREATE TABLE `chap_book` (
   `tituloCapitulo` varchar(150) NOT NULL,
   `resumen` varchar(850) NOT NULL,
   `autores` varchar(150) NOT NULL,
-  `posicionAuto` int(11) DEFAULT NULL,
+  `posicionAutor` int(11) DEFAULT NULL,
   `paginas` varchar(9) NOT NULL,
   `sectorEstrategico` varchar(50) NOT NULL,
   `areaConocimiento` varchar(50) NOT NULL,
   `tituloLibro` varchar(150) NOT NULL,
-  `edicion` varchar(5) NOT NULL,
+  `edicion` varchar(20) NOT NULL,
   `casaEditorial` varchar(60) NOT NULL,
   `fechaPublicacion` date NOT NULL,
-  `isbn` varchar(10) NOT NULL,
+  `isbn` varchar(20) NOT NULL,
   `editorial` varchar(60) NOT NULL,
-  `evidencia` varchar(255) NOT NULL,
+  `evidencia1` varchar(255) NOT NULL,
   `evidencia2` varchar(255) DEFAULT NULL,
   `evidencia3` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`idLibro`),
   KEY `id_res` (`id_res`),
   CONSTRAINT `chap_book_ibfk_1` FOREIGN KEY (`id_res`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -196,4 +196,4 @@ commit;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*M!100616 SET NOTE_VERBOSITY=@OLD_NOTE_VERBOSITY */;
 
--- Dump completed on 2025-08-07 23:57:24
+-- Dump completed on 2025-08-11  3:48:55

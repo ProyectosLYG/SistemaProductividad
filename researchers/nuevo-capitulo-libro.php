@@ -91,7 +91,7 @@
                             a
                             <input
                             id="pp_fin"
-                            name="pp_fin"
+                            name="pp_final"
                             class="input-label" 
                             placeholder="Fin"
                             type="number"
@@ -113,7 +113,7 @@
                         </label>
                         
                         <select 
-                        name="sectorEstratégico" 
+                        name="sectorEstrategico" 
                         id="sector_estrategico"
                         >
                             <option selected disabled>[Seleccione sector estratégico]</option>
@@ -155,6 +155,7 @@
                         for="nombre"
                         >Titulo del libro: <span class="requerido">*</span> </label>
                         <input
+                        name  = "tituloLibro"
                         class="input-label" 
                         placeholder="Ingresa el capitulado"
                         type="text" >
@@ -165,6 +166,7 @@
                     for="nombre"
                     >Edición: <span class="requerido">*</span></label>
                     <input
+                    name="edicion"
                     class="input-label" 
                     placeholder="Ingresa el capitulado"
                     type="text" >
@@ -175,6 +177,7 @@
                     for="nombre"
                     >Casa editorial: <span class="requerido">*</span></label>
                     <input
+                    name="casaEditorial"
                     class="input-label" 
                     placeholder="Ingresa el capitulado"
                     type="text" >
@@ -196,6 +199,7 @@
                     for="nombre"
                     >ISBN: <span class="requerido">*</span></label>
                     <input
+                    name="isbn"
                     class="input-label" 
                     placeholder="Formato: 978-3-16-148410-0"
                     type="text" >
@@ -205,7 +209,8 @@
                     class="campo-label" 
                     for="nombre"
                     >Editorial: <span class="requerido">*</span></label>
-                    <input
+                    <input  
+                    name="editorial"
                     class="input-label" 
                     placeholder="Ingresa la editorial"
                     type="text" >

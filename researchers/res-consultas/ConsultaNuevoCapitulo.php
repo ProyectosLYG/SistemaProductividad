@@ -8,26 +8,57 @@
     //RegEx para validar campos de isbn y páginas
     $ppRegex = "/^(?:[1-9][0-9]{0,3})$/";
     $isbnRegex = "/^(?:\d{1,5}[ -]\d{1,7}[ -]\d{1,7}[ -][0-9X]|(978|979)[ -]\d{1,5}[ -]\d{1,7}[ -]\d{1,6}[ -]\d)$/";
-    
-    $id_res = $SESSION['user'];
+    $fileSizeLimit = 5 * 1024 * 1024;
+    $acceptedTypes = ['image/jpg', 'image/png'];
+    $imgQuantity = 0;
+    $imageFolder = "../projectImages";
+    $imageNames = [];
+    $imageName ='';
+    $evidencia = ['','',''];
+    $id_res = $_SESSION['user'];
 
-    //validacion de archivos
-    (count($_FILES['imgCapituloLibro']['name']) > 3 || empty($_FILES['imgCapituloLibro']['name'][0])) ? $errores[] = "Debes subir de 1 a 3 archivos." : $errores[] = "no hay errores"; 
-
+    // echo "<pre>";
+    // var_dump($_POST);
+    // echo "</pre>";
+    // echo "<br>";
     // echo "<pre>";
     // var_dump($_FILES);
     // echo "</pre>";
+    // exit;
+    //validacion de archivos
 
+    foreach($_FILES['imgCapituloLibro']['error'] as $i => $error){
+        if($error === UPLOAD_ERR_OK && !empty($_FILES['imgCapituloLibro']['name'][$i])){
+            if(!in_array($_FILES['imgCapituloLibro']['type'][$i], $acceptedTypes)){
+                $errores[] = "Solo se aceptan archivos de tipo jpeg y png.";
+                break;
+            }else{
+                if($_FILES['imgCapituloLibro']['size'][$i] > $fileSizeLimit){
+                    $errores[] = "El tamaño del archivo no debe exceder los 5MB.";
+                    break;
+                }
+            }
+            $imgQuantity ++;
+            $imageNames[] = [
+                'tmp' => $_FILES['imgCapituloLibro']['tmp_name'][$i] , 
+                'ext' => pathinfo($_FILES['imgCapituloLibro']['name'][$i], PATHINFO_EXTENSION)];
+        }
+    }
+    if($imgQuantity > 3 || $imgQuantity < 1){
+        $errores[] = "Debe subir de 1 a 3 imágenes.";
+    }
+    
 
-    (!isset($_POST['tituloCapitulo']) || empty($_POST['tituloCapitulo'])) ? $errores[] = "El titulo del capítulo es obligatorio." : $ttuloCapitulo = $_POST['tituloCapitulo']; 
+    //validacion de campos
+    (!isset($_POST['tituloCapitulo']) || empty($_POST['tituloCapitulo'])) ? $errores[] = "El titulo del capítulo es obligatorio." : $tituloCapitulo = $_POST['tituloCapitulo']; 
 
-    (!isset($_POST['resumen']) || empty($_POST['resumen'])) ? $errores[] = "El resumen del libro es obligatorio." : $resumen = $_POST['resmun'];
+    (!isset($_POST['resumenCapitulo']) || empty($_POST['resumenCapitulo'])) ? $errores[] = "El resumen del libro es obligatorio." : $resumen = $_POST['resumenCapitulo'];
 
-    (!isset($_POST['autores']) || empty($_POST['autores'])) ? $errores[] = "Los autores del capítulo son obligatorios." : $autores = $_POST['autores'];
+    (!isset($_POST['autoresCapitulo']) || empty($_POST['autoresCapitulo'])) ? $errores[] = "Los autores del capítulo son obligatorios." : $autores = $_POST['autoresCapitulo'];
 
     (!isset($_POST['posicionAutorCapitulo'])) ? $posicion = '0' : $posicion = $_POST['posicionAutorCapitulo'];
 
-    (!isset($_POST['pp_inicio']) || !isset($_POST['pp_final']) || empty($_POST['pp_inicio']) || empty($_POST['pp_final'])) ? $errores[] = "el rango de paginas es obligatorio" : ($pp_inicio = $_POST['pp_inicio']) && ($pp_final = $_POST['pp_final']);
+    (!isset($_POST['pp_inicio']) || !isset($_POST['pp_final']) || empty($_POST['pp_inicio']) || empty($_POST['pp_final'])) ? $errores[] = "El rango de páginas es obligatorio" : ($pp_inicio = $_POST['pp_inicio']) && ($pp_final = $_POST['pp_final']);
 
     (!preg_match($ppRegex, $pp_inicio) || !preg_match($ppRegex, $pp_final)) ? $errores[] = "El rango de las páginas debe ser un número entero positivo." : (($pp_inicio > $pp_final) ? $errores[] = "El inicio de las paginas no puede ser mayor al final." : $rangoPags = $pp_inicio . '-' . $pp_final);
 
@@ -41,25 +72,27 @@
 
     (!isset($_POST['casaEditorial']) || empty($_POST['casaEditorial'])) ? $errores[] = "Es necesario indicar la casa editorial." : $casaEditorial = $_POST['casaEditorial'];
 
-    (!isset($_POST['fechaPubliciacion']) || empty($_POST['fechaPublicacion'])) ? $errores[] = "La fecha de publicación es obligatoria." : $fechaPublicacion = $_POST['fechaPublicacion'];
+    (!isset($_POST['fechaPublicacion']) || empty($_POST['fechaPublicacion'])) ? $errores[] = "La fecha de publicación es obligatoria." : $fechaPublicacion = $_POST['fechaPublicacion'];
 
     (!isset($_POST['isbn']) || empty($_POST['isbn'])) ? $errores[] = "El ISBN es obligatorio." : (preg_match($isbnRegex, $_POST['isbn']) ? $isbn = $_POST['isbn'] : $errores[] = "El ISBN no es válido.");
 
-    (!isset($_POST['editorial']) || empty($_POST['editorial'])) ? $errores[] = "La editorial es obligatoria." : $editorial = $_POST['editorial'];
+    $editorial = $_POST['editorial'] ?? '';
 
-    (!isset($_POST['evidencia1']) || empty($_POST['evidencia1'])) ? $errores[] = "La evidencia 1 es obligatoria." : $evidencia1 = $_POST['evidencia1'];
-
-    (!isset($_POST['evidencia2']) || empty($_POST['evidencia2'])) ? $errores[] = "La evidencia 2 es obligatoria." : $evidencia2 = $_POST['evidencia2'];
-
-    (!isset($_POST['evidencia3']) || empty($_POST['evidencia3'])) ? $errores[] = "La evidencia 3 es obligatoria." : $evidencia3 = $_POST['evidencia3'];
-
-    if(count($errores) > 0){
+    if(empty($errores) > 0){
+        if(!is_dir($imageFolder)){
+            mkdir($imageFolder);
+        }
+        foreach($imageNames as $i => $temp){
+            $imageTmpName = md5(uniqid(('')));
+            $imageName = $imageTmpName . '.' . $temp['ext'];
+            move_uploaded_file($temp['tmp'], $imageFolder . '/' . $imageName );
+            $evidencia[$i] = $imageName;
+        }
+    }else{
         $_SESSION['errores'] = $errores;
         header("Location: ../nuevo-capitulo-libro.php");
-        exit;
     }
 
-    exit;
     
     $sql = "INSERT INTO chap_book 
     (
@@ -98,7 +131,8 @@
     :evidencia1,
     :evidencia2,
     :evidencia3
-    );";
+    );";    
+    
     try{
 
         $stmt = $conn->prepare($sql);
@@ -117,9 +151,9 @@
             'fechaPublicacion' => $fechaPublicacion,
             'isbn' => $isbn,
             'editorial' => $editorial,
-            'evidencia1' => $evidencia1,
-            'evidencia2' => $evidencia2,
-            'evidencia3' => $evidencia3
+            'evidencia1' => $evidencia[0],
+            'evidencia2' => $evidencia[1],
+            'evidencia3' => $evidencia[2]
         ]);
         $res = $stmt -> rowCount();
         if($res > 0){
