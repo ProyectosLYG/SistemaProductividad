@@ -3,7 +3,7 @@
 
     include '../build/config/connection.php';
     $db = connect();
-    $userID = $_SESSION['user'];
+    $userId = $_SESSION['user'];
 ?>
 
 
@@ -35,31 +35,40 @@
             </div>
         </div>
 
-
         <!-- libros de bd -->
-        <?php 
-        $sql = "SELECT 
-        c.evidencia1
-        c.tituloCapitulo,
-        u.last_name,
-        u.first_name,
-        c.fechaPublicacion,
-        l.idLibro 
-        FROM chap_book c INNER JOIN user_profile u WHERE  ";
-        ?>
-        <div class=" my-5 row g-5 justify-content-around align-items-center">
-            <!-- Estructura de un libro -->
-            <div class="proyecto d-flex flex-column radius-3" wdith="30%">
-                <img src="/build/img/libroEjemplo1.webp" class="img-fluid mx-auto mt-4 rounded" width="300" height="400" alt="Imágen de libro">
-                <div class="mx-5">
-                    <p class="fs-1 fw-bold m-0">Libro de ejemplo</p>
-                    
-                    <p class="text-start m-0">13/03/23</p>
-                    <p class="align-content-center fs-2 fst-italic m-0">Mtro. José Luis Camacho Campero | ISC</p>
-                    <a href="#" class="boton-claro d-flex justify-content-center w-75 mx-auto">Ver libro</a>
+        <div class=" my-5 row row-cols-1 row-cols-md-3 g-5 justify-content-around align-items-center">
+
+            <?php 
+            $sql = "SELECT 
+            c.evidencia1,
+            c.tituloCapitulo,
+            u.last_name,
+            u.first_name,
+            c.fechaPublicacion,
+            c.idLibro 
+            FROM chap_book c 
+            INNER JOIN user_profile u 
+            ON u.user_id = c.id_res 
+            WHERE u.user_id = :userId";
+
+            $stmt = $db -> prepare($sql);
+            $stmt -> execute(['userId'=>$userId]);
+            while($res = $stmt -> fetch()){
+            ?>
+                <!-- Estructura de un libro -->
+                 <div class = "col">
+                     <div class="  proyecto d-flex flex-column radius-3  m-2 auto h-100">
+                         <img src="projectImages/<?php echo $res['evidencia1'] ?>" class="img-fluid mx-auto mt-4 rounded" width="300" height="400" alt="Imágen de libro">
+                         <div class="mx-5">
+                             <p class="fs-1 fw-bold m-0"><?php echo $res['tituloCapitulo'] ?></p>
+                             
+                             <p class="text-start m-0"><?php echo $res['fechaPublicacion'] ?></p>
+                             <p class="align-content-center fs-2 fst-italic m-0"> <?php echo $res['last_name'] . ' ' . $res['first_name'] ?> | ISC</p>
+                             <a href="#" id="<?php echo $res['idLibro'] ?>" class="boton-claro d-flex justify-content-center w-75 mx-auto">Ver libro</a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            
+            <?php }?>
         </div>
     </section>
 

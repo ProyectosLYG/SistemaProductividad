@@ -83,7 +83,7 @@
             mkdir($imageFolder);
         }
         foreach($imageNames as $i => $temp){
-            $imageTmpName = md5(uniqid(('')));
+            $imageTmpName = md5(uniqid((rand()), true));
             $imageName = $imageTmpName . '.' . $temp['ext'];
             move_uploaded_file($temp['tmp'], $imageFolder . '/' . $imageName );
             $evidencia[$i] = $imageName;
