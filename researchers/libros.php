@@ -1,4 +1,11 @@
-<?php include '../build/utilities/nav.php';?>
+<?php 
+    include '../build/utilities/nav.php';
+
+    include '../build/config/connection.php';
+    $db = connect();
+    $userID = $_SESSION['user'];
+?>
+
 
 
     <!-- titulo u busqueda -->    
@@ -30,24 +37,29 @@
 
 
         <!-- libros de bd -->
-        <div class="">
+        <?php 
+        $sql = "SELECT 
+        c.evidencia1
+        c.tituloCapitulo,
+        u.last_name,
+        u.first_name,
+        c.fechaPublicacion,
+        l.idLibro 
+        FROM chap_book c INNER JOIN user_profile u WHERE  ";
+        ?>
+        <div class=" my-5 row g-5 justify-content-around align-items-center">
             <!-- Estructura de un libro -->
-            <div class="proyecto">
-                <img src="/build/img/libroEjemplo1.webp" class="img-fluid mx-auto" width="300" height="400" alt="Imágen de libro">
+            <div class="proyecto d-flex flex-column radius-3" wdith="30%">
+                <img src="/build/img/libroEjemplo1.webp" class="img-fluid mx-auto mt-4 rounded" width="300" height="400" alt="Imágen de libro">
                 <div class="mx-5">
-                    <p class="fs-1 fw-bold">Libro de ejemplo</p>
-                    <p class="">
-                        Praesent finibus tempus eros at placerat. Nam vehicula porta libero, vitae commodo quam. In cursus erat felis, gravida mattis felis pulvinar a. Proin commodo elit ac leo fermentum tincidunt. Nulla porttitor lacus malesuada efficitur malesuada. Sed id ligula at augue rhoncus imperdiet. Sed egestas condimentum vulputate. Aenean ultricies dignissim maximus. Ut vestibulum neque lacus, a laoreet arcu vehicula id. Donec eu fermentum felis. Sed sit amet diam neque. 
-                    </p>
-                    <p class="text-end">
-                        13/03/23
-                    </p>
-                    <div class="d-flex- flex-row align-content-center justify-content-between">
-                        <p class="align-content-center fs-2 fst-italic">Mtro. José Luis Camacho Campero | ISC</p>
-                        <a href="#" class="boton-claro">Ver libro</a>
-                    </div>
+                    <p class="fs-1 fw-bold m-0">Libro de ejemplo</p>
+                    
+                    <p class="text-start m-0">13/03/23</p>
+                    <p class="align-content-center fs-2 fst-italic m-0">Mtro. José Luis Camacho Campero | ISC</p>
+                    <a href="#" class="boton-claro d-flex justify-content-center w-75 mx-auto">Ver libro</a>
                 </div>
             </div>
+            
         </div>
     </section>
 

@@ -8,8 +8,8 @@
     //RegEx para validar campos de isbn y páginas
     $ppRegex = "/^(?:[1-9][0-9]{0,3})$/";
     $isbnRegex = "/^(?:\d{1,5}[ -]\d{1,7}[ -]\d{1,7}[ -][0-9X]|(978|979)[ -]\d{1,5}[ -]\d{1,7}[ -]\d{1,6}[ -]\d)$/";
-    $fileSizeLimit = 5 * 1024 * 1024;
-    $acceptedTypes = ['image/jpg', 'image/png'];
+    $fileSizeLimit = 3 * 1024 * 1024;
+    $acceptedTypes = ['image/jpg', 'image/png', 'image/jpeg'];
     $imgQuantity = 0;
     $imageFolder = "../projectImages";
     $imageNames = [];
