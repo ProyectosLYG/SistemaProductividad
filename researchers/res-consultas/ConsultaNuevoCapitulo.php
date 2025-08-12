@@ -157,7 +157,8 @@
         ]);
         $res = $stmt -> rowCount();
         if($res > 0){
-            header("Location: ../../index.php");
+            header("Location: ../libros.php");
+            exit;
         }else{
             echo "Error al insertar el capítulo del libro.";
             exit;
