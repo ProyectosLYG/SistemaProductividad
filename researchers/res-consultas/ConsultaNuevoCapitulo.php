@@ -74,7 +74,7 @@
 
     (!isset($_POST['fechaPublicacion']) || empty($_POST['fechaPublicacion'])) ? $errores[] = "La fecha de publicación es obligatoria." : $fechaPublicacion = $_POST['fechaPublicacion'];
 
-    (!isset($_POST['isbn']) || empty($_POST['isbn'])) ? $errores[] = "El ISBN es obligatorio." : (preg_match($isbnRegex, $_POST['isbn']) ? $isbn = $_POST['isbn'] : $errores[] = "El ISBN no es válido.");
+    (!isset($_POST['isbn']) || empty($_POST['isbn'])) ? $errores[] = "El ISBN es obligatorio." :  $isbn = $_POST['isbn'];
 
     $editorial = $_POST['editorial'] ?? '';
 
