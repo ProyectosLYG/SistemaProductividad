@@ -5,7 +5,7 @@
     <div class="header-proyectos">
         <h2>Agregar nuevo artículo</h2>
     </div>
-    <form>
+    <form action="res-consultas/ConsultaNuevoArticulo.php" method="post" class="formulario">
         <div class="aviso-rojo">Todos los datos con (*) son obligatorios.</div>
         <fieldset>
             <legend>Datos principales del Artículo</legend>
@@ -21,7 +21,7 @@
                     class="input-largo focus"
                     placeholder="Ingresa el titulo del artículo..."
                     type="text"
-                    required
+                    
                     >
                 </div>
                 <div class="campo">
@@ -35,7 +35,7 @@
                     class="input-largo"
                     placeholder="Ingresa el nombre de la revista..."
                     type="text"
-                    required
+                    
                     >
                 </div>
                 <div class="campo">
@@ -46,9 +46,9 @@
                     <input 
                     id="txt_autores_articulo"
                     class=""
+                    name="autores"
                     placeholder="Ingresa nombre de los autores..."
                     type="text"
-                    required
                     >
                     <div class="texto-extra">Separar nombres por punto y coma ( ; )</div>
                     <div class="texto-extra">Formato: Apellido paterno apellido materno, nombre(s)</div>
@@ -114,7 +114,6 @@
                     <input
                     id="date_articulo" 
                     type="date"
-                    required
                     >
                 </div>
                 <div class="campo">
@@ -126,7 +125,6 @@
                     id="date_articulo" 
                     type="text"
                     placeholder="Ingresar la editorial..."
-                    required
                     >
                 </div>
                 <div class="campo">
@@ -143,7 +141,7 @@
             </div>
         </fieldset>
         <fieldset>
-            <legend>Área, sector y disciplina del artículo</legend>
+            <legend>Área y sector.</legend>
             <div class="flex-responsive spc-bet">
                 <div class="campo">
                     <label 
@@ -154,28 +152,6 @@
                     id="sector_articulo"
                     >
                         <option value="0">[seleccione un sector]</option>
-                    </select>
-                </div>
-                <div class="campo">
-                    <label 
-                    for="subsector_articulo"
-                    >Subsector estratégico:<span class="requerido">*</span></label>
-                    <select 
-                    name="subsector_articulo" 
-                    id="subsector_articulo"
-                    >
-                        <option value="0">[seleccione un subsector]</option>
-                    </select>
-                </div>
-                <div class="campo">
-                    <label 
-                    for="areaPrioritaria_articulo"
-                    >Área prioritaria del país:<span class="requerido">*</span></label>
-                    <select 
-                    name="areaPrioritaria_articulo" 
-                    id="areaPrioritaria_articulo"
-                    >
-                        <option value="0">[seleccione un área]</option>
                     </select>
                 </div>
                 <div class="campo">
@@ -214,16 +190,16 @@
                     class="input-label" 
                     placeholder="Inicio"
                     type="number" 
-                    required >
+                    >
                     a
                     <input
                     id="pp_fin_-articulo"
                     class="input-label" 
                     placeholder="Fin"
                     type="number"
-                    required >
+                    >
                 </div>
-                <div class="campo">
+                <!--<div class="campo">
                     <label 
                     for="subsector_articulo"
                     >Volumen:<span class="requerido">*</span></label>
@@ -236,7 +212,7 @@
                         <option value="3">3</option>
                         <option value="4">4 o más</option>
                     </select>
-                </div>
+                </div>-->
                 <div class="campo">
                     <label 
                     for="subsector_articulo"
@@ -247,7 +223,7 @@
                     id="indice_registro_articulo" 
                     placeholder="Ejemplo: JCR, LATINDEX,EBSCO, etc"
                     type="text"
-                    required
+                    
                     >
                 </div>
                 <div class="campo">
@@ -260,12 +236,12 @@
                     id="issn_articulo" 
                     placeholder="5246-5413"
                     type="text"
-                    required
+                    
                     >
                 </div>
             </div>
         </fieldset>
-        <button class="boton-claro" onclick="preventDefault();">Subir artículo</button>
+        <button type="submit" class="boton-claro" >Subir artículo</button>
     </form>
 </main>
 <?php 

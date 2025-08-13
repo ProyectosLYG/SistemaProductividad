@@ -45,7 +45,7 @@ CREATE TABLE `chap_book` (
   PRIMARY KEY (`idLibro`),
   KEY `id_res` (`id_res`),
   CONSTRAINT `chap_book_ibfk_1` FOREIGN KEY (`id_res`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -55,6 +55,8 @@ CREATE TABLE `chap_book` (
 LOCK TABLES `chap_book` WRITE;
 /*!40000 ALTER TABLE `chap_book` DISABLE KEYS */;
 set autocommit=0;
+INSERT INTO `chap_book` VALUES
+(7,2,'Poems about life',' The only constant in life is change. Climate is a journey in embracing change both internally and externally. It guides you through all the weather you face. From heartbreak to the storms you create inside your brain, Climate reminds you to embrace the sun, storm, and rain. Most importantly, it emphasizes the beauty, value, and consistency of change. ','Whitney Hanson',1,'1-345','Inteligencia artificial','Ingeniería y tecnología','Climate','1','Penguin life','2022-11-07',' 979-8218082512 ','Book a book','0a23b703cb53bc09fa0a894674d4b11d.jpg','','');
 /*!40000 ALTER TABLE `chap_book` ENABLE KEYS */;
 UNLOCK TABLES;
 commit;
@@ -84,6 +86,8 @@ CREATE TABLE `user_profile` (
 LOCK TABLES `user_profile` WRITE;
 /*!40000 ALTER TABLE `user_profile` DISABLE KEYS */;
 set autocommit=0;
+INSERT INTO `user_profile` VALUES
+(2,'Nombre(s)','Apellidos','Biografia de la persona','url de la persona');
 /*!40000 ALTER TABLE `user_profile` ENABLE KEYS */;
 UNLOCK TABLES;
 commit;
@@ -196,4 +200,4 @@ commit;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*M!100616 SET NOTE_VERBOSITY=@OLD_NOTE_VERBOSITY */;
 
--- Dump completed on 2025-08-11  3:48:55
+-- Dump completed on 2025-08-13  1:47:37
