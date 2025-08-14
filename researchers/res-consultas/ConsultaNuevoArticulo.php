@@ -30,3 +30,5 @@
     (!isset($_POST['nombreRevista']) || empty($_POST['nombreRevista'])) ? $errores[] = "El nombre de la revista es obligatorio." : $nombreRevista = $_POST['nombreRevista'];
 
     (!isset($_POST['autoresArticulo']) || empty($_POST['autoresArticulo'])) ? $error[] = "Los autores son obligatorios." : $autoresArticulo = $_POST['autoresArticulo'];
+
+    (!isset($_POST['propositoAutor']) || empty($_POST['propositoAutor'])) ? $errores[] = "El proposito del autor es obligatorio." : $propositoAutor = $_POST['propositoAutor'];
