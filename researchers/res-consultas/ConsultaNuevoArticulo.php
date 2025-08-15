@@ -8,19 +8,20 @@
     $ppRegex = "/^(?:[1-9][0-9]{0,3})$/";
 
     /*
-    tituloArticulo
-    nombreRevista
-    autoresArticulo
-    propositoAutor
-    resumen
-    estadoArticulo
-    fechaArticulo
-    sectorArticulo
-    areaConocimiento
-    tipoArticulo
-    pp_inicio
-    pp_final
-    indiceRegistro
+    id_res,
+    tituloArticulo,
+    nombreRevista,
+    autoresArticulo,
+    propositoAutor,
+    resumen,
+    estadoArticulo,
+    fechaArticulo,
+    casaEditorial,
+    sectorArticulo,
+    areaConocimiento,
+    tipoArticulo,
+    rangoPaginas,
+    indiceRegistro,
     issn
     */
 
@@ -68,7 +69,7 @@
     }
 
 
-    $sql = "INSERT INTO articulo
+    $sql = "INSERT INTO articulos
     (
     id_res,
     tituloArticulo,

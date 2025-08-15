@@ -62,7 +62,25 @@ CREATE TABLE chap_book(
 
 drop table chap_book;
 
-
+CREATE TABLE articulos (
+	idArticulo INT AUTO_INCREMENT PRIMARY KEY,
+	id_res INT NOT NULL,
+    tituloArticulo VARCHAR(150),
+    nombreRevista VARCHAR(150),
+    autoresArticulo VARCHAR(150),
+    propositoAutor VARCHAR(50),
+    resumen VARCHAR(850),
+    estadoArticulo VARCHAR(50),
+    fechaArticulo DATE ,
+    casaEditorial VARCHAR(50),
+    sectorArticulo VARCHAR(50),
+    areaConocimiento VARCHAR(50),
+    tipoArticulo VARCHAR(50),
+    rangoPaginas VARCHAR(10),
+    indiceRegistro VARCHAR(30),
+    issn VARCHAR(25),
+    FOREIGN KEY (id_res) REFERENCES users(id)
+);
 
 
 
