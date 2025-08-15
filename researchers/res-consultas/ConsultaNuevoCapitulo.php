@@ -78,7 +78,7 @@
 
     $editorial = $_POST['editorial'] ?? '';
 
-    if(empty($errores) > 0){
+    if(empty($errores)){
         if(!is_dir($imageFolder)){
             mkdir($imageFolder);
         }
@@ -91,6 +91,7 @@
     }else{
         $_SESSION['errores'] = $errores;
         header("Location: ../nuevo-capitulo-libro.php");
+        exit;
     }
 
     

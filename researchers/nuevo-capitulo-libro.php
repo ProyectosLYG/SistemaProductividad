@@ -13,7 +13,7 @@
             <h1>Añadir capitulo de libro</h1>
         </div>
         <?php foreach($errores as $error): ?>
-            <p class="alert alert-danger"><?php echo $error; ?></p>
+            <p class="alert alert-danger text-center"><?php echo $error; ?></p>
         <?php endforeach; ?>
 
         <form action="./res-consultas/ConsultaNuevoCapitulo.php" method="POST" enctype="multipart/form-data">

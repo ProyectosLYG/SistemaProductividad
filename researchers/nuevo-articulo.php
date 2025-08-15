@@ -1,11 +1,22 @@
 <?php 
     include '../build/utilities/nav.php';
+    $errores = [];
+    if(isset($_SESSION['errores'])){
+        $errores = $_SESSION['errores'];
+        unset($_SESSION['errores']);
+    }
+        
 ?>
 <main class="principal contenedor"> 
     <div class="header-proyectos">
         <h2>Agregar nuevo artículo</h2>
     </div>
-    <form action="res-consultas/ConsultaNuevoArticulo.php" method="post" class="formulario">
+
+    <?php foreach($errores as $error): ?>
+        <p class="alert alert-danger text-center"><?php echo $error; ?></p>
+    <?php endforeach; ?>
+
+    <form action="res-consultas/ConsultaNuevoArticulo.php" method="POST" class="formulario">
         <div class="aviso-rojo">Todos los datos con (*) son obligatorios.</div>
         <fieldset>
             <legend>Datos principales del Artículo</legend>
@@ -104,16 +115,16 @@
                     <select 
                     name="estadoArticulo" 
                     id="estadoArticulo"
-                >
-                    <option disabled selected>[Seleccione una opcion]</option>
-                    <option value="Enviado">Enviado</option>
-                    <option value="En Revision">En revisión</option>
-                    <option value="Con revisiones">Con revisiones</option>
-                    <option value="Aceptado">Aceptado</option>
-                    <option value="Rechazado">Rechazado</option>
-                    <option value="Publicado">Publicado</option>
-                    <option value="Retractado">Retractado</option>
-                </select>
+                    >
+                        <option disabled selected>[Seleccione una opcion]</option>
+                        <option value="Enviado">Enviado</option>
+                        <option value="En Revision">En revisión</option>
+                        <option value="Con revisiones">Con revisiones</option>
+                        <option value="Aceptado">Aceptado</option>
+                        <option value="Rechazado">Rechazado</option>
+                        <option value="Publicado">Publicado</option>
+                        <option value="Retractado">Retractado</option>
+                    </select>
                 </div>
                 <div class="campo">
                     <label 
@@ -203,7 +214,7 @@
                         <option selected disabled>[seleccione un tipo]</option>
                         <option value="investigación">Artículo de investigación</option>
                         <option value="revisión">Artículo de revisión</option>
-                        <option value="divulgación_científica">Divulgación científica</option>
+                        <option value="divulgación científica">Divulgación científica</option>
                         <option value="opinión">Artículo de opinión</option>
                         <option value="técnico">Artículo técnico</option>
                         <option value="educativo">Artículo educativo</option>
