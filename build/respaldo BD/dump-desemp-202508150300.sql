@@ -17,6 +17,49 @@
 /*M!100616 SET @OLD_NOTE_VERBOSITY=@@NOTE_VERBOSITY, NOTE_VERBOSITY=0 */;
 
 --
+-- Table structure for table `articulos`
+--
+
+DROP TABLE IF EXISTS `articulos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8mb4 */;
+CREATE TABLE `articulos` (
+  `idArticulo` int(11) NOT NULL AUTO_INCREMENT,
+  `id_res` int(11) NOT NULL,
+  `tituloArticulo` varchar(150) DEFAULT NULL,
+  `nombreRevista` varchar(150) DEFAULT NULL,
+  `autoresArticulo` varchar(150) DEFAULT NULL,
+  `propositoAutor` varchar(50) DEFAULT NULL,
+  `resumen` varchar(850) DEFAULT NULL,
+  `estadoArticulo` varchar(50) DEFAULT NULL,
+  `fechaArticulo` date DEFAULT NULL,
+  `casaEditorial` varchar(50) DEFAULT NULL,
+  `sectorArticulo` varchar(50) DEFAULT NULL,
+  `areaConocimiento` varchar(50) DEFAULT NULL,
+  `tipoArticulo` varchar(50) DEFAULT NULL,
+  `rangoPaginas` varchar(10) DEFAULT NULL,
+  `indiceRegistro` varchar(30) DEFAULT NULL,
+  `issn` varchar(25) DEFAULT NULL,
+  PRIMARY KEY (`idArticulo`),
+  KEY `id_res` (`id_res`),
+  CONSTRAINT `articulos_ibfk_1` FOREIGN KEY (`id_res`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `articulos`
+--
+
+LOCK TABLES `articulos` WRITE;
+/*!40000 ALTER TABLE `articulos` DISABLE KEYS */;
+set autocommit=0;
+INSERT INTO `articulos` VALUES
+(1,2,'Titulo articulo','Revista TESCI','Galicia Flores Gerardo Oswaldo','Informar','La revista trata temas importantes de la actualidad sobre como la industria se aprovecha de las mentes mas brillantes.','Aceptado','2025-05-29','Casa editorial perrona','Gestión de residuos','Ciencias de la computación','opinión','1-45','JCR','451236985');
+/*!40000 ALTER TABLE `articulos` ENABLE KEYS */;
+UNLOCK TABLES;
+commit;
+
+--
 -- Table structure for table `chap_book`
 --
 
@@ -200,4 +243,4 @@ commit;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*M!100616 SET NOTE_VERBOSITY=@OLD_NOTE_VERBOSITY */;
 
--- Dump completed on 2025-08-13  1:47:37
+-- Dump completed on 2025-08-15  3:00:09
