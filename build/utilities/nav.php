@@ -36,7 +36,9 @@
                                     '<a href="../researchers/congresos.php">Congresos</a>'.
                                     '<a href="../researchers/libros.php">Libros</a>'.
                                     '<a href="../researchers/proyectos.php">Proyectos</a>'.
-                                    '<a href="#">Ayuda</a>'.
+                                    '<a href="../researchers/proyectos.php">Prototipo</a>'.
+                                    '<a href="../researchers/proyectos.php">Propiedad intelectual</a>'.
+                                    '<a href="../researchers/proyectos.php">Memoria</a>'.
                                     '<a href="../build/config/closeSession.php">Salir</a>'.
                                     '<a href="#">'.
                                         '<svg width="35" height="35">'.
