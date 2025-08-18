@@ -11922,14 +11922,9 @@ h3 {
 
 .proyecto {
   background-color: #3E5879;
-  padding: 1.5rem;
-  margin: 2rem auto;
   border-radius: 20px;
   box-shadow: -5px 5px 5px #000;
   color: #fff;
-  display: flex;
-  flex-direction: row;
-  justify-content: left;
 }
 .proyecto .imagen-ejemplo {
   max-width: 40rem;

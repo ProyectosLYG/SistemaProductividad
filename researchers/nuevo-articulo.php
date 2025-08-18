@@ -1,11 +1,22 @@
 <?php 
     include '../build/utilities/nav.php';
+    $errores = [];
+    if(isset($_SESSION['errores'])){
+        $errores = $_SESSION['errores'];
+        unset($_SESSION['errores']);
+    }
+        
 ?>
 <main class="principal contenedor"> 
     <div class="header-proyectos">
         <h2>Agregar nuevo artículo</h2>
     </div>
-    <form>
+
+    <?php foreach($errores as $error): ?>
+        <p class="alert alert-danger text-center"><?php echo $error; ?></p>
+    <?php endforeach; ?>
+
+    <form action="res-consultas/ConsultaNuevoArticulo.php" method="POST" class="formulario">
         <div class="aviso-rojo">Todos los datos con (*) son obligatorios.</div>
         <fieldset>
             <legend>Datos principales del Artículo</legend>
@@ -13,47 +24,46 @@
                 <div class="campo">
                     <label
                     class="" 
-                    for="txt_titulo_articulo"
+                    for="tituloArticulo"
                     >Título: <span class="requerido">*</span></label>
                     <input 
-                    name="txt_titulo_articulo"
-                    id="txt_titulo_articulo"
+                    name="tituloArticulo"
                     class="input-largo focus"
                     placeholder="Ingresa el titulo del artículo..."
                     type="text"
-                    required
+                    
                     >
                 </div>
                 <div class="campo">
                     <label
                     class="" 
-                    for="txt_nombre_revista"
+                    for="nombrerevista"
                     >Nombre de la revista: <span class="requerido">*</span></label>
                     <input 
-                    name="txt_nombre_revista"
-                    id="txt_nombre_revista"
+                    name="nombreRevista"
+                    id="nombreRevista"
                     class="input-largo"
                     placeholder="Ingresa el nombre de la revista..."
                     type="text"
-                    required
+                    
                     >
                 </div>
                 <div class="campo">
                     <label
                     class="" 
-                    for="txt_autores_articulo"
+                    for="autoresArticulo"
                     >Autor(es): <span class="requerido">*</span></label>
                     <input 
-                    id="txt_autores_articulo"
+                    id="autoresArticulo"
                     class=""
+                    name="autoresArticulo"
                     placeholder="Ingresa nombre de los autores..."
                     type="text"
-                    required
                     >
                     <div class="texto-extra">Separar nombres por punto y coma ( ; )</div>
                     <div class="texto-extra">Formato: Apellido paterno apellido materno, nombre(s)</div>
                 </div>
-                <div class="campo">
+                <!-- <div class="campo">
                     <label 
                     for="pos_autor_articulo"
                     >Posición del autor:<span class="requerido">*</span></label>
@@ -67,28 +77,32 @@
                         <option value="3">3ra posición</option>
                         <option value="4">4ta posición</option>
                     </select>
-                </div>
+                </div> -->
                 <div class="campo">
                     <label
                     class="" 
-                    for="prop_autor_articulo"
+                    for="propositoAutor"
                     >Propósito del autor: <span class="requerido">*</span></label>
                     <select 
-                    name="prop_autor_articulo" 
-                    id="prop_autor_articulo"
+                    name="propositoAutor" 
+                    id="propositoAutor"
                     >
                         <option value="0">[Seleccione el propósito]</option>
+                        <option value="Informar">Informar</option>
+                        <option value="Persuadir">Persuadir</option>
+                        <option value="Entretener">Entretener</option>
+                        <option value="Educar">Educar</option>
                     </select>
                 </div>
             </div>
             <div class="campo">
                 <label
                 class="" 
-                for="txt_resumen_articulo"
-                >Propósito del autor: <span class="requerido">*</span></label>
+                for="resumen"
+                >Resumen: <span class="requerido">*</span></label>
                 <textarea 
-                name="txt_resumen" 
-                id="txt_resumen_articulo"
+                name="resumen" 
+                id="resumen"
                 placeholder="Resumen del artículo..."
                 ></textarea>
             </div>
@@ -96,40 +110,44 @@
 
                 <div class="campo">
                     <label 
-                    for="estado_articulo"
+                    for="estadoArticulo"
                     >Estado:<span class="requerido">*</span></label>
                     <select 
-                    name="estado_articulo" 
-                    id="estado_articulo"
-                >
-                    <option value="0">Publicado</option>
-                    <option value="1">En revisión</option>
-                    <option value="2">Revisado</option>
-                </select>
+                    name="estadoArticulo" 
+                    id="estadoArticulo"
+                    >
+                        <option disabled selected>[Seleccione una opcion]</option>
+                        <option value="Enviado">Enviado</option>
+                        <option value="En Revision">En revisión</option>
+                        <option value="Con revisiones">Con revisiones</option>
+                        <option value="Aceptado">Aceptado</option>
+                        <option value="Rechazado">Rechazado</option>
+                        <option value="Publicado">Publicado</option>
+                        <option value="Retractado">Retractado</option>
+                    </select>
                 </div>
                 <div class="campo">
                     <label 
-                    for="estado_articulo"
+                    for="fechaArticulo"
                     >Fecha:<span class="requerido">*</span></label>
                     <input
-                    id="date_articulo" 
+                    id="fechaArticulo" 
                     type="date"
-                    required
+                    name="fechaArticulo"
                     >
                 </div>
                 <div class="campo">
                     <label 
-                    for="editorial_articulo"
+                    for="casaEditorial"
                     >Casa editorial:<span class="requerido">*</span></label>
                     <input
-                    name="editorial_articulo"
-                    id="date_articulo" 
+                    name="casaEditorial"
+                    id="casaEditorial" 
                     type="text"
                     placeholder="Ingresar la editorial..."
-                    required
                     >
                 </div>
-                <div class="campo">
+                <!-- <div class="campo">
                     <label 
                     for="pais_articulo"
                     >País de publicación:<span class="requerido">*</span></label>
@@ -139,55 +157,45 @@
                     >
                         <option value="0">[seleccione un país]</option>
                     </select>
-                </div>
+                </div> -->
             </div>
         </fieldset>
         <fieldset>
-            <legend>Área, sector y disciplina del artículo</legend>
+            <legend>Área y sector.</legend>
             <div class="flex-responsive spc-bet">
                 <div class="campo">
                     <label 
-                    for="sector_articulo"
+                    for="sectorArticulo"
                     >Sector estratégico:<span class="requerido">*</span></label>
                     <select 
-                    name="sector_articulo" 
-                    id="sector_articulo"
+                    name="sectorArticulo" 
+                    id="sectorArticulo"
                     >
-                        <option value="0">[seleccione un sector]</option>
+                        <option selected disabled>[Seleccione sector estratégico]</option>
+                        <option value="Energías renovables">Energías renovables</option>
+                        <option value="Eficiencia energética">Eficiencia energética</option>
+                        <option value="Gestión de residuos">Gestión de residuos</option>
+                        <option value="Inteligencia artificial">Inteligencia artificial</option>
+                        <option value="Ciberseguridad">Ciberseguridad</option>
+                        <option value="Internet de las cosas">Internet de las cosas</option>
+                        <option value="Computación en la nube">Computación en la nube</option>
+
                     </select>
                 </div>
                 <div class="campo">
                     <label 
-                    for="subsector_articulo"
-                    >Subsector estratégico:<span class="requerido">*</span></label>
-                    <select 
-                    name="subsector_articulo" 
-                    id="subsector_articulo"
-                    >
-                        <option value="0">[seleccione un subsector]</option>
-                    </select>
-                </div>
-                <div class="campo">
-                    <label 
-                    for="areaPrioritaria_articulo"
-                    >Área prioritaria del país:<span class="requerido">*</span></label>
-                    <select 
-                    name="areaPrioritaria_articulo" 
-                    id="areaPrioritaria_articulo"
-                    >
-                        <option value="0">[seleccione un área]</option>
-                    </select>
-                </div>
-                <div class="campo">
-                    <label 
-                    for="subsector_articulo"
+                    for="areaConocimiento"
                     >Área del conocimiento:<span class="requerido">*</span></label>
                     <select 
-                    name="subsector_articulo" 
-                    id="subsector_articulo"
+                    name="areaConocimiento" 
+                    id="areaConocimiento"
                     >
-                        <option value="0">[seleccione un área]</option>
-                    </select>
+                        <option selected disabled>[Seleccione un área]</option> 
+                        <option value="Ingeniería y tecnología">Ingeniería y tecnología</option>
+                        <option value="Ciancias naturales">Ciencias Naturales</option>
+                        <option value="Ciencias ambientales">Ciencias ambientales</option>
+                        <option value="Ciencias de la computación">Ciencias de la computación</option>
+                        <option value="Redes y conmutaciónes">Redes y conmutaciónes</option>                    </select>
                 </div>
             </div>
         </fieldset>
@@ -197,75 +205,68 @@
             <div class="flex-responsive spc-bet">
                 <div class="campo">
                     <label 
-                    for="subsector_articulo"
+                    for="tipoArticulo"
                     >Tipo de artículo:<span class="requerido">*</span></label>
                     <select 
-                    name="subsector_articulo" 
-                    id="subsector_articulo"
+                    name="tipoArticulo" 
+                    id="tipoArticulo"
                     >
-                        <option value="0">[seleccione un tipo]</option>
-                        <option value="1">Divulgación</option>
+                        <option selected disabled>[seleccione un tipo]</option>
+                        <option value="investigación">Artículo de investigación</option>
+                        <option value="revisión">Artículo de revisión</option>
+                        <option value="divulgación científica">Divulgación científica</option>
+                        <option value="opinión">Artículo de opinión</option>
+                        <option value="técnico">Artículo técnico</option>
+                        <option value="educativo">Artículo educativo</option>
                     </select>
                 </div>
                 <div class="pp_inputs">
                     De
                     <input
-                    id="pp_inicio_articulo"
+                    id="pp_inicio"
+                    name="pp_inicio"
                     class="input-label" 
                     placeholder="Inicio"
                     type="number" 
-                    required >
+                    >
                     a
                     <input
-                    id="pp_fin_-articulo"
+                    id="pp_final"
+                    name="pp_final"
                     class="input-label" 
                     placeholder="Fin"
                     type="number"
-                    required >
-                </div>
-                <div class="campo">
-                    <label 
-                    for="subsector_articulo"
-                    >Volumen:<span class="requerido">*</span></label>
-                    <select 
-                    name="subsector_articulo" 
-                    id="subsector_articulo"
                     >
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4 o más</option>
-                    </select>
                 </div>
                 <div class="campo">
                     <label 
-                    for="subsector_articulo"
+                    for="indiceRegistro"
                     >Índices del registro:<span class="requerido">*</span></label>
                     <input
                     class="input-largo"
-                    name="indice_registro_artículo"
-                    id="indice_registro_articulo" 
+                    name="indiceRegistro"
+                    id="indiceRegistro" 
                     placeholder="Ejemplo: JCR, LATINDEX,EBSCO, etc"
                     type="text"
-                    required
+                    
                     >
                 </div>
                 <div class="campo">
                     <label 
-                    for="subsector_articulo"
+                    for="issn"
                     >ISSN:<span class="requerido">*</span></label>
                     <input
                     class=""
-                    name="issn_artículo"
-                    id="issn_articulo" 
+                    name="issn"
+                    id="issn" 
                     placeholder="5246-5413"
                     type="text"
-                    required
+                    
                     >
                 </div>
             </div>
         </fieldset>
-        <button class="boton-claro" onclick="preventDefault();">Subir artículo</button>
+        <button type="submit" class="boton-claro" >Subir artículo</button>
     </form>
 </main>
 <?php 

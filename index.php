@@ -11,7 +11,7 @@
 
       <!-- Slide 1 -->
       <div class="carousel-item active">
-        <div class="carousel-image bg-img1">
+        <div class="carousel-image bg-img4">
           <div class="carousel-caption d-flex flex-column justify-content-center align-items-center">
            <h1 class="display-4 fw-bold">Bienvenido</h1>
            <p class="lead lead_hero">Tu plataforma confiable para gestión académica.</p>

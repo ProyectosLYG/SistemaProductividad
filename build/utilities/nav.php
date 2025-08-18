@@ -69,6 +69,3 @@
             </nav>
         </div>
     </header>
-
-    <!-- Integrar un sistema que siempre me manda al fichero raiz para quee de ahi pueda ir a cualquier carpeta, en esta raiz tendrá el archivo que contendrá el archivo que podrá guiarnos a cada uno de los archivos con una funcion con un switch 
-      -->
