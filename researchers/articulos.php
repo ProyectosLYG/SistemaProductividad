@@ -78,31 +78,35 @@
                     aria-labelledby="verMas<?php echo $res['idLibro'] ?>Label"
                     aria-hidden="true"
                     >
-                        <div class="modal-dialog modal-dialog-centered mdoal-xl">
+                        <div class="modal-dialog modal-dialog-centered modal-xl">
                             <div class="modal-content">
                                 <div class="modal-header d-flex justify-content-between">
                                     <h5 class="modal-title fs-1"><?php echo $res['tituloArticulo'] ?></h5>
                                     
                                 </div>
                                 <div class="modal-body">
-                                    <div class="d-flex flex-column justify-content-center align-items-center">
-                                        <div class="text-black p-2">
-                                            <div><?php echo $res['tituloArticulo'] ?></div>
-                                            <div><?php echo $res['nombreRevista'] ?></div>
-                                            <div><?php echo $res['autoresArticulo'] ?></div>
-                                            <div class="row row-columns-1 row-columns-md-2 m-5 ">
-                                                <div class="text-center"><?php echo $res['propositoAutor'] ?></div>
-                                                <div class="text-center"><?php echo $res['estadoArticulo'] ?></div>
-                                                <div class="text-center"><?php echo $res['fechaArticulo'] ?></div>
-                                                <div class="text-center"><?php echo $res['casaEditorial'] ?></div>
-                                                <div class="text-center"><?php echo $res['sectorArticulo'] ?></div>
-                                                <div class="text-center"><?php echo $res['areaConocimiento'] ?>></div>
-                                                <div class="text-center"><?php echo $res['tipoArticulo'] ?></div>
-                                                <div class="text-center"><?php echo $res['rangoPaginas'] ?></div>
-                                                <div class="text-center"><?php echo $res['indiceRegistro'] ?></div>
-                                                <div class="text-center"><?php echo $res['issn'] ?></div>
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <div class="text-black p-2 d-flex justify-content-center flex-column">
+                                            <div class="text-center"><span class="fw-bold">Titulo articulo: </span> <?php echo $res['tituloArticulo'] ?></div>
+                                            <div class="text-center"><span class="fw-bold">Nombre revista: </span> <?php echo $res['nombreRevista'] ?></div>
+                                            <div class="text-center"><span class="fw-bold">Autores Articulo: </span> <?php echo $res['autoresArticulo'] ?></div>
+                                            <div class="row-cols-1 row-cols-xl-2">
+                                                <div class="row row-cols-1 row-cols-md-2 my-5 mx-auto">
+                                                    <div class="text-center"><span class="fw-bold">Proposito: </span> <?php echo $res['propositoAutor'] ?></div>
+                                                    <div class="text-center"><span class="fw-bold">Estado: </span> <?php echo $res['estadoArticulo'] ?></div>
+                                                    <div class="text-center"><span class="fw-bold">Fecha: </span> <?php echo $res['fechaArticulo'] ?></div>
+                                                    <div class="text-center"><span class="fw-bold">Casa editorial: </span> <?php echo $res['casaEditorial'] ?></div>
+                                                    <div class="text-center"><span class="fw-bold">Sector: </span> <?php echo $res['sectorArticulo'] ?></div>
+                                                    <div class="text-center"><span class="fw-bold">Area: </span> <?php echo $res['areaConocimiento'] ?>></div>
+                                                    <div class="text-center"><span class="fw-bold">Tipo: </span> <?php echo $res['tipoArticulo'] ?></div>
+                                                    <div class="text-center"><span class="fw-bold">Rango paginas: </span> <?php echo $res['rangoPaginas'] ?></div>
+                                                    <div class="text-center"><span class="fw-bold">Indice Registro: </span> <?php echo $res['indiceRegistro'] ?></div>
+                                                    <div class="text-center"><span class="fw-bold"> ISSN: </span> <?php echo $res['issn'] ?></div>
+                                                </div>
+                                                <div class="mx-auto">
+                                                    <?php echo $res['resumen'] ?></div>
+                                                </div>
                                             </div>
-                                            <div><?php echo $res['resumen'] ?></div>
                                         </div>
                                     </div>
                                 </div>
