@@ -20,6 +20,8 @@ const myChart = new Chart(ctx , {
         }]
     },
     options: {
+
+
         plugins: {
             legend: {
                 display: false // 👈 oculta los nombres y barras de colores
