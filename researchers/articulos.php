@@ -1,4 +1,10 @@
-<?php include '../build/utilities/nav.php'; ?>
+<?php 
+    include '../build/utilities/nav.php'; 
+    include '../build/config/connection.php';
+
+    $conn = connect();
+    $userId = $_SESSION['user'];
+?>
 
     
     <main class="principal contenedor">
@@ -19,77 +25,99 @@
                 </a>
             </div>
         </div>
-
-        <div class="proyectos">
-            <div class="proyecto">
-                <div>
-                    <p class="titulo">Artículo de ejemplo</p>
-                    <p class="descripcion">
-                        Praesent finibus tempus eros at placerat. Nam vehicula porta libero, vitae commodo quam. In cursus erat felis, gravida mattis felis pulvinar a. Proin commodo elit ac leo fermentum tincidunt. Nulla porttitor lacus malesuada efficitur malesuada. Sed id ligula at augue rhoncus imperdiet. Sed egestas condimentum vulputate. Aenean ultricies dignissim maximus. Ut vestibulum neque lacus, a laoreet arcu vehicula id. Donec eu fermentum felis. Sed sit amet diam neque. 
-                    </p>
-                    <p class="fecha">
-                        13/03/23
-                    </p>
-                    <div class="footerCont">
-                        <p class="nombre-alumno">Galicia Flores Gerardo Oswaldo | ISC</p>
-                        <a href="#" class="boton-claro">Ver articulo</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="proyectos">
-            <div class="proyecto">
-                <div>
-                    <p class="titulo">Artículo de ejemplo</p>
-                    <p class="descripcion">
-                        Praesent finibus tempus eros at placerat. Nam vehicula porta libero, vitae commodo quam. In cursus erat felis, gravida mattis felis pulvinar a. Proin commodo elit ac leo fermentum tincidunt. Nulla porttitor lacus malesuada efficitur malesuada. Sed id ligula at augue rhoncus imperdiet. Sed egestas condimentum vulputate. Aenean ultricies dignissim maximus. Ut vestibulum neque lacus, a laoreet arcu vehicula id. Donec eu fermentum felis. Sed sit amet diam neque. 
-                    </p>
-                    <p class="fecha">
-                        13/03/23
-                    </p>
-                    <div class="footerCont">
-                        <p class="nombre-alumno">Galicia Flores Gerardo Oswaldo | ISC</p>
-                        <a href="#" class="boton-claro">Ver articulo</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="proyectos">
-            <div class="proyecto">
-                <div>
-                    <p class="titulo">Artículo de ejemplo</p>
-                    <p class="descripcion">
-                        Praesent finibus tempus eros at placerat. Nam vehicula porta libero, vitae commodo quam. In cursus erat felis, gravida mattis felis pulvinar a. Proin commodo elit ac leo fermentum tincidunt. Nulla porttitor lacus malesuada efficitur malesuada. Sed id ligula at augue rhoncus imperdiet. Sed egestas condimentum vulputate. Aenean ultricies dignissim maximus. Ut vestibulum neque lacus, a laoreet arcu vehicula id. Donec eu fermentum felis. Sed sit amet diam neque. 
-                    </p>
-                    <p class="fecha">
-                        13/03/23
-                    </p>
-                    <div class="footerCont">
-                        <p class="nombre-alumno">Galicia Flores Gerardo Oswaldo | ISC</p>
-                        <a href="#" class="boton-claro">Ver articulo</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="proyectos">
-            <div class="proyecto">
-                <div>
-                    <p class="titulo">Artículo de ejemplo</p>
-                    <p class="descripcion">
-                        Praesent finibus tempus eros at placerat. Nam vehicula porta libero, vitae commodo quam. In cursus erat felis, gravida mattis felis pulvinar a. Proin commodo elit ac leo fermentum tincidunt. Nulla porttitor lacus malesuada efficitur malesuada. Sed id ligula at augue rhoncus imperdiet. Sed egestas condimentum vulputate. Aenean ultricies dignissim maximus. Ut vestibulum neque lacus, a laoreet arcu vehicula id. Donec eu fermentum felis. Sed sit amet diam neque. 
-                    </p>
-                    <p class="fecha">
-                        13/03/23
-                    </p>
-                    <div class="footerCont">
-                        <p class="nombre-alumno">Galicia Flores Gerardo Oswaldo | ISC</p>
-                        <a href="#" class="boton-claro">Ver articulo</a>
-                    </div>
-                </div>
-            </div>
-        </div>
         
-    
+        <div class=" row row-cols-1 row-cols-md-3 g-3 justify-content-around align-items-center my-5">
+            <?php 
+            $sql = "SELECT 
+                    a.id_res,
+                    a.tituloArticulo,
+                    a.nombreRevista,
+                    a.autoresArticulo,
+                    a.propositoAutor,
+                    a.resumen,
+                    a.estadoArticulo,
+                    a.fechaArticulo,
+                    a.casaEditorial,
+                    a.sectorArticulo,
+                    a.areaConocimiento,
+                    a.tipoArticulo,
+                    a.rangoPaginas,
+                    a.indiceRegistro,
+                    a.issn,
+                    u.last_name, 
+                    u.first_name 
+                    FROM articulos a 
+                    INNER JOIN user_profile u
+                    ON u.user_id = a.id_res
+                    WHERE u.user_id = :userId";
+            $stmt = $conn -> prepare($sql);
+            $stmt -> execute(['userId' => $userId]);
+            while($res = $stmt -> fetch()): 
+            ?>
+                    <div class=" col">
+                        <div class="proyecto d-flex flex-column radius-3 p-5 mx-2 my-2 h-100">
+                            <p class="fs-1 fw-bold my-0 mx-auto"><?php echo $res['tituloArticulo']; ?></p>
+                            <p class="mx-auto my-5">
+                                <?php echo $res['resumen']; ?>
+                            </p>
+                            <p class="text-start mx-auto"><?php $res['fechaArticulo']; ?></p>
+                            
+                            <p class="text-start mx-auto"><?php echo $res['last_name'] .' '. $res['first_name'] ?> | ISC</p>
+                            <button
+                            type="button"
+                            class="boton-claro rounded d-flex justify-content-center w-75 mx-auto"
+                            data-bs-toggle="modal"
+                            data-bs-target="#verMas<?php echo $res['idArticulo']?>"
+                            >Ver mas</button>
+                        </div>
+                    </div>
+                    <div 
+                    class="modal fade"
+                    id="verMas<?php echo $res['idArticulo']; ?>"
+                    tabindex="-1"
+                    aria-labelledby="verMas<?php echo $res['idLibro'] ?>Label"
+                    aria-hidden="true"
+                    >
+                        <div class="modal-dialog modal-dialog-centered modal-xl">
+                            <div class="modal-content">
+                                <div class="modal-header d-flex justify-content-between">
+                                    <h5 class="modal-title fs-1"><?php echo $res['tituloArticulo'] ?></h5>
+                                    
+                                </div>
+                                <div class="modal-body">
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <div class="text-black p-2 d-flex justify-content-center flex-column">
+                                            <div class="text-center"><span class="fw-bold">Titulo articulo: </span> <?php echo $res['tituloArticulo'] ?></div>
+                                            <div class="text-center"><span class="fw-bold">Nombre revista: </span> <?php echo $res['nombreRevista'] ?></div>
+                                            <div class="text-center"><span class="fw-bold">Autores Articulo: </span> <?php echo $res['autoresArticulo'] ?></div>
+                                            <div class="row-cols-1 row-cols-xl-2">
+                                                <div class="row row-cols-1 row-cols-md-2 my-5 mx-auto">
+                                                    <div class="text-center"><span class="fw-bold">Proposito: </span> <?php echo $res['propositoAutor'] ?></div>
+                                                    <div class="text-center"><span class="fw-bold">Estado: </span> <?php echo $res['estadoArticulo'] ?></div>
+                                                    <div class="text-center"><span class="fw-bold">Fecha: </span> <?php echo $res['fechaArticulo'] ?></div>
+                                                    <div class="text-center"><span class="fw-bold">Casa editorial: </span> <?php echo $res['casaEditorial'] ?></div>
+                                                    <div class="text-center"><span class="fw-bold">Sector: </span> <?php echo $res['sectorArticulo'] ?></div>
+                                                    <div class="text-center"><span class="fw-bold">Area: </span> <?php echo $res['areaConocimiento'] ?>></div>
+                                                    <div class="text-center"><span class="fw-bold">Tipo: </span> <?php echo $res['tipoArticulo'] ?></div>
+                                                    <div class="text-center"><span class="fw-bold">Rango paginas: </span> <?php echo $res['rangoPaginas'] ?></div>
+                                                    <div class="text-center"><span class="fw-bold">Indice Registro: </span> <?php echo $res['indiceRegistro'] ?></div>
+                                                    <div class="text-center"><span class="fw-bold"> ISSN: </span> <?php echo $res['issn'] ?></div>
+                                                </div>
+                                                <div class="mx-auto">
+                                                    <?php echo $res['resumen'] ?></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button"  class="btn button-secondary p-1" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            <?php endwhile; ?>
+        </div>
     </main>
 
 <?php include '../build/utilities/footer.php'; 
