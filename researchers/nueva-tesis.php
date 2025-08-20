@@ -1,4 +1,11 @@
-<?php include '../build/utilities/nav.php'; ?>
+<?php 
+    include '../build/utilities/nav.php'; 
+    $errores = [];
+    if(isset($_SESSION['errores'])){
+        $errores = $_SESSION['errores'];
+        unset($_SESSION['errores']);
+    }
+?>
 
     
     <main class="principal contenedor">
@@ -7,7 +14,9 @@
 <h1> Agregar Tesis Dirigida</h1>
         <form>
             <div class="flex-responsive, spc-arr">
-
+            <?php foreach($errores as $error): ?>
+                <p class="alert text-danger text-center"><?php echo $error; ?></p>
+            <?php endforeach; ?>
             <fieldset>
                 <legend>INFORMACIÓN BÁSICA</legend>
                 
@@ -32,9 +41,9 @@
                         for="sector_estrategico"
                         >Grado:  </label>
                         
-                        <select name="sector_estratégico" id="sector_estrategico">
+                        <select name="gradoTesis" id="sector_estrategico">
                             <option disabled selected>[Seleccionar grado]</option>
-                            <option value="Ingenieria">Ingenieria</option>
+                            <option value="Ingeniería">Ingeniería</option>
                             <option value="Especialidad">Especialidad</option>
                             <option value="Maestria">Maestria</option>
                         </select>
@@ -43,22 +52,27 @@
                     <div class="campo">
                         <label
                         class="campo-label" 
-                        for="sector_estrategico"
+                        for="propositoTesis"
                         >Propósito:  </label>
-                        <select name="sector_estratégico" id="sector_estrategico">
+                        <select name="propositoTesis" id="sector_estrategico">
                             <option selected disabled>[Seleccionar un propósito]</option>
+                            <option value="Titulación">Titulación</option>
+                            <option value="Investigación aplicada"> Investigación aplicada</option>
+                            <option value="Investigación básica">Investigación básica</option>
+                            <option value="Desarrollo tecnológico">Desarrollo tecnológico</option>
+                            <option value="Innovación">Innovación</option>
                         </select>
                     </div>
                 </div>
-                <div class="d-flex flex-column flex-xl-row justify-content-around">
 
-                    
+                <div class="d-flex flex-column flex-xl-row justify-content-around">    
                     <div class="campo">
                         <label
                         class="campo-label" 
-                        for="nombre"
+                        for="autores"
                         >Autores: <span>*</span>  </label>
                         <input
+                        name="autores"
                         class="input-label" 
                         placeholder="Ejemplo: Osorio Lillian, Galicia Gerardo, Meza Maria Cruz"
                         type="text" >
@@ -67,11 +81,16 @@
                     <div class="campo">
                         <label
                         class="campo-label" 
-                        for="sector_estrategico"
+                        for="estado"
                         >Estado:  </label>
-                        
-                        <select name="sector_estratégico" id="sector_estrategico">
-                            </select>
+                        <select name="estado" id="estado">
+                            <option selected disabled>[ Estado ]</option>    
+                            <option value="En curso">En curso</option>
+                            <option value="Terminada">Terminada</option>
+                            <option value="Publicada">Publicada</option>
+                            <option value="En revisión">En revisión</option>
+                            <option value="Aprovada">Aprovada</option>
+                        </select>
                         </div>
                         
                         <div class="campo">
@@ -84,11 +103,11 @@
                     </div>  
                 
                 <div class="campo">
-                    <label for="descripcion_libro" class="campo-label">
+                    <label for="descripcion" class="campo-label">
                     Descripción: <span>*</span>
                     </label>
                     <textarea 
-                    name="descripcion_tesis" 
+                    name="descripcion" 
                     class="textarea" 
                     id="resumen_libro"
                     placeholder="Descripción base del producto" 
@@ -103,10 +122,10 @@
                     <div class="campo">
                         <label
                         class="campo-label" 
-                        for="sector_estrategico"
+                        for="sector"
                         >Sector estratégico:  </label>
                         
-                        <select name="sector_estratégico" id="sector_estrategico">
+                        <select name="sector" id="sector">
                             <option selected disabled>[Seleccione sector estratégico]</option>
                             <option value="Energías renovables">Energías renovables</option>
                             <option value="Eficiencia energética">Eficiencia energética</option>
@@ -121,10 +140,10 @@
                     <div class="campo">
                         <label
                         class="campo-label" 
-                        for="area_conocimiento"
+                        for="area"
                         >Área del conocimiento:  </label>
                         
-                        <select name="area_conocimiento" id="area_conocimiento">
+                        <select name="area" id="area">
                             <option selected disabled>[Seleccione un área]</option>
                             <option value="Ingeniería y tecnología">Ingeniería y tecnología</option>
                             <option value="Ciancias naturales">Ciencias Naturales</option>
@@ -144,14 +163,14 @@
                 <div class="campo">
                     <label
                     class="campo-label" 
-                    for="nombre"
+                    for="imgEvidencia"
                     >Evidencia <span class="parentesis">(Hasta 3 imagenes solo: jpeg/png):</span><span class="requerido">*</span> </label>
                     <input
                     class="input-label" 
-                    id="imgCapituloLibro"
-                    name="imgCapituloLibro[]"
+                    id="imgEvidencia"
+                    name="imgEvidencia[]"
                     accept="image/jpeg, image/png"
-                    placeholder="Ingresa le edición"
+                    placeholder="Ingresa la edición"
                     type="file" 
                     multiple>
                 </div>
