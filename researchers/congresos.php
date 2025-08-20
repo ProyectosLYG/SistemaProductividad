@@ -23,4 +23,3 @@
     
     </main>
 
-<?php include '../build/utilities/footer.php'; 
