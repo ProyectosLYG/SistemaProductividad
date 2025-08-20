@@ -9,11 +9,13 @@
   <div id="heroSlider" class="carousel slide">
     <div class="carousel-inner">
 
+    
+
       <!-- Slide 1 -->
       <div class="carousel-item active">
         <div class="carousel-image bg-img4">
           <div class="carousel-caption d-flex flex-column justify-content-center align-items-center">
-           <h1 class="display-4 fw-bold">Bienvenido</h1>
+           <h1 class="display-4 fw-bold">¡Bienvenido!</h1>
            <p class="lead lead_hero">Tu plataforma confiable para gestión académica.</p>
           </div>
         </div>
@@ -63,7 +65,7 @@
 <!-- CONVOCATORIAS -->
 
 <section class='p-4'>
-  <div class="d-flex flex-row justify-content-center ms-4 me-4 p-4 gap-5">
+  <div class="d-flex flex-column flex-md-row flex-row justify-content-center ms-4 me-4 p-4 gap-5">
 
     <div class="card zoom-hover" style="width: 38rem;">
       <img src="build/img/c1.jpeg"class="card-img-top" alt="..."> </img>
@@ -107,10 +109,14 @@
 <!-- GRAFICA -->
 
 <section class="b-4 p-4">
-    <div class="d-flex flex-row justify-content-center ms-0 me-0">
+    <div class="d-flex flex-md-row flex-column justify-content-center ms-0 me-0">
      
-      <div class="card border-0" style="width: 75rem;"><canvas id="myChart"></canvas></div>
-    
+  <div class="card border-0 d-flex justify-content-center align-items-center">
+
+    <img src="build/img/g1.jpg" class="img-fluid"  alt="">
+  </div> 
+  
+  
       <div class="card border-0 d-flex justify-content-center align-items-center" style="width: 70rem;">
         <div class="text p-4 text-center">
            <p class="display-4 fw-bold imp"> ¡Transforma tu trabajo en resultados visibles!</p>
