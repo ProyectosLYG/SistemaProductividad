@@ -11,16 +11,15 @@
     <main class="principal contenedor">
         <div class="header-proyectos">
         </div>
-<h1> Agregar Tesis Dirigida</h1>
-        <form>
-            <div class="flex-responsive, spc-arr">
-            <?php foreach($errores as $error): ?>
-                <p class="alert text-danger text-center"><?php echo $error; ?></p>
-            <?php endforeach; ?>
+        <h1> Agregar Tesis Dirigida</h1>
+        <?php foreach($errores as $error): ?>
+            <p class="alert alert-danger text-center"><?php echo $error; ?></p>
+        <?php endforeach; ?>
+        <form action="res-consultas/ConsultaNuevaTesis.php" method="POST" enctype="multipart/form-data" >
             <fieldset>
                 <legend>INFORMACIÓN BÁSICA</legend>
                 
-                <div class="d-flex flex-column flex-xl-row justify-content-around ">
+                <div class="d-flex flex-column flex-xl-row justify-content-between ">
 
                     <div class="campo">
                         <label
@@ -65,7 +64,7 @@
                     </div>
                 </div>
 
-                <div class="d-flex flex-column flex-xl-row justify-content-around">    
+                <div class="d-flex flex-column flex-xl-row justify-content-between">    
                     <div class="campo">
                         <label
                         class="campo-label" 
@@ -160,28 +159,24 @@
                 <legend>DATOS COMPLEMENTARIOS</legend>
                 <div class="flex-row, flex-responsive">
 
-                <div class="campo">
-                    <label
-                    class="campo-label" 
-                    for="imgEvidencia"
-                    >Evidencia <span class="parentesis">(Hasta 3 imagenes solo: jpeg/png):</span><span class="requerido">*</span> </label>
-                    <input
-                    class="input-label" 
-                    id="imgEvidencia"
-                    name="imgEvidencia[]"
-                    accept="image/jpeg, image/png"
-                    placeholder="Ingresa la edición"
-                    type="file" 
-                    multiple>
-                </div>
+                    <div class="campo">
+                        <label
+                        class="campo-label" 
+                        for="imgEvidencia"
+                        >Evidencia <span class="parentesis">(Hasta 3 imagenes solo: jpeg/png):</span><span class="requerido">*</span> </label>
+                        <input
+                        class="input-label" 
+                        id="imgEvidencia"
+                        name="imgEvidencia[]"
+                        accept="image/jpeg, image/png"
+                        placeholder="Ingresa la edición"
+                        type="file" 
+                        multiple>
+                    </div>
                     
+                </div>
             </fieldset>
-
-            </div>
-
-            <input class="boton-obscuro boton-nuevo_libro" type="submit" value="Cancelar" >
-             <input class="boton-obscuro boton-nuevo_libro" type="submit" value="Agregar" >
-
+            <input class="boton-obscuro boton-nuevo_libro" type="submit" value="Crear" >
         </form>
         
     

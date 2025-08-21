@@ -82,7 +82,35 @@ CREATE TABLE articulos (
     FOREIGN KEY (id_res) REFERENCES users(id)
 );
 
-
+CREATE TABLE tesis (
+	id_res INT NOT NULL,
+	idTesis INT PRIMARY KEY AUTO_INCREMENT,
+	tituloTesis VARCHAR(100),
+	grado VARCHAR(50),
+	proposito VARCHAR(50),
+	autores VARCHAR(100),
+	estado VARCHAR(35),
+	fecha DATE,
+	descripcion VARCHAR(350),
+	sector VARCHAR(35),
+	area VARCHAR(40),
+	evidencia1 VARCHAR(200),
+	evidencia2 VARCHAR(200),
+	evidencia3 VARCHAR(200),
+	FOREIGN KEY (id_res) REFERENCES users(id)
+);
+tituloTesis,
+        grado,
+        proposito,
+        autores,
+        estado,
+        fecha,
+        descripcion,
+        sector,
+        area,
+        evidencia1,
+        evidencia2,
+        evidencia3 
 
 
 
