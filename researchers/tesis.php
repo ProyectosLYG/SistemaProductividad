@@ -1,4 +1,13 @@
-<?php include '../build/utilities/nav.php'; ?>
+<?php
+//incluir apartado de docencia, 
+//tutorias, participaciones en eventos con grupos
+//vinculacion con empresas
+    include '../build/utilities/nav.php'; 
+    include '../build/config/connection.php';
+
+    $conn = connect();
+    $userId = $_SESSION['user'];
+?>
 
     
     <main class="principal container">
@@ -31,60 +40,56 @@
 
             <?php 
             $sql = "SELECT 
-            c.evidencia1,
-            c.tituloCapitulo,
-            c.tituloLibro,
-            c.autores,
-            c.resumen,
-            c.paginas,
-            c.sectorEstrategico,
-            c.areaConocimiento,
-            c.edicion,
-            c.casaEditorial,
-            c.fechaPublicacion,
-            c.isbn,
-            c.editorial,
             u.last_name,
             u.first_name,
-            c.fechaPublicacion,
-            c.idLibro 
-            FROM chap_book c 
+            t.idTesis,
+            t.tituloTesis,
+            t.grado,
+            t.proposito,
+            t.autores,
+            t.estado,
+            t.fecha,
+            t.descripcion,
+            t.sector,
+            t.area,
+            t.evidencia1
+            FROM tesis t 
             INNER JOIN user_profile u 
-            ON u.user_id = c.id_res 
+            ON u.user_id = t.id_res 
             WHERE u.user_id = :userId";
 
-            $stmt = $db -> prepare($sql);
+            $stmt = $conn -> prepare($sql);
             $stmt -> execute(['userId'=>$userId]);
             while($res = $stmt -> fetch()){
             ?>
                 <!-- Estructura del un libro -->
-                 <div class = "col">
-                     <div class="  proyecto d-flex flex-column rounded  m-2 auto h-100">
-                         <img src="projectImages/<?php echo $res['evidencia1'] ?>" class="img-fluid mx-auto mt-4 rounded" width="300" height="400" alt="Imágen de libro">
-                         <div class="mx-5">
-                             <p class="fs-1 fw-bold m-0"><?php echo $res['tituloCapitulo'] ?></p>
-                             <p class="text-start m-0"><?php echo $res['fechaPublicacion'] ?></p>
-                             <p class="align-content-center fs-2 fst-italic m-0"> <?php echo $res['last_name'] . ' ' . $res['first_name'] ?> | ISC</p>
-                             <button 
-                             type="button" 
-                             class="boton-claro rounded d-flex justify-content-center w-75 mx-auto"
-                             data-bs-toggle = "modal" 
-                             data-bs-target = "#verMas<?php echo $res['idLibro'] ?>"
-                             >Ver libro</a>
+                <div class = "col">
+                    <div class="  proyecto d-flex flex-column rounded  m-2 auto h-100">
+                        <img src="thesisImages/<?php echo $res['evidencia1'] ?>" class="img-fluid mx-auto mt-4 rounded" width="300" height="400" alt="Imágen de libro">
+                        <div class="mx-5">
+                            <p class="fs-1 fw-bold m-0"><?php echo $res['tituloTesis'] ?></p>
+                            <p class="text-start m-0"><?php echo $res['fecha'] ?></p>
+                            <p class="align-content-center fs-2 fst-italic m-0"> <?php echo $res['last_name'] . ' ' . $res['first_name'] ?> | ISC</p>
+                            <button 
+                            type="button" 
+                            class="boton-claro rounded d-flex justify-content-center w-75 mx-auto"
+                            data-bs-toggle = "modal" 
+                            data-bs-target = "#verMas<?php echo $res['idTesis'] ?>"
+                            >Ver libro</a>
                         </div>
                     </div>
                 </div>
                 <div 
                 class="modal fade" 
-                id="verMas<?php echo $res['idLibro'] ?>" 
+                id="verMas<?php echo $res['idTesis'] ?>" 
                 tabindex="-1" 
-                aria-labelledby="verMas<?php echo $res['idLibro'] ?>Label"
+                aria-labelledby="verMas<?php echo $res['idTesis'] ?>Label"
                 aria-hidden="true"
                 >
                     <div class="modal-dialog modal-dialog-centered modal-xl">
                         <div class="modal-content">
                             <div class="modal-header d-flex justify-content-between">
-                                <h5 class="modal-title fs-1"><?php echo $res['tituloLibro'] ?></h5>
+                                <h5 class="modal-title fs-1"><?php echo $res['tituloTesis'] ?></h5>
                                 <button class="btn" data-bs-toggle="popover" data-bs-html="true" data-bs-content="editar borrar">
                                     <svg width="30" height="30" fill="#000">
                                         <use xlink:href="../build/assets/sprites.svg#options-dots" />
@@ -93,22 +98,19 @@
                             </div>
                             <div class="modal-body">
                                 <div class="d-flex flex-column flex-xl-row justify-content-around">
-                                    <img src="projectImages/<?php echo $res['evidencia1']?>" alt="" width="300" height="auto" class="my-auto mx-auto">
+                                    <img src="thesisImages/<?php echo $res['evidencia1']?>" alt="" width="300" height="auto" class="my-auto mx-auto">
                                     <div class="text-black p-2">
-                                        <div class="fs-1 text-center fw-bold m-0"><?php echo $res['tituloLibro']?></div>
-                                        <div class="fs-2 text-center fw-bold m-0"><?php echo $res['tituloCapitulo'] ?></div>
+                                        <div class="fs-1 text-center fw-bold m-0"><?php echo $res['tituloTesis']?></div>
                                         <div class="fs-4 m-0 text-center "><?php echo $res['autores'] ?></div>
                                         <div class="row row-columns-1 row-cols-md-2 m-5 ">
-                                            <div class="fs-4 m-0 "><span class="fw-bold">Sector: </span> <?php echo $res['sectorEstrategico'] ?></div>
-                                            <div class="fs-4 m-0 "><span class="fw-bold">Area: </span> <?php echo $res['areaConocimiento'] ?></div>
-                                            <div class="fs-4 m-0 "><span class="fw-bold">Paginas: </span> <?php echo $res['paginas'] ?></div>
-                                            <div class="fs-4 m-0 "><span class="fw-bold">Edicion: </span><?php echo $res['edicion'] ?></div>
-                                            <div class="fs-4 m-0 "><span class="fw-bold">Casa editorial: </span><?php echo $res['casaEditorial'] ?></div>
-                                            <div class="fs-4 m-0 "><span class="fw-bold">Editorial: </span> <?php echo $res['editorial'] ?></div>
-                                            <div class="fs-4 m-0 "><span class="fw-bold">ISBN: </span> <?php echo $res['isbn'] ?></div>
-                                            <div class="fs-4 m-0 "><span class="fw-bold">Fecha Publicacion: </span> <?php echo $res['fechaPublicacion'] ?></div>
+                                            <div class="fs-4 m-0 "><span class="fw-bold">Sector: </span> <?php echo $res['sector'] ?></div>
+                                            <div class="fs-4 m-0 "><span class="fw-bold">Area: </span> <?php echo $res['area'] ?></div>
+                                            <div class="fs-4 m-0 "><span class="fw-bold">Grado: </span> <?php echo $res['grado'] ?></div>
+                                            <div class="fs-4 m-0 "><span class="fw-bold">Proposito: </span><?php echo $res['proposito'] ?></div>
+                                            <div class="fs-4 m-0 "><span class="fw-bold">estado: </span> <?php echo $res['estado'] ?></div>
+                                            <div class="fs-4 m-0 "><span class="fw-bold">Fecha Publicacion: </span> <?php echo $res['fecha'] ?></div>
                                         </div>
-                                        <div class="fs-4 m-5 "><?php echo $res['resumen'] ?></div>
+                                        <div class="fs-4 m-5 "><?php echo $res['descripcion'] ?></div>
                                     </div>
                                 </div>
                             </div>

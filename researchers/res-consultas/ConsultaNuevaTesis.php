@@ -5,7 +5,7 @@
     $errores =[];
     $conn = connect();
 
-    $fileSizeLimit = 3 * 1024 * 1024;
+    $fileSizeLimit = 3 * 1024 * 1024 ;
     $acceptedTypes = ['image/jpg', 'image/png', 'image/jpeg'];
     $imgQuantity = 0;
     $thesisFolder = "../thesisImages";
@@ -14,26 +14,35 @@
     $evidencia = ['','',''];
     $id_res = $_SESSION['user'];
 
+    // echo "<pre>";
+    // var_dump($_POST);
+    // echo "</pre>";
+    // echo "<br>";
+    // echo "<pre>";
+    // var_dump($_FILES);
+    // echo "</pre>";
+    // exit;
+
     foreach($_FILES['imgEvidencia']['error'] as $i => $error){
-        if($error === UPLOAD_ERR_OK && !empty($_files['imgEvidencia']['name'][$i])){
+        if($error === UPLOAD_ERR_OK && !empty($_FILES['imgEvidencia']['name'][$i])){
             if(!in_array($_FILES['imgEvidencia']['type'][$i], $acceptedTypes)){
                 $errores[] = "Solo se aceptan archivos de  tipo jpeg, jpg y png.";
                 break;
             }else{
-                if($_files['imgEvidencia']['size'][$i] > $fileSizeLimit){
+                if($_FILES['imgEvidencia']['size'][$i] > $fileSizeLimit){
                     $errores[] = "El tamano de la imagen es mayor a 3 Mb.";
                     break;
                 }
-                $imgQuantity++;
-                $imageNames[] = [
-                    'tmp' => $_FILES['imgEvidencia']['tmp_name'][$i],
-                    'ext' => pathinfo($_FILES['imgEvidencia']['name'][$i], PATHINFO_EXTENSION)
-                ];
             }
+            $imgQuantity++;
+            $imageNames[] = [
+                'tmp' => $_FILES['imgEvidencia']['tmp_name'][$i],
+                'ext' => pathinfo($_FILES['imgEvidencia']['name'][$i], PATHINFO_EXTENSION)
+            ];
         }
     }
 
-    if($imgQuantity > 3 || $imgQuentity < 1){
+    if($imgQuantity > 3 || $imgQuantity < 1){
         $errores[] = "Debe subir de 1 a 3 imagenes.";
     }
     
@@ -56,7 +65,7 @@
         $errores[] = "Debe indicar al menos un autor." : 
         $autores = $_POST['autores'];
 
-    (!isset($_POST['estado']) ||  empty($_POST['estado'])) ? 
+    (!isset($_POST['estado']) || empty($_POST['estado'])) ? 
         $errores[] = "Debe indicar el estado de la tesis." :
         $estado = $_POST['estado'];
 
@@ -70,7 +79,7 @@
 
     (!isset($_POST['sector']) || empty($_POST['sector'])) ? 
         $errores[] = "Debe indicar el Sector Estrategico." :
-        $sector = $$_POST['sector'];
+        $sector = $_POST['sector'];
     
     (!isset($_POST['area']) || empty($_POST['area'])) ? 
         $errores[] = "Debe indicar el Area de Conocimiento." :
@@ -96,6 +105,7 @@
 */
     $sql = "INSERT INTO tesis
     (
+        id_res,
         tituloTesis,
         grado,
         proposito,
@@ -109,6 +119,7 @@
         evidencia2,
         evidencia3    
     )VALUES (
+        :id_res,
         :tituloTesis,
         :grado,
         :proposito,
@@ -127,13 +138,14 @@
             mkdir($thesisFolder);
         }
         foreach($imageNames as $i => $temp){
-            $imageTmpName = md5(uniqid(rand(),true));
+            $imageTmpName = md5(uniqid((rand()),true));
             $imageName = $imageTmpName .'.'.$temp['ext'];
-            move_uploaded_file($temp['temp'], $imageFolder .'/'. $imageName);
+            move_uploaded_file($temp['tmp'], $thesisFolder .'/'. $imageName);
             $evidencia[$i] = $imageName;
         }
         $stmt = $conn->prepare($sql);
         $stmt -> execute([
+            'id_res' => $id_res,
             'tituloTesis' => $tituloTesis,
             'grado' => $grado,
             'proposito' => $proposito,
@@ -149,7 +161,7 @@
         ]);
         $res = $stmt -> rowCount();
         if($res > 0){
-            header("Location: ../nueva-tesis.php");
+            header("Location: ../tesis.php");
             exit;
         }else{
             echo "Error al insertar la Tesis. Favor de comunicarse con soporte.";

@@ -1,4 +1,4 @@
-<?php include './build/utilities/nav.php'; ?>
+<?php include '../build/utilities/nav.php'; ?>
 
 <section class="mt-xxl">
     <h3 class="fw-bold">REGISTRO DE PRODUCTIVIDAD</h3>

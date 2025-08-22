@@ -1,4 +1,4 @@
-<?php include './build/utilities/nav.php'; ?>
+<?php include '../build/utilities/nav.php'; ?>
 
 <section class="mt-xxl">
     <h3 class="fw-bold">REGISTRO DE PRODUCTIVIDAD</h3>
@@ -33,5 +33,5 @@
 
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="../admingrafic.js"></script>
+<script src="admingrafic.js"></script>
 <?php include './build/utilities/footer.php'; 
