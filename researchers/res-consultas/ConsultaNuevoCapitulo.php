@@ -17,14 +17,16 @@
     $evidencia = ['','',''];
     $id_res = $_SESSION['user'];
 
-    // echo "<pre>";
-    // var_dump($_POST);
-    // echo "</pre>";
-    // echo "<br>";
-    // echo "<pre>";
-    // var_dump($_FILES);
-    // echo "</pre>";
-    // exit;
+    echo "<pre>";
+    var_dump($_POST);
+    echo "</pre>";
+    echo "<br>";
+    echo "<pre>";
+    var_dump($_FILES);
+    echo "</pre>";
+    exit;
+
+
     //validacion de archivos
 
     foreach($_FILES['imgCapituloLibro']['error'] as $i => $error){
@@ -34,7 +36,7 @@
                 break;
             }else{
                 if($_FILES['imgCapituloLibro']['size'][$i] > $fileSizeLimit){
-                    $errores[] = "El tamaño del archivo no debe exceder los 5MB.";
+                    $errores[] = "El tamaño del archivo no debe exceder los 3MB.";
                     break;
                 }
             }
@@ -42,6 +44,8 @@
             $imageNames[] = [
                 'tmp' => $_FILES['imgCapituloLibro']['tmp_name'][$i] , 
                 'ext' => pathinfo($_FILES['imgCapituloLibro']['name'][$i], PATHINFO_EXTENSION)];
+        }else{
+            $errores[] = 'Una imagen tiene no es valida.';
         }
     }
     if($imgQuantity > 3 || $imgQuantity < 1){
@@ -50,7 +54,9 @@
     
 
     //validacion de campos
-    (!isset($_POST['tituloCapitulo']) || empty($_POST['tituloCapitulo'])) ? $errores[] = "El titulo del capítulo es obligatorio." : $tituloCapitulo = $_POST['tituloCapitulo']; 
+    (!isset($_POST['tituloCapitulo']) || empty($_POST['tituloCapitulo'])) ? 
+    $errores[] = "El titulo del capítulo es obligatorio." : 
+    $tituloCapitulo = $_POST['tituloCapitulo']; 
 
     (!isset($_POST['resumenCapitulo']) || empty($_POST['resumenCapitulo'])) ? $errores[] = "El resumen del libro es obligatorio." : $resumen = $_POST['resumenCapitulo'];
 
@@ -168,5 +174,3 @@
         echo "Error: " . $e->getMessage();
         exit;
     }
-        
-    
