@@ -33,4 +33,4 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="admingrafic.js"></script>
-<?php include './build/utilities/footer.php'; 
+<?php include '../build/utilities/footer.php'; 

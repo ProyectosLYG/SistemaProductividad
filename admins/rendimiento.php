@@ -67,4 +67,4 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script src="../main.js"></script>
-<?php include './build/utilities/footer.php'; 
+<?php include '../build/utilities/footer.php'; ?> 
