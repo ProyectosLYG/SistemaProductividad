@@ -99,21 +99,37 @@ CREATE TABLE tesis (
 	evidencia3 VARCHAR(200),
 	FOREIGN KEY (id_res) REFERENCES users(id)
 );
-tituloTesis,
-        grado,
-        proposito,
-        autores,
-        estado,
-        fecha,
-        descripcion,
-        sector,
-        area,
-        evidencia1,
-        evidencia2,
-        evidencia3 
 
+CREATE TABLE congreso (
+	id_res int not null,
+	idCongreso int primary key not null auto_increment,
+	nombreCongreso VARCHAR(100),
+	acronimo VARCHAR(100),
+	intisucion VARCHAR(100),
+	pais VARCHAR(75),
+	ciudad VARCHAR(50),
+	modo VARCHAR(50),
+	area VARCHAR(50),
+	nivel VARCHAR(50),
+	fecha DATE,
+	rol VARCHAR(50),
+	tituloProyecto VARCHAR(100),
+	tipo VARCHAR(50),
+	FOREIGN KEY (id_res) REFERENCES users(id)
+);
 
-
+    nombreCongreso
+    acronimo
+    institucion
+    pais
+    ciudad
+    modo
+    area
+    nivel
+    fecha
+    rol
+    tituloProyecto
+    tipo
 
 
 

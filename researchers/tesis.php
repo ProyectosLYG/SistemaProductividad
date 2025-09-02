@@ -75,7 +75,7 @@
                             class="boton-claro rounded d-flex justify-content-center w-75 mx-auto"
                             data-bs-toggle = "modal" 
                             data-bs-target = "#verMas<?php echo $res['idTesis'] ?>"
-                            >Ver libro</a>
+                            >Ver Tesis</a>
                         </div>
                     </div>
                 </div>

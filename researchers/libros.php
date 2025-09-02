@@ -1,10 +1,16 @@
 <?php 
 
     include '../build/utilities/nav.php';
-
+    include '../build/config/sesssionValidation.php';
     include '../build/config/connection.php';
+    if( authAdmin($_SESSION['role']) != true && authResearcher($_SESSION['role']) != true ){
+        header("Location: ../login.php");
+        exit;
+    }
     $db = connect();
     $userId = $_SESSION['user'];
+
+    
 ?>
 
 
@@ -68,19 +74,19 @@
             while($res = $stmt -> fetch()){
             ?>
                 <!-- Estructura del un libro -->
-                 <div class = "col">
-                     <div class="  proyecto d-flex flex-column rounded  m-2 auto h-100">
-                         <img src="projectImages/<?php echo $res['evidencia1'] ?>" class="img-fluid mx-auto mt-4 rounded" width="300" height="400" alt="Imágen de libro">
-                         <div class="mx-5">
-                             <p class="fs-1 fw-bold m-0"><?php echo $res['tituloCapitulo'] ?></p>
-                             <p class="text-start m-0"><?php echo $res['fechaPublicacion'] ?></p>
-                             <p class="align-content-center fs-2 fst-italic m-0"> <?php echo $res['last_name'] . ' ' . $res['first_name'] ?> | ISC</p>
-                             <button 
-                             type="button" 
-                             class="boton-claro rounded d-flex justify-content-center w-75 mx-auto"
-                             data-bs-toggle = "modal" 
-                             data-bs-target = "#verMas<?php echo $res['idLibro'] ?>"
-                             >Ver libro</a>
+                <div class = "col">
+                    <div class="  proyecto d-flex flex-column rounded  m-2 auto h-100">
+                        <img src="projectImages/<?php echo $res['evidencia1'] ?>" class="img-fluid mx-auto mt-4 rounded" width="300" height="400" alt="Imágen de libro">
+                        <div class="mx-5">
+                            <p class="fs-1 fw-bold m-0"><?php echo $res['tituloCapitulo'] ?></p>
+                            <p class="text-start m-0"><?php echo $res['fechaPublicacion'] ?></p>
+                            <p class="align-content-center fs-2 fst-italic m-0"> <?php echo $res['last_name'] . ' ' . $res['first_name'] ?> | ISC</p>
+                            <button 
+                            type="button" 
+                            class="boton-claro rounded d-flex justify-content-center w-75 mx-auto"
+                            data-bs-toggle = "modal" 
+                            data-bs-target = "#verMas<?php echo $res['idLibro'] ?>"
+                            >Ver libro</a>
                         </div>
                     </div>
                 </div>

@@ -1,4 +1,11 @@
-<?php include '../build/utilities/nav.php'; ?>
+<?php 
+    include '../build/utilities/nav.php'; 
+    include "../build/config/sesssionValidation.php";
+    if(!authAdmin($_SESSION['role'])){
+        header("Location: ../login.php");
+        exit;
+    }
+?>
 
 <section class="mt-xxl">
     <h3 class="fw-bold">REGISTRO DE PRODUCTIVIDAD</h3>
@@ -20,7 +27,7 @@
     
             <div>
                 <a href="admin.php" class="col btn btn-warning me-2 d-flex justify-content-around fs-4 fw-medium">Ver más</a>
-             </div>
+            </div>
 
     </div>
 
