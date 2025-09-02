@@ -62,75 +62,11 @@
   </div>
 </section>
 
-<!-- CONVOCATORIAS -->
-
-<section class='p-4'>
-  <div class="d-flex flex-column flex-md-row flex-row justify-content-center ms-4 me-4 p-4 gap-5">
-
-    <div class="card zoom-hover" style="width: 38rem;">
-      <img src="build/img/c1.jpeg"class="card-img-top" alt="..."> </img>
-        <div class="card-body">
-          <h5 class="card-title text-center fs-2">Convocatorias</h5>
-          <p class="card-text">Convoca a participar en TecTron TESVG en donde se realizará la competencia de robots en distintas categorías, esta se desarrollará el jueves 3 de julio de 2025 en el tecnológico.</p>
-          <a href="#" class="btn btn-warning mt-3 fs-4 d-flex justify-content-center text-center">Ver más</a>
-        </div>
-    </div>
-
-    <div class="card zoom-hover" style="width: 38rem;">
-      <img src="build/img/c5.jpg"class="card-img-top" alt="..."></img>
-        <div class="card-body">
-          <h5 class="card-title text-center fs-2">Convocatorias</h5>
-          <p class="card-text">El Instituto Tecnológico de Agua Prieta  convoca a docentes, investigadores, estudiantes de posgrado y de licenciatura, nacionales e internacionales.</p>
-          <a href="#" class="btn btn-warning mt-3 fs-4 d-flex justify-content-center text-center">Ver más</a>
-        </div>
-    </div>
-
-    <div class="card zoom-hover" style="width: 38rem;">
-      <img src="build/img/c6.jpg"class="card-img-top" alt="..."></img>
-       <div class="card-body">
-          <h5 class="card-title text-center fs-2">Convocatorias</h5>
-          <p class="card-text">El Tecnológico de estudios superiores de Villa Guerrero a través de la carrera de ingeniería electrónica, convoca a participar en TecTron TESVG.</p>
-          <a href="#" class="btn btn-warning mt-3 fs-4 d-flex justify-content-center text-center">Ver más</a>
-       </div>
-    </div>
-
-    <div class="card zoom-hover" style="width: 38rem;">
-      <img src="build/img/c7.jpg"class="card-img-top" alt="..."></img>
-        <div class="card-body">
-          <h5 class="card-title text-center fs-2">Convocatorias</h5>
-          <p class="card-text">Ceremonia de inicio de las estancias del 30 Verano de la Investigación Científica y Tecnológica del Pacífico 2025.  #RumboAl30AniversarioDelfín.</p>
-          <a href="#" class="btn btn-warning mt-3 fs-4 d-flex justify-content-center text-center">Ver más</a>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- GRAFICA -->
-
-<section class="b-4 p-4">
-    <div class="d-flex flex-md-row flex-column justify-content-center ms-0 me-0">
-     
-  <div class="card border-0 d-flex justify-content-center align-items-center">
-
-    <img src="build/img/g1.jpg" class="img-fluid"  alt="">
-  </div> 
-  
-  
-      <div class="card border-0 d-flex justify-content-center align-items-center" style="width: 70rem;">
-        <div class="text p-4 text-center">
-           <p class="display-4 fw-bold imp"> ¡Transforma tu trabajo en resultados visibles!</p>
-            <p class="fs-1 lh-sm">Visualiza tus logros, fortalece tu impacto y mejora tu productividad con datos reales.</p>
-          </div>
-      </div>
-
-    </div>
-
-</section>
-
   <!-- CONTADOR -->
 
 <section>
+      <p class="fw-bold imp text-center mt-5">Proyectos Generales ISC</p>
+
   <div class="parent container-fluid text-center mx-auto">
     <div class="item div1 bg-salmon borde-difuminado">
       <div class="h-100 d-flex flex-column justify-content-center zoom-hover">
@@ -175,6 +111,89 @@
   </div>
 </section>
 
+
+<!-- CONVOCATORIAS -->
+
+<section class='p-4'>
+
+           <p class="fw-bold imp text-center">Explora las convocatorias actuales de congresos y eventos académicos</p>
+
+  <div class="d-flex flex-column flex-md-row flex-row justify-content-center ms-4 me-4 p-4 gap-5">
+
+    <div class="card zoom-hover" style="width: 38rem;">
+      <img src="build/img/c1.jpeg"class="card-img-top" alt="..."> </img>
+        <div class="card-body">
+          <h5 class="card-title text-center fs-2">Convocatorias</h5>
+          <p class="card-text">Convoca a participar en TecTron TESVG en donde se realizará la competencia de robots en distintas categorías, esta se desarrollará el jueves 3 de julio de 2025 en el tecnológico.</p>
+          <a href="#" class="btn btn-warning mt-3 fs-4 d-flex justify-content-center text-center">Ver más</a>
+        </div>
+    </div>
+
+    <div class="card zoom-hover" style="width: 38rem;">
+      <img src="build/img/c5.jpg"class="card-img-top" alt="..."></img>
+        <div class="card-body">
+          <h5 class="card-title text-center fs-2">Convocatorias</h5>
+          <p class="card-text">El Instituto Tecnológico de Agua Prieta  convoca a docentes, investigadores, estudiantes de posgrado y de licenciatura, nacionales e internacionales.</p>
+          <a href="#" class="btn btn-warning mt-3 fs-4 d-flex justify-content-center text-center">Ver más</a>
+        </div>
+    </div>
+
+    <div class="card zoom-hover" style="width: 38rem;">
+      <img src="build/img/c6.jpg"class="card-img-top" alt="..."></img>
+       <div class="card-body">
+          <h5 class="card-title text-center fs-2">Convocatorias</h5>
+          <p class="card-text">El Tecnológico de estudios superiores de Villa Guerrero a través de la carrera de ingeniería electrónica, convoca a participar en TecTron TESVG.</p>
+          <a href="#" class="btn btn-warning mt-3 fs-4 d-flex justify-content-center text-center">Ver más</a>
+       </div>
+    </div>
+
+    <div class="card zoom-hover" style="width: 38rem;">
+      <img src="build/img/c7.jpg"class="card-img-top" alt="..."></img>
+        <div class="card-body">
+          <h5 class="card-title text-center fs-2">Convocatorias</h5>
+          <p class="card-text">Ceremonia de inicio de las estancias del 30 Verano de la Investigación Científica y Tecnológica del Pacífico 2025.  #RumboAl30AniversarioDelfín.</p>
+          <a href="#" class="btn btn-warning mt-3 fs-4 d-flex justify-content-center text-center">Ver más</a>
+      </div>
+    </div>
+
+        <div class="card zoom-hover" style="width: 38rem;">
+      <img src="build/img/c7.jpg"class="card-img-top" alt="..."></img>
+        <div class="card-body">
+          <h5 class="card-title text-center fs-2">Convocatorias</h5>
+          <p class="card-text">Ceremonia de inicio de las estancias del 30 Verano de la Investigación Científica y Tecnológica del Pacífico 2025.  #RumboAl30AniversarioDelfín.</p>
+          <a href="#" class="btn btn-warning mt-3 fs-4 d-flex justify-content-center text-center">Ver más</a>
+      </div>
+    </div>
+
+
+  </div>
+</section>
+
+<!-- GRAFICA -->
+
+<section class="b-4 p-4">
+    <div class="d-flex flex-md-row flex-column justify-content-center ms-0 me-0">
+     
+  <div class="card border-0 d-flex justify-content-center align-items-center">
+
+    <img src="build/img/g1.jpg" class="img-fluid"  alt="">
+  </div> 
+  
+  
+      <div class="card border-0 d-flex justify-content-center align-items-center" style="width: 70rem;">
+        <div class="text p-4 text-center">
+           <p class="display-4 fw-bold imp"> ¡Transforma tu trabajo en resultados visibles!</p>
+            <p class="fs-1 lh-sm">Visualiza tus logros, fortalece tu impacto y mejora tu productividad con datos reales.</p>
+          </div>
+      </div>
+
+    </div>
+
+</section>
+
+
+
+
   
 
 
@@ -191,6 +210,8 @@
   </div>
 
 </section>
+
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="../landing.js"></script>
 <?php include "./build/utilities/footer.php"
