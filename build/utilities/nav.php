@@ -17,7 +17,7 @@
                         case 'guest' :
 
                             echo    '<a href="../login.php" class=" col btn btn-outline-light me-2">Login</a>'.
-                                    '<a href="../build/config/closeSession.php" class=" col btn btn-warning me-2">Registrarse</a>';    
+                                    '<a href="../registrar.php" class=" col btn btn-warning me-2">Registrarse</a>';    
                             break;
                         case 'student' :
                             

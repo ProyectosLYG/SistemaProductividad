@@ -12,9 +12,15 @@ CREATE TABLE users (
 	updated DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
+CREATE TABLE user_verification (
+	id_user int not null,
+	code varchar(10),
+	FOREIGN KEY ( id_user ) REFERENCES users( id ) ON DELETE CASCADE
+);
+
 CREATE TABLE user_roles (
 	user_id INT NOT NULL PRIMARY KEY,
-	role ENUM('admin','researcher','student') default 'student',
+	role ENUM('admin','researcher','student','leadership') default 'student',
 	FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
