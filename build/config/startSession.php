@@ -8,10 +8,12 @@
     $pwd = $_POST['pwd'];
     
     $sql = 
-    "SELECT u.id,r.role 
+    "SELECT u.id,r.role, p.area
     FROM users u 
     INNER JOIN user_roles r 
     ON u.id = r.user_id 
+    INNER JOIN user_profile p
+    ON u.id = p.user_id
     WHERE u.username = ? 
     AND u.pwd = ?;";
 
@@ -21,6 +23,7 @@
     if($res){
         $_SESSION['user'] = $res['id'];
         $_SESSION['role'] = $res['role'];
+        $_SESSION['area'] = $res['area'];
         header("Location: ../../index.php");
     }else{
         header("Location: ../../login.php");
