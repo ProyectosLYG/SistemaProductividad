@@ -23,5 +23,6 @@
         $_SESSION['role'] = $res['role'];
         header("Location: ../../index.php");
     }else{
+        header("Location: ../../login.php");
         exit;
     }

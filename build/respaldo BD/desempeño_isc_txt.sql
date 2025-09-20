@@ -28,6 +28,7 @@ CREATE TABLE user_profile (
 	user_id INT NOT NULL PRIMARY KEY,
 	first_name VARCHAR(50),
     last_name VARCHAR(50),
+    area VARCHAR(50),
     bio TEXT,
     avatar_url VARCHAR(255),
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
@@ -63,7 +64,7 @@ CREATE TABLE chap_book(
 	evidencia VARCHAR(255) NOT NULL,
 	evidencia2 VARCHAR(255),
 	evidencia3 VARCHAR(255),
-	FOREIGN KEY (id_res) REFERENCES users(id)
+	FOREIGN KEY (id_res) REFERENCES users(id) ON DELETE CASCADE
 );
 
 drop table chap_book;
@@ -123,19 +124,6 @@ CREATE TABLE congreso (
 	tipo VARCHAR(50),
 	FOREIGN KEY (id_res) REFERENCES users(id)
 );
-
-    nombreCongreso
-    acronimo
-    institucion
-    pais
-    ciudad
-    modo
-    area
-    nivel
-    fecha
-    rol
-    tituloProyecto
-    tipo
 
 
 
