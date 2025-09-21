@@ -158,13 +158,6 @@
       </div>
     </div>
 
-        <div class="card zoom-hover" style="width: 38rem;">
-      <img src="build/img/c7.jpg"class="card-img-top" alt="..."></img>
-        <div class="card-body">
-          <h5 class="card-title text-center fs-2">Convocatorias</h5>
-          <p class="card-text">Ceremonia de inicio de las estancias del 30 Verano de la Investigación Científica y Tecnológica del Pacífico 2025.  #RumboAl30AniversarioDelfín.</p>
-          <a href="#" class="btn btn-warning mt-3 fs-4 d-flex justify-content-center text-center">Ver más</a>
-      </div>
     </div>
 
 
