@@ -12553,6 +12553,7 @@ fieldset legend {
 
 .colorCard {
   background-color: #7F8CAA;
+  max-width: 30%;
 }
 
 /*# sourceMappingURL=app.css.map */
