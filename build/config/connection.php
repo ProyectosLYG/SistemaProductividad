@@ -5,7 +5,7 @@ function connect(){
 
     $host = 'localhost';
     $user = 'root';
-    $pwd = 'slime1234';
+    $pwd = '428655';
     $db = 'desemp';
     $charset = "utf8mb4";
 
