@@ -51,15 +51,15 @@ class moduloLibro {
             
             $html .= '
             <div class="col">
-                <div class="  proyecto d-flex flex-column rounded  m-2 auto h-100">
-                    <img src="projectImages/'.$res['evidencia1'].'" class="img-fluid mx-auto mt-4 rounded" width="300" height="400" alt="Imágen de libro">
+                <div class="  proyecto d-flex flex-column rounded  m-2 auto h-100" style="max-height:620px">
+                    <img src="projectImages/'.$res['evidencia1'].'" class="img-fluid mx-auto mt-4 rounded" style="max-height:420px" width="300" height="400px" alt="Imágen de libro">
                     <div class="mx-5">
                         <p class="fs-1 fw-bold m-0">' . $res['tituloCapitulo'] . '</p>
                         <p class="text-start m-0">' . $res['fechaPublicacion'] . '</p>
                         <p class="align-content-center fs-2 fst-italic m-0">' . $res['last_name'] . ' ' . $res['first_name'] . ' | ISC</p>
                         <button
                             type="button"
-                            class="boton-claro rounded d-flex justify-content-center w-75 mx-auto"
+                            class="boton-claro bg-yellow-500 rounded d-flex justify-content-center w-75 mx-auto"
                             data-bs-toggle="modal"
                             data-bs-target="#verMas' . $res['idLibro'] . '">Ver libro</a>
                     </div>

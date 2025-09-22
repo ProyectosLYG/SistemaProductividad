@@ -11921,7 +11921,7 @@ h3 {
 }
 
 .proyecto {
-  background-color: #3E5879;
+  background-color: #134686;
   border-radius: 20px;
   box-shadow: -5px 5px 5px #000;
   color: #fff;
@@ -11961,20 +11961,20 @@ h3 {
 }
 
 .boton-claro {
-  background-color: #F5EFE7;
+  background-color: #f1be58;
   border-radius: 10px;
   padding: 1rem 2rem;
   margin: 1rem 2rem;
-  color: #000;
+  color: #fff;
   font-weight: 700;
-  border-color: #213555;
+  border-color: #fff;
   border-style: solid;
   border-width: 1px;
 }
 .boton-claro:hover {
   transition: 500ms;
-  color: #000;
-  background-color: #D8C4B6;
+  color: #fff;
+  background-color: #FEB21A;
 }
 
 .boton-obscuro {
@@ -11984,7 +11984,7 @@ h3 {
   margin: 1rem 2rem;
   color: #000;
   font-weight: 700;
-  border-color: #213555;
+  border-color: #134686;
   border-style: solid;
   border-width: 1px;
 }
@@ -12038,7 +12038,7 @@ h3 {
   width: 35rem;
   padding: 0.7rem;
   border-radius: 10px;
-  border: 1px solid #3E5879;
+  border: 1px solid #134686;
 }
 .campo .input-largo {
   width: 55rem;
@@ -12088,7 +12088,7 @@ h3 {
 }
 /* navegador */
 .navegador {
-  background-color: #213555;
+  background-color: #134686;
   padding: 1rem;
   left: 0;
   position: fixed;
@@ -12121,7 +12121,7 @@ h3 {
 }
 
 .color-bg-ul ul {
-  background-color: #213555;
+  background-color: #134686;
 }
 
 @media (min-width: 850px) {
@@ -12157,7 +12157,7 @@ h3 {
 
 /* footer */
 .footer {
-  background-color: #213555;
+  background-color: #134686;
   padding: 2rem;
 }
 
@@ -12230,7 +12230,7 @@ h3 {
 }
 
 fieldset {
-  border: 1px solid #3E5879;
+  border: 1px solid #134686;
   padding: 20px;
   border-radius: 4px;
   margin: 0 0 4rem 0;

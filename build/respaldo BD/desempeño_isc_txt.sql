@@ -61,6 +61,9 @@ CREATE TABLE chap_book(
 	fechaPublicacion DATE NOT NULL,
 	isbn VARCHAR(26) NOT NULL,
 	editorial VARCHAR(60) NOT NULL,
+	
+	fechaAdicion DATETIME CURRENT_TIMESTAMP,
+	
 	evidencia VARCHAR(255) NOT NULL,
 	evidencia2 VARCHAR(255),
 	evidencia3 VARCHAR(255),
