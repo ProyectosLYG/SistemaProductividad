@@ -16,7 +16,7 @@ $area = $_SESSION['area'];
 
 <!-- titulo u busqueda -->
 <section class="principal container">
-    <div class="d-flex flex-column flex-lg-row justify-content-between align-items-center">
+    <div class="d-flex flex-column flex-lg-row justify-content-between align-items-center border-bottom">
         <h2 class="text-start fw-bold">Libros y capitulos</h2>
 
         <div class=" d-flex flex-column flex-lg-row busqueda align-items-center align-content-center">
@@ -41,9 +41,9 @@ $area = $_SESSION['area'];
         </div>
     </div>
 
+    <h2 class="mt-5">Capitulos</h2>
     <!-- libros de bd -->
     <div class=" my-5 row row-cols-1 row-cols-md-2 row-cols-xl-3 g-5 justify-content-around align-items-center">
-        <h2 class="">Capitulos</h2>
         <?php 
             $modulo = new moduloLibro();
             echo $modulo -> getBook($userId, $area, $role);

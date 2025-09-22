@@ -27,7 +27,7 @@ class moduloLibro {
             u.last_name,
             u.first_name,
             u.area,
-            c.fechaPublicacion,
+            c.fechaAdicion,
             c.idLibro 
             FROM user_profile u 
             INNER JOIN  chap_book c 
@@ -48,15 +48,19 @@ class moduloLibro {
         }
         $html ='';
         while ($res = $stmt->fetch()) {
-            
+            $periodo = substr($res['fechaAdicion'],0 , 4);
+            substr($res['fechaAdicion'], 5,2) >= 7 ? $periodo .= '-2' : $periodo .= '-1';
             $html .= '
             <div class="col">
-                <div class="  proyecto d-flex flex-column rounded  m-2 auto h-100" style="max-height:620px">
+                <div class="  proyecto d-flex flex-column rounded  m-2 auto h-100" style="">
                     <img src="projectImages/'.$res['evidencia1'].'" class="img-fluid mx-auto mt-4 rounded" style="max-height:420px" width="300" height="400px" alt="Imágen de libro">
                     <div class="mx-5">
-                        <p class="fs-1 fw-bold m-0">' . $res['tituloCapitulo'] . '</p>
-                        <p class="text-start m-0">' . $res['fechaPublicacion'] . '</p>
-                        <p class="align-content-center fs-2 fst-italic m-0">' . $res['last_name'] . ' ' . $res['first_name'] . ' | ISC</p>
+                        <p class="text-center fs-1 fw-bold m-0">' . $res['tituloCapitulo'] . '</p>
+                        <p class="text-start m-0"><span class="fw-bold">Autor Capitulo: </span> ' . $res['last_name']  . ' ' . $res['first_name'] . '</p>
+                        <p class="text-start m-0"><span class="fw-bold">Area: </span> ' . $res['area'].'</p>
+                        <p class="text-start m-0"><span class="fw-bold">Publicación: </span>' . $res['fechaPublicacion'] . '</p>
+                        <p class="text-start m-0"><span class="fw-bold">Periodo: </span>' . $periodo . '</p>
+                        <p class="align-content-center fs-2 fst-italic m-0">' . $res['last_name'] . ' ' . $res['first_name'] . ' | ' . $res['area'] .'</p>
                         <button
                             type="button"
                             class="boton-claro bg-yellow-500 rounded d-flex justify-content-center w-75 mx-auto"
@@ -85,9 +89,9 @@ class moduloLibro {
                             <div class="d-flex flex-column flex-xl-row justify-content-around">
                                 <img src="projectImages/' .  $res['evidencia1'] . '" alt="" width="300" height="auto" class="my-auto mx-auto">
                                 <div class="text-black p-2">
-                                    <div class="fs-1 text-center fw-bold m-0">' . $res['tituloLibro'] . '</div>
-                                    <div class="fs-2 text-center fw-bold m-0">' . $res['tituloCapitulo'] . '</div>
-                                    <div class="fs-4 m-0 text-center "> ' . $res['autores'] . '</div>
+                                    <div class="fs-1 text-center m-0">Libro: <span class="fw-bold">' . $res['tituloLibro'] . '</span></div>
+                                    <div class="fs-2 text-center m-0"> Capitulo: <span class="fw-bold"> ' . $res['tituloCapitulo'] . '</span></div>
+                                    <div class="fs-4 m-0 text-center "> ' . $res['last_name'] .' '. $res['first_name'] . '</div>
                                     <div class="row row-columns-1 row-cols-md-2 m-5 ">
                                         <div class="fs-4 m-0 "><span class="fw-bold">Sector: </span>' . $res['sectorEstrategico'] . '</div>
                                         <div class="fs-4 m-0 "><span class="fw-bold">Area: </span> ' . $res['areaConocimiento'] . '</div>
