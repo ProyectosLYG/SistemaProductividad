@@ -60,7 +60,6 @@ class moduloLibro {
                         <p class="text-start m-0"><span class="fw-bold">Area: </span> ' . $res['area'].'</p>
                         <p class="text-start m-0"><span class="fw-bold">Publicación: </span>' . $res['fechaPublicacion'] . '</p>
                         <p class="text-start m-0"><span class="fw-bold">Periodo: </span>' . $periodo . '</p>
-                        <p class="align-content-center fs-2 fst-italic m-0">' . $res['last_name'] . ' ' . $res['first_name'] . ' | ' . $res['area'] .'</p>
                         <button
                             type="button"
                             class="boton-claro bg-yellow-500 rounded d-flex justify-content-center w-75 mx-auto"
