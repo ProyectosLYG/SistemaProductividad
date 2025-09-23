@@ -36,13 +36,13 @@
                                     '</div>';
                             break;
                         case 'researcher' :
-                            echo    '<a href="../researchers/tesis.php">Tesis</a>'.
+                            echo    '<a href="../researchers/tesis.php">Tesis dirigidas</a>'.
                                     '<a href="../researchers/articulos.php">Artículos</a>'.
                                     '<a href="../researchers/congresos.php">Congresos</a>'.
                                     '<a href="../researchers/libros.php">Libros</a>'.
                                     '<a href="../researchers/proyectos.php">Proyectos</a>'.
-                                    '<a href="../researchers/proyectos.php">Prototipo</a>'.
-                                    '<a href="../researchers/proyectos.php">Propiedad intelectual</a>'.
+                                    // '<a href="../researchers/proyectos.php">Prototipo</a>'.
+                                    // '<a href="../researchers/proyectos.php">Propiedad intelectual</a>'.
                                     '<div class="dropdown d-inline-block ms-3 color-bg-ul">'.
                                         '<button class="btn dropdown-toggle text-white" type="button" id="sessionOpciones" data-bs-toggle="dropdown" aria-expanded="false">'.
                                             '<svg width="35" height="35">'.
@@ -50,7 +50,7 @@
                                             '</svg>'.
                                         '</button>'.
                                         '<ul class="dropdown-menu p-2"aria-labelledby="sessionOpciones">'.
-                                            '<li><a class="dropdown-item m-0" href="">Ayuda</a></li>'.
+                                            '<li><a class="dropdown-item m-0" href="../researchers/perfil.php">Perfil</a></li>'.
                                             '<li><a class="dropdown-item m-0" href="../build/config/closeSession.php">Salir</a></li>'.
                                         '</ul>'.
                                     '</div>';

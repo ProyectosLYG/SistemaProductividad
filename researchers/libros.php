@@ -21,8 +21,10 @@ $area = $_SESSION['area'];
 
         <div class=" d-flex flex-column flex-lg-row busqueda align-items-center align-content-center">
             <div class="d-flex flex-row align-items-center justify-content-center">
+                <?php if($_SESSION['role'] === 'researcher'): ?>
                 <a class="boton-claro" href="nuevo-capitulo-libro.php">Nuevo capitulo en Libro</a>
                 <a class="boton-claro" href="nuevo-libro.php">Nuevo Libro</a>
+                <?php endif; ?>
             </div>
 
             <div class=" d-flex flex-row align-items-center justify-content-between">

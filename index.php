@@ -73,7 +73,7 @@
     <div class="item div1 bg-salmon borde-difuminado">
       <div class="h-100 d-flex flex-column justify-content-center zoom-hover">
         <i class="bi bi-megaphone" style="font-size:100px;" ></i>
-        <h3 class="fw-bold mt-2">600</h3>
+        <h3 class="fw-bold mt-2">2</h3>
         <p class="text-uppercase m-0">Artículos Nacionales</p>
       </div>
   </div>
@@ -81,7 +81,7 @@
     <div class="item div2 bg-lightblue borde-difuminado">
       <div class="h-100 d-flex flex-column justify-content-center zoom-hover">
         <i class="bi bi-cpu" style="font-size:80px;"></i>
-        <h3 class="fw-bold mt-2">600</h3>
+        <h3 class="fw-bold mt-2">1</h3>
         <p class="text-uppercase m-0">Competencias Nacionales</p>
       </div>
     </div>
@@ -89,7 +89,7 @@
     <div class="item div3 bg-purple borde-difuminado">
       <div class="h-100 d-flex flex-column justify-content-center zoom-hover">
         <i class="bi bi-mortarboard" style="font-size:100px;"></i>
-        <h3 class="fw-bold mt-2">6000</h3>
+        <h3 class="fw-bold mt-2">3</h3>
         <p class="text-uppercase m-0">Proyectos de Titulación</p>
       </div>
     </div>
@@ -97,16 +97,16 @@
     <div class="item div4 bg-indigo borde-difuminado">
       <div class="h-100 d-flex flex-column justify-content-center zoom-hover">
         <i class="bi bi-globe-americas" style="font-size:80px;"></i>
-        <h3 class="fw-bold mt-2">600</h3>
+        <h3 class="fw-bold mt-2">4</h3>
         <p class="text-uppercase m-0">Artículos Internacionales</p>
       </div>
 
     </div>
 
     <div class="item div5 bg-rose borde-difuminado">
-     <div class="p-4 rounded h-100 zoom-hover">
+      <div class="p-4 rounded h-100 zoom-hover">
         <i class="bi bi-book" style="font-size:80px;"></i>
-        <h3 class="fw-bold mt-2">6</h3>
+        <h3 class="fw-bold mt-2">3</h3>
         <p class="text-uppercase m-0">Libros y Capítulos Publicados</p>
       </div>
     </div>
@@ -118,7 +118,7 @@
 
 <section class='p-4'>
 
-           <p class="fw-bold imp text-center">Explora las convocatorias actuales de congresos y eventos académicos</p>
+  <p class="fw-bold imp text-center">Explora las convocatorias actuales de congresos y eventos académicos</p>
 
   <div class="d-flex flex-column flex-md-row flex-row justify-content-center ms-4 me-4 p-4 gap-5">
 
@@ -180,56 +180,6 @@
     </div>
 
 </section>
-
-  <!-- CONTADOR -->
-
-<section>
-  <div class="parent container-fluid text-center mx-auto">
-    <div class="item div1 bg-salmon borde-difuminado">
-      <div class="h-100 d-flex flex-column justify-content-center zoom-hover">
-        <i class="bi bi-megaphone" style="font-size:100px;" ></i>
-        <h3 class="fw-bold mt-2">600</h3>
-        <p class="text-uppercase m-0">Artículos Nacionales</p>
-      </div>
-  </div>
-
-    <div class="item div2 bg-lightblue borde-difuminado">
-      <div class="h-100 d-flex flex-column justify-content-center zoom-hover">
-        <i class="bi bi-cpu" style="font-size:80px;"></i>
-        <h3 class="fw-bold mt-2">600</h3>
-        <p class="text-uppercase m-0">Competencias Nacionales</p>
-      </div>
-    </div>
-
-    <div class="item div3 bg-purple borde-difuminado">
-      <div class="h-100 d-flex flex-column justify-content-center zoom-hover">
-        <i class="bi bi-mortarboard" style="font-size:100px;"></i>
-        <h3 class="fw-bold mt-2">6000</h3>
-        <p class="text-uppercase m-0">Proyectos de Titulación</p>
-      </div>
-    </div>
-  
-    <div class="item div4 bg-indigo borde-difuminado">
-      <div class="h-100 d-flex flex-column justify-content-center zoom-hover">
-        <i class="bi bi-globe-americas" style="font-size:80px;"></i>
-        <h3 class="fw-bold mt-2">600</h3>
-        <p class="text-uppercase m-0">Artículos Internacionales</p>
-      </div>
-
-    </div>
-
-    <div class="item div5 bg-rose borde-difuminado">
-      <div class="p-4 rounded h-100 zoom-hover">
-        <i class="bi bi-book" style="font-size:80px;"></i>
-        <h3 class="fw-bold mt-2">6</h3>
-        <p class="text-uppercase m-0">Libros y Capítulos Publicados</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-  
-
 
   <!-- HERO -->
 

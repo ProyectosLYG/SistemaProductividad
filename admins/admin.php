@@ -70,10 +70,14 @@
 
 <section class="container mx-auto">
     <div class="my-5 d-flex justify-content-start gap-3">
-        <a id="" class="border-bottom border-warning p-2 bg-white fw-bold text-black " >Capitulos de libros</a>
-        <a id="" class="border-bottom border-warning p-2 bg-white fw-bold text-black " >Libros</a>
-        <a id="" class="border-bottom border-warning p-2 bg-white fw-bold text-black " >Congresos</a>
-        <a id="" class="border-bottom border-warning p-2 bg-white fw-bold text-black " >Articulos</a>
+        <button id="capitulosLibrosAdmin" class="border-0 border-bottom  p-2 bg-white fw-bold text-black adminHover " >Capitulos de libros</button>
+        <button id="librosAdmin" class="border-0 border-bottom p-2 bg-white fw-bold text-black adminHover " >Libros</button>
+        <button id="congresosAdmin" class="border-0 border-bottom  p-2 bg-white fw-bold text-black adminHover " >Congresos</button>
+        <button id="articulosAdmin" class="border-0 border-bottom bg-white fw-bold text-black adminHover  " >Articulos</button>
+        <button id="tesisAdmin" class="border-0 border-bottom bg-white fw-bold text-black adminHover  " >Tesis</button>
+    </div>
+
+    <div id="resSummary" class=" my-5 row row-cols-1 row-cols-md-2 row-cols-xl-3 g-5 justify-content-around align-items-center">       
     </div>
 </section>
 
@@ -136,8 +140,73 @@
         });
     };
     const datosGrafica = <?php echo json_encode($datos) ?>;
-        datosGrafica.forEach( dat => crearGrafica(dat.id, dat.valores) );
+    datosGrafica.forEach( dat => crearGrafica(dat.id, dat.valores) );
 
+
+    const capitulosLibrosAdmin = document.getElementById('capitulosLibrosAdmin');
+    const librosAdmin = document.getElementById('librosAdmin');
+    const congresosAdmin = document.getElementById('congresosAdmin');
+    const articulosAdmin = document.getElementById('articulosAdmin');
+    const tesisAdmin = document.getElementById('tesisAdmin');
+
+    capitulosLibrosAdmin.addEventListener('click', () => {
+        capitulosLibrosAdmin.classList.add('adminSelected');
+        librosAdmin.classList.remove('adminSelected');
+        congresosAdmin.classList.remove('adminSelected');
+        articulosAdmin.classList.remove('adminSelected');
+        tesisAdmin.classList.remove('adminSelected');
+        fetch('../researchers/consultasModulos/adminCapModulo.php?id=<?php echo $_GET['id'] ?>')
+        .then( response => {
+            if( !response.ok ){
+                throw new Error("Error: " + response.status);
+            }
+            return response.json();
+        })
+        .then( data => {
+            document.getElementById("resSummary").innerHTML = data.mensaje;
+        })
+        .catch( error =>console.error('Error:', error) )
+    });
+
+    articulosAdmin.addEventListener('click', () => {
+        capitulosLibrosAdmin.classList.remove('adminSelected');
+        librosAdmin.classList.remove('adminSelected');
+        congresosAdmin.classList.remove('adminSelected');
+        articulosAdmin.classList.add('adminSelected');
+        tesisAdmin.classList.remove('adminSelected');
+
+        fetch('../researchers/consultasModulos/adminArtModulo.php?id=<?php echo $_GET['id'] ?>')
+        .then( response => {
+            if( !response.ok ){
+                throw new Error("Error: " + response.status);
+            }
+            return response.json();
+        })
+        .then( data => {
+            document.getElementById("resSummary").innerHTML = data.mensaje;
+        })
+        .catch( error =>console.error('Error:', error) )
+    });
+
+    tesisAdmin.addEventListener('click', () => {
+        capitulosLibrosAdmin.classList.remove('adminSelected');
+        librosAdmin.classList.remove('adminSelected');
+        congresosAdmin.classList.remove('adminSelected');
+        articulosAdmin.classList.remove('adminSelected');
+        tesisAdmin.classList.add('adminSelected');
+
+        fetch('../researchers/consultasModulos/adminTesModulo.php?id=<?php echo $_GET['id'] ?>')
+        .then( response => {
+            if( !response.ok ){
+                throw new Error("Error: " + response.status);
+            }
+            return response.json();
+        })
+        .then( data => {
+            document.getElementById("resSummary").innerHTML = data.mensaje;
+        })
+        .catch( error =>console.error('Error:', error) )
+    });
 
 </script>
 <?php include '../build/utilities/footer.php'; 

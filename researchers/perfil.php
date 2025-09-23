@@ -1,4 +1,4 @@
-<?php include './build/utilities/nav.php'; ?>
+<?php include '../build/utilities/nav.php'; ?>
 
 <section class="p-3"></section>
 <section class="mt-xxll"></section>
@@ -64,7 +64,7 @@
                         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
                             <div class="col">
                                 <div class="card h-100">
-                                    <img src="build/img/pp2.webp" class="card-img-top" alt="Imagen del proyecto" style="height: 200px; object-fit: cover;">
+                                    <img src="../build/img/pp2.webp" class="card-img-top" alt="Imagen del proyecto" style="height: 200px; object-fit: cover;">
                                     <div class="card-body d-flex flex-column">
                                         <h5 class="card-title">Sistema de Mapeo y Navegación para Drones Autónomos </h5>
                                         <p class="card-text small text-muted">Febrero 2024 - Enero 2025</p>
@@ -76,7 +76,7 @@
                             </div>
                             <div class="col">
                                 <div class="card h-100">
-                                    <img src="build/img/pp3.webp" class="card-img-top" alt="Imagen del proyecto style="height: 200px; object-fit: cover;"">
+                                    <img src="../build/img/pp3.webp" class="card-img-top" alt="Imagen del proyecto style="height: 200px; object-fit: cover;"">
                                     <div class="card-body d-flex flex-column">
                                         <h5 class="card-title">Sistema de Control de Tráfico Inteligente</h5>
                                         <p class="card-text small text-muted">Enero 2025 - Junio 2025</p>
@@ -87,7 +87,7 @@
                             </div>
                             <div class="col">
                                 <div class="card h-100">
-                                    <img src="build/img/p1.jpg" class="card-img-top" alt="Imagen del proyecto" style="height: 200px; object-fit: cover;">
+                                    <img src="../build/img/p1.jpg" class="card-img-top" alt="Imagen del proyecto" style="height: 200px; object-fit: cover;">
                                     <div class="card-body d-flex flex-column">
                                         <h5 class="card-title">Plataforma de Automatización de Pruebas de Software</h5>
                                         <p class="card-text small text-muted">Agosto 2024 - Diciembre 2024</p>
@@ -103,7 +103,7 @@
                         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
                             <div class="col">
                                 <div class="card h-100">
-                                    <img src="build/img/art1.png" class="card-img-top" alt="Imagen del artículo">
+                                    <img src="../build/img/art1.png" class="card-img-top" alt="Imagen del artículo">
                                     <div class="card-body">
                                         <h5 class="card-title">Optimización de Algoritmos Genéticos</h5>
                                         <p class="card-text small text-muted">Revista Internacional de Computación - 2023</p>
@@ -113,7 +113,7 @@
                             </div>
                             <div class="col">
                                 <div class="card h-100">
-                                    <img src="build/img/art1.png" class="card-img-top" alt="Imagen del artículo">
+                                    <img src="../build/img/art1.png" class="card-img-top" alt="Imagen del artículo">
                                     <div class="card-body">
                                         <h5 class="card-title">El Futuro del Blockchain en la Logística</h5>
                                         <p class="card-text small text-muted">Conferencia de Tecnología Aplicada - 2022</p>
@@ -128,7 +128,7 @@
                         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
                             <div class="col">
                                 <div class="card h-100">
-                                    <img src="build/img/l1.webp" class="card-img-top" alt="Portada del libro">
+                                    <img src="../build/img/l1.webp" class="card-img-top" alt="Portada del libro">
                                     <div class="card-body">
                                         <h5 class="card-title">Inteligencia Artificial para Principiantes</h5>
                                         <p class="card-text small text-muted">Editorial TechBooks - 2021</p>
@@ -146,4 +146,4 @@
 
 </div>
 
-<?php include './build/utilities/footer.php'; 
+<?php include '../build/utilities/footer.php'; 

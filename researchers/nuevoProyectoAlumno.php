@@ -1,4 +1,4 @@
-<?php include './build/utilities/nav.php'; ?>
+<?php include '../build/utilities/nav.php'; ?>
 
 <main class="principal container">
     <div class="d-flex align-items-center ms-4">
@@ -75,4 +75,4 @@
 </main>
 
     <div class="d-grid gap-2 d-md-flex justify-content-md-end"></div>
-<?php include './build/utilities/footer.php'; 
+<?php include '../build/utilities/footer.php'; 

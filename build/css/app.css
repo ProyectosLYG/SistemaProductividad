@@ -12077,6 +12077,15 @@ h3 {
   margin: 0 2rem;
 }
 
+.adminHover:hover {
+  transform: scale(1.1);
+  transition: 300ms ease-in;
+}
+
+.adminSelected {
+  border-bottom: 2px solid #ffd91e !important;
+}
+
 .principal {
   margin-top: 18rem;
 }
