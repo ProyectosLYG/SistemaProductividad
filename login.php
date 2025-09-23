@@ -5,9 +5,9 @@
     <div class="card rounded-4 shadow p-4 login-card align-items-center login-container" >
         <form action="./build/config/startSession.php" class="formlogin" method="POST">
 
-            <div class="d-flex justify-content-center my-4">
+            <a class="d-flex justify-content-center my-4" href="/">
                 <img src="./build/img/escudo_isc.png" alt="Descripción" class="img-fluid" style="max-width: 200px;">
-            </div>
+            </a>
 
             <h3 class="text-center mb-5 letra1 text-white fw-bold">Iniciar Sesión</h3>
 

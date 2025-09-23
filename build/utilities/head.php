@@ -1,5 +1,5 @@
 <?php session_start(); 
-    !isset($_SESSION['user']) && !isset($_SESSION['role']) ? $_SESSION['role'] = 'guest': 0;
+    (!isset($_SESSION['user']) && !isset($_SESSION['role'])) ? $_SESSION['role'] = 'guest': 0;
 
 ?>
 <!DOCTYPE html>

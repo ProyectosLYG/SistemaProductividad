@@ -34,12 +34,15 @@
     visibility: hidden;
     transition: visibility .3s ease-in-out,opacity .5s linear,height 1s linear;
 }
-.enlaces a{
+.enlaces a, .enlaces button{
     margin: 0 1rem;
     color: v.$blanco;
     margin: 1rem 1rem;
     font-size: 2rem;
     
+}
+.color-bg-ul ul{
+    background-color: v.$fondo;
 }
 
 @media(min-width: 850px){

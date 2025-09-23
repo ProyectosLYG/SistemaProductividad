@@ -12,9 +12,15 @@ CREATE TABLE users (
 	updated DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
+CREATE TABLE user_verification (
+	id_user int not null,
+	code varchar(10),
+	FOREIGN KEY ( id_user ) REFERENCES users( id ) ON DELETE CASCADE
+);
+
 CREATE TABLE user_roles (
 	user_id INT NOT NULL PRIMARY KEY,
-	role ENUM('admin','researcher','student') default 'student',
+	role ENUM('admin','researcher','student','leadership') default 'student',
 	FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
@@ -22,6 +28,7 @@ CREATE TABLE user_profile (
 	user_id INT NOT NULL PRIMARY KEY,
 	first_name VARCHAR(50),
     last_name VARCHAR(50),
+    area VARCHAR(50),
     bio TEXT,
     avatar_url VARCHAR(255),
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
@@ -54,10 +61,13 @@ CREATE TABLE chap_book(
 	fechaPublicacion DATE NOT NULL,
 	isbn VARCHAR(26) NOT NULL,
 	editorial VARCHAR(60) NOT NULL,
+	
+	fechaAdicion DATETIME CURRENT_TIMESTAMP,
+	
 	evidencia VARCHAR(255) NOT NULL,
 	evidencia2 VARCHAR(255),
 	evidencia3 VARCHAR(255),
-	FOREIGN KEY (id_res) REFERENCES users(id)
+	FOREIGN KEY (id_res) REFERENCES users(id) ON DELETE CASCADE
 );
 
 drop table chap_book;
@@ -82,10 +92,41 @@ CREATE TABLE articulos (
     FOREIGN KEY (id_res) REFERENCES users(id)
 );
 
+CREATE TABLE tesis (
+	id_res INT NOT NULL,
+	idTesis INT PRIMARY KEY AUTO_INCREMENT,
+	tituloTesis VARCHAR(100),
+	grado VARCHAR(50),
+	proposito VARCHAR(50),
+	autores VARCHAR(100),
+	estado VARCHAR(35),
+	fecha DATE,
+	descripcion VARCHAR(350),
+	sector VARCHAR(35),
+	area VARCHAR(40),
+	evidencia1 VARCHAR(200),
+	evidencia2 VARCHAR(200),
+	evidencia3 VARCHAR(200),
+	FOREIGN KEY (id_res) REFERENCES users(id)
+);
 
-
-
-
+CREATE TABLE congreso (
+	id_res int not null,
+	idCongreso int primary key not null auto_increment,
+	nombreCongreso VARCHAR(100),
+	acronimo VARCHAR(100),
+	intisucion VARCHAR(100),
+	pais VARCHAR(75),
+	ciudad VARCHAR(50),
+	modo VARCHAR(50),
+	area VARCHAR(50),
+	nivel VARCHAR(50),
+	fecha DATE,
+	rol VARCHAR(50),
+	tituloProyecto VARCHAR(100),
+	tipo VARCHAR(50),
+	FOREIGN KEY (id_res) REFERENCES users(id)
+);
 
 
 

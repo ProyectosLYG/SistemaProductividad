@@ -5,7 +5,7 @@ function connect(){
 
     $host = 'localhost';
     $user = 'root';
-    $pwd = '428655';
+    $pwd = '428655'; //slime1234
     $db = 'desemp';
     $charset = "utf8mb4";
 

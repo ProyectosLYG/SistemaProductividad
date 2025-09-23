@@ -16,7 +16,7 @@
             <p class="alert alert-danger text-center"><?php echo $error; ?></p>
         <?php endforeach; ?>
 
-        <form action="./res-consultas/ConsultaNuevoCapitulo.php" method="POST" enctype="multipart/form-data">
+        <form action="./res-consultas/ConsultaNuevoCongreso.php" method="POST" enctype="multipart/form-data">
             <div class="alertas text-danger">Los campos con (*) son obligatorios.</div>
             <fieldset>
 
@@ -26,11 +26,11 @@
                     <div class="campo">
                         <label
                         class="campo-label" 
-                        for="tituloCongreso"
+                        for="nombreCongreso"
                         >Nombre del congreso: <span class="--bs-danger">*</span> </label>
                         <input
-                        id = "tituloCongreso"
-                        name="tituloCongreso"
+                        id = "nombreCongreso"
+                        name="nombreCongreso"
                         class="input-label focus" 
                         placeholder="Nombre del congreso"
                         type="text" 
@@ -40,11 +40,11 @@
                     <div class="campo">
                         <label
                         class="campo-label" 
-                        for="acronimoCongreso"
+                        for="acronimo"
                         >Acrónimo: <span class="--bs-danger">*</span> </label>
                         <input
-                        id = "acronimoCongreso"
-                        name="acronimoCongreso"
+                        id = "acronimo"
+                        name="acronimo"
                         class="input-label focus" 
                         placeholder="Acrónimo del congreso"
                         type="text" 
@@ -54,30 +54,27 @@
                     <div class="campo">
                         <label
                         class="campo-label" 
-                        for="institucionCongreso"
+                        for="institucion"
                         >Institución Organizadora: <span class="--bs-danger">*</span> </label>
                         <input
-                        id = "institucionCongreso"
-                        name="institucionCongreso"
+                        id = "institucion"
+                        name="institucion"
                         class="input-label focus" 
                         placeholder="Institución organizadora"
                         type="text" 
                         >
                     </div>
-
                 </div>
 
-
-                 <div class="flex-responsive spc-arr">
-                        
+                <div class="flex-responsive spc-arr">        
                     <div class="campo">
                         <label
                         class="campo-label" 
-                        for="paisoCongreso"
+                        for="pais"
                         >País: <span class="--bs-danger">*</span> </label>
                         <input
-                        id = "paisCongreso"
-                        name="paisCongreso"
+                        id = "pais"
+                        name="pais"
                         class="input-label focus" 
                         placeholder="País de Realización"
                         type="text" 
@@ -87,11 +84,11 @@
                     <div class="campo">
                         <label
                         class="campo-label" 
-                        for="ciudadCongreso"
+                        for="ciudad"
                         >Ciudad: <span class="--bs-danger">*</span> </label>
                         <input
-                        id = "ciudadCongreso"
-                        name="ciudadCongreso"
+                        name="ciudad"
+                        id = "ciudad"
                         class="input-label focus" 
                         placeholder="Ciudad de Realización"
                         type="text" 
@@ -101,11 +98,11 @@
                     <div class="campo">
                             <label
                             class="campo-label" 
-                            for="modoCongreso"
+                            for="modo"
                             >Modalidad: </label>
                             <select 
-                            id="modoCongreso"
-                            name="modoCongreso" 
+                            id="modo"
+                            name="modo" 
                             >
                                 <option selected disabled>[Seleccione una modalidad]</option>
                                 <option value="1">Presencial</option>
@@ -120,30 +117,30 @@
                         <div class="campo">
                             <label
                             class="campo-label" 
-                            for="posicionAutorCapitulo"
+                            for="area"
                             >Área temática: </label>
                             <select 
-                            id="posicionAutorCapitulo"
-                            name="posicionAutorCapitulo" 
+                            id="area"
+                            name="area" 
                             >
                                 <option selected disabled>[Seleccione un área]</option>
-                                <option value="1">Desarrollo Web</option>
-                                <option value="2">Inteligencia Artificial</option>
-                                <option value="3">Redes</option>
-                                <option value="4">Robotica</option>
-                                <option value="3">Seguridad</option>
-                                <option value="3">Otro</option>
+                                <option value="Desarrollo Web">Desarrollo Web</option>
+                                <option value="Inteligencia Artificial">Inteligencia Artificial</option>
+                                <option value="Redes">Redes</option>
+                                <option value="Robotica">Robotica</option>
+                                <option value="Seguridad">Seguridad</option>
+                                <option value="Otro">Otro</option>
                             </select>
                         </div>
 
                         <div class="campo">
                             <label
                             class="campo-label" 
-                            for="posicionAutorCapitulo"
+                            for="nivel"
                             >Nivel: </label>
                             <select 
-                            id="posicionAutorCapitulo"
-                            name="posicionAutorCapitulo" 
+                            id="nivel"
+                            name="nivel" 
                             >
                                 <option selected disabled>[Seleccione un nivel]</option>
                                 <option value="1">Local</option>
@@ -152,26 +149,17 @@
                             </select>
                         </div>
 
+                        
                         <div class="campo">
                             <label
                             class="campo-label" 
-                            >Fecha de inicio y fin del congreso: <span class="requerido">*</span></label>
-                        <div class="pp_inputs">
-                            De
+                            for="fecha"
+                            >Fecha: <span class="--bs-danger">*</span> </label>
                             <input
-                            id="pp_inicio"
-                            name="pp_inicio"
+                            name="fecha"
+                            id = "fecha"
                             class="input-label" 
-                            placeholder="Inicio"
                             type="date" 
-                             >
-                            a
-                            <input
-                            id="pp_fin"
-                            name="pp_final"
-                            class="input-label" 
-                            placeholder="Fin"
-                            type="date"
                             >
                         </div>
                     </div>
@@ -184,56 +172,56 @@
                 <div class="flex-responsive spc-arr">
 
 
-                <div class="campo">
-                            <label
-                            class="campo-label" 
-                            for="posicionAutorCapitulo"
-                            >Rol en el congreso: </label>
-                            <select 
-                            id="posicionAutorCapitulo"
-                            name="posicionAutorCapitulo" 
-                            >
-                                <option selected disabled>[Seleccione un nivel]</option>
-                                <option value="1">Ponente</option>
-                                <option value="2">Asistente</option>
-                                <option value="3">Comite Organizador</option>
-                                <option value="4">Moderador</option>
-                                <option value="5">Otro</option>
-                            </select>
-                        </div>
+                    <div class="campo">
+                        <label
+                        class="campo-label" 
+                        for="rol"
+                        >Rol en el congreso: </label>
+                        <select 
+                        id="rol"
+                        name="rol" 
+                        >
+                            <option selected disabled>[Seleccione un nivel]</option>
+                            <option value="1">Ponente</option>
+                            <option value="2">Asistente</option>
+                            <option value="3">Comite Organizador</option>
+                            <option value="4">Moderador</option>
+                            <option value="5">Otro</option>
+                        </select>
+                    </div>
 
                     <div class="campo">
                         <label
                         class="campo-label" 
-                        for="nombre"
+                        for="tituloProyecto"
                         >Titulo del Proyecto Presentado: <span class="requerido">*</span> </label>
                         <input
-                        name  = "tituloLibro"
+                        name  = "tituloProyecto"
                         class="input-label" 
                         placeholder="Ingresa el capitulado"
                         type="text" >
                     </div>
-                <div class="campo">
-                    <label
-                    class="campo-label" 
-                    for="nombre"
-                    >Tipo de Participación: <span class="requerido">*</span></label>
-                    <input
-                    name="edicion"
-                    class="input-label" 
-                    placeholder="Ingresa el capitulado"
-                    type="text" >
-                </div>
+                    <div class="campo">
+                        <label
+                        class="campo-label" 
+                        for="tipo"
+                        >Tipo de Participación: <span class="requerido">*</span></label>
+                        <input
+                        name="tipo"
+                        class="input-label" 
+                        placeholder="Ingresa el capitulado"
+                        type="text" >
+                    </div>
                 
                 <div class="campo">
                     <label
                     class="campo-label" 
-                    for="nombre"
+                    for="evidencia"
                     >Evidencia de Participación <span class="parentesis">(Hasta 3 imagenes solo: jpeg/png):</span><span class="requerido">*</span> </label>
                     <input
                     class="input-label" 
-                    id="imgCapituloLibro"
-                    name="imgCapituloLibro[]"
+                    id="evidencia"
+                    name="evidencia[]"
                     accept="image/jpeg, image/png"
                     placeholder="Ingresa le edición"
                     type="file" 
