@@ -10,8 +10,8 @@
     $conn = connect();
     $datos = [];
     $sql = "SELECT 
-            p.last_name,
             p.first_name,
+            p.last_name,
             p.area,
             COUNT(cha.id_res) AS capLibros,
             COUNT(con.id_res) AS congresos,
@@ -68,6 +68,14 @@
     </div>
 </section>
 
+<section class="container mx-auto">
+    <div class="my-5 d-flex justify-content-start gap-3">
+        <a id="" class="border-bottom border-warning p-2 bg-white fw-bold text-black " >Capitulos de libros</a>
+        <a id="" class="border-bottom border-warning p-2 bg-white fw-bold text-black " >Libros</a>
+        <a id="" class="border-bottom border-warning p-2 bg-white fw-bold text-black " >Congresos</a>
+        <a id="" class="border-bottom border-warning p-2 bg-white fw-bold text-black " >Articulos</a>
+    </div>
+</section>
 
 
 
