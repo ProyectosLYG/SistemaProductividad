@@ -68,11 +68,15 @@
             ]);
             $res = $stmt -> rowCount();
             if( $res > 0 ){
-                ////////////////////////////
+                
             }
+        }else{
+            $_SESSION['error'] = "Hubo un problema al ingresar el usuario a la base de datos. Intente de nuevo más tarde. Error code: (2)";
+            header('Location: ../');
+            exit;
         }
     }else{
-        $_SESSION['error'] = "Hubo un problema al ingresar el usuario a la base de datos. Intente de nuevo más tarde";
+        $_SESSION['error'] = "Hubo un problema al ingresar el usuario a la base de datos. Intente de nuevo más tarde. Error code: (1)";
         header("Location ../");
         exit;
     }
