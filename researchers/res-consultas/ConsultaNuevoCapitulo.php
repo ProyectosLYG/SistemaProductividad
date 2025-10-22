@@ -17,7 +17,7 @@
     $evidencia = ['','',''];
     $id_res = $_SESSION['user'];
 
-    echo "<pre>";
+/**     echo "<pre>";
     var_dump($_POST);
     echo "</pre>";
     echo "<br>";
@@ -25,6 +25,7 @@
     var_dump($_FILES);
     echo "</pre>";
     exit;
+ */
 
 
     //validacion de archivos

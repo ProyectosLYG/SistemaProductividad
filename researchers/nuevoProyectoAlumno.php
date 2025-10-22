@@ -11,15 +11,15 @@
             <div class="row g-3">
                 <div class="col-md-12">
                     <label for="tituloProyecto" class="form-label fs-2">Título del proyecto: <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control fs-5" id="tituloProyecto" placeholder="Escribe el título de tu proyecto" required>
+                    <input name="tituloProyecto" type="text" class="form-control fs-5" id="tituloProyecto" placeholder="Escribe el título de tu proyecto" required>
                 </div>
                 <div class="col-md-12">
                     <label for="descripcionProyecto" class="form-label fs-2">Descripción del proyecto: <span class="text-danger">*</span></label>
-                    <textarea class="form-control fs-5" id="descripcionProyecto" rows="5" placeholder="Describe brevemente el proyecto, sus objetivos y su alcance" required></textarea>
+                    <textarea name="descripcion" class="form-control fs-5" id="descripcionProyecto" rows="5" placeholder="Describe brevemente el proyecto, sus objetivos y su alcance" required></textarea>
                 </div>
                 <div class="col-md-12">
                     <label for="herramientas" class="form-label fs-2">Herramientas a utilizar: <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control fs-5" id="herramientas" placeholder="Ej: Python, Django, HTML, CSS, JavaScript, React" required>
+                    <input name="herramientas" type="text" class="form-control fs-5" id="herramientas" placeholder="Ej: Python, Django, HTML, CSS, JavaScript, React" required>
                 </div>
             </div>
         </fieldset>
@@ -29,7 +29,7 @@
             <div class="row g-3">
                 <div class="col-md-4">
                     <label for="numAlumnos" class="form-label fs-2">Número de alumnos:</label>
-                    <select id="numAlumnos" class="form-select fs-5">
+                    <select name="numAlumnos" class="form-select fs-5">
                         <option selected disabled>Selecciona el número</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -40,7 +40,7 @@
                 </div>
                 <div class="col-md-4">
                     <label for="carrera" class="form-label fs-2">Carrera:</label>
-                    <select id="carrera" class="form-select fs-5">
+                    <select name="carrera" class="form-select fs-5">
                         <option selected disabled>Selecciona una carrera</option>
                         <option value="Ingeniería en Sistemas Computacionales">Ingeniería en Sistemas Computacionales</option>
                         <option value="Ingeniería en Gestión Empresarial">Ingeniería en Gestión Empresarial</option>
@@ -52,7 +52,7 @@
                 </div>
                 <div class="col-md-4">
                     <label for="semestre" class="form-label fs-2">Semestre:</label>
-                    <select id="semestre" class="form-select fs-5">
+                    <select name="semestre" class="form-select fs-5">
                         <option selected disabled>Selecciona un semestre</option>
                         <option value="1">1ro</option>
                         <option value="2">2do</option>
