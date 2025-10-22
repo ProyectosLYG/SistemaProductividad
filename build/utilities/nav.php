@@ -66,6 +66,7 @@
                                         '<li><a class="dropdown-item m-0" href="../researchers/libros.php">Libros</a></li>'.
                                         '<li><a class="dropdown-item m-0" href="../researchers/proyectos.php">Proyectos</a></li>'.
                                         '<li><a class="dropdown-item m-0" href="../researchers/propiedadIntelectual.php">Propiedad Intelectual</a></li>'.
+                                        '<li><a class="dropdown-item m-0" href="../admins/registInvest.php">Ver investigadores</a></li>'.
                                     '</ul>'.
                                 '</div>'.
                                 '<div class="dropdown d-inline-block ms-3 color-bg-ul">'.
