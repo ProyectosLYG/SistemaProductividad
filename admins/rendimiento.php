@@ -12,27 +12,27 @@
     }
 
     $sql = "SELECT 
-            r.user_id,
-            p.first_name,
-            p.last_name,
+            r.userId,
+            p.firstName,
+            p.lastName,
             p.area,
-            COUNT(cha.id_res) AS capLibros,
-            COUNT(con.id_res) AS congresos,
-            COUNT(tes.id_res) AS tesis,
-            COUNT(art.id_res) AS articulos
+            COUNT(cha.userId) AS capLibros,
+            COUNT(con.userId) AS congresos,
+            COUNT(tes.userId) AS tesis,
+            COUNT(art.userId) AS articulos
             FROM user_roles r
             INNER JOIN user_profile p 
-            ON r.user_id = p.user_id
+            ON r.userId = p.userId
             LEFT JOIN chap_book cha
-            ON r.user_id = cha.id_res
+            ON r.userId = cha.userId
             LEFT JOIN  congreso con
-            ON r.user_id = con.id_res
+            ON r.userId = con.userId
             LEFT JOIN tesis tes
-            ON r.user_id = tes.id_res
+            ON r.userId = tes.userId
             LEFT JOIN articulos art
-            ON r.user_id = art.id_res
+            ON r.userId = art.userId
             WHERE r.role = 'researcher'
-            GROUP BY p.first_name, p.last_name, p.area
+            GROUP BY p.firstName, p.lastName, p.area
     ";
 
     $stmt = $conn -> prepare($sql);
@@ -48,19 +48,19 @@
         <?php while( $res = $stmt -> fetch() ){ ?>
             <div class="card texto-card p-5"> 
                 <div>
-                    <p class="fw-semibold lh-1">PTC: <?php echo $res['last_name'] . ' ' . $res['first_name'] ?></p>
+                    <p class="fw-semibold lh-1">PTC: <?php echo $res['lastName'] . ' ' . $res['firstName'] ?></p>
                     <p class="lh-1">Área: <?php echo $res['area'] ?></p>
                     <p class="lh-1">Orcid: 223107037</p>
                     <section class="prueba1">
-                        <canvas id="grafica_<?php echo $res['user_id'] ?>" height="300" width="300"></canvas>
+                        <canvas id="grafica_<?php echo $res['userId'] ?>" height="300" width="300"></canvas>
                     </section>
                 </div>
                 <div>
-                    <a href="admin.php?id=<?php echo $res['user_id'] ?>" class="col btn btn-warning me-2 d-flex justify-content-around fs-4 fw-medium">Ver más</a>
+                    <a href="admin.php?id=<?php echo $res['userId'] ?>" class="col btn btn-warning me-2 d-flex justify-content-around fs-4 fw-medium">Ver más</a>
                 </div>
             </div>
             <?php   $datos[] = [
-                        'id' => 'grafica_'.$res['user_id'],
+                        'id' => 'grafica_'.$res['userId'],
                         'valores' => [4, $res['articulos'], $res['congresos'],2, $res['capLibros'], $res['tesis'], 1]
                     ]; 
             ?>

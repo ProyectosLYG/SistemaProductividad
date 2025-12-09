@@ -104,11 +104,11 @@
     
     $sql = "INSERT INTO chap_book 
     (
-    id_res,
+    userId,
     tituloCapitulo, 
     resumen, 
     autores, 
-    posicionAutor, 
+    posicionAuto, 
     paginas, 
     sectorEstrategico, 
     areaConocimiento, 
@@ -118,7 +118,7 @@
     fechaPublicacion, 
     isbn, 
     editorial, 
-    evidencia1, 
+    evidencia, 
     evidencia2, 
     evidencia3
     ) VALUES (

@@ -11,7 +11,7 @@ class moduloLibro {
     }
     function getBook( $id, $area, $role ){
         $sql = "SELECT 
-            c.evidencia1,
+            c.evidencia,
             c.tituloCapitulo,
             c.tituloLibro,
             c.autores,
@@ -24,8 +24,8 @@ class moduloLibro {
             c.fechaPublicacion,
             c.isbn,
             c.editorial,
-            u.last_name,
-            u.first_name,
+            u.lastName,
+            u.firstName,
             u.area,
             c.fechaAdicion,
             c.idLibro 
@@ -34,29 +34,36 @@ class moduloLibro {
             ";
 
         if( $role === 'researcher' ){
-            $sql .= " ON u.user_id = c.id_res WHERE u.user_id = :id ";
+            $sql .= " ON u.userId = c.userId WHERE u.userId = :id ";
         }else if( $role === 'leadership' && $area === 'ISC' ){
-            $sql .= " ON u.user_id = c.id_res WHERE u.area = 'ISC' ORDER BY fechaAdicion DESC ";
+            $sql .= " ON u.userId = c.userId WHERE u.area = 'ISC' ORDER BY fechaAdicion DESC ";
         }else if( $role === 'admin' ){
-            $sql .= " ON u.user_id = c.id_res ORDER BY fechaAdicion DESC ";
+            $sql .= " ON u.userId = c.userId ORDER BY fechaAdicion DESC ";
         }
-        $stmt = self::$conn -> prepare($sql);
-        if( $role === 'researcher' ){
-            $stmt -> execute(['id' => $id]);
-        }else{
-            $stmt -> execute();
+        try{
+
+            $stmt = self::$conn -> prepare($sql);
+            if( $role === 'researcher' ){
+                $stmt -> execute(['id' => $id]);
+            }else{
+                $stmt -> execute();
+            }
+            $html ='';
+
+        }catch ( PDOException $e ) {
+            $html = "<p>Hubo un problema al cargar la base de datos.</p>";
+            return $html;
         }
-        $html ='';
         while ($res = $stmt->fetch()) {
             $periodo = substr($res['fechaAdicion'],0 , 4);
             substr($res['fechaAdicion'], 5,2) >= 7 ? $periodo .= '-2' : $periodo .= '-1';
             $html .= '
             <div class="col">
                 <div class="  proyecto d-flex flex-column rounded  m-2 auto h-100" style="">
-                    <img src="projectImages/'.$res['evidencia1'].'" class="img-fluid mx-auto mt-4 rounded" style="max-height:420px" width="300" height="400px" alt="Imágen de libro">
+                    <img src="projectImages/'.$res['evidencia'].'" class="img-fluid mx-auto mt-4 rounded" style="max-height:420px" width="300" height="400px" alt="Imágen de libro">
                     <div class="mx-5">
                         <p class="text-center fs-1 fw-bold m-0">' . $res['tituloCapitulo'] . '</p>
-                        <p class="text-start m-0"><span class="fw-bold">Autor Capitulo: </span> ' . $res['last_name']  . ' ' . $res['first_name'] . '</p>
+                        <p class="text-start m-0"><span class="fw-bold">Autor Capitulo: </span> ' . $res['lastName']  . ' ' . $res['firstName'] . '</p>
                         <p class="text-start m-0"><span class="fw-bold">Area: </span> ' . $res['area'].'</p>
                         <p class="text-start m-0"><span class="fw-bold">Publicación: </span>' . $res['fechaPublicacion'] . '</p>
                         <p class="text-start m-0"><span class="fw-bold">Periodo: </span>' . $periodo . '</p>
@@ -86,11 +93,11 @@ class moduloLibro {
                         </div>
                         <div class="modal-body">
                             <div class="d-flex flex-column flex-xl-row justify-content-around">
-                                <img src="projectImages/' .  $res['evidencia1'] . '" alt="" width="300" height="auto" class="my-auto mx-auto">
+                                <img src="projectImages/' .  $res['evidencia'] . '" alt="" width="300" height="auto" class="my-auto mx-auto">
                                 <div class="text-black p-2">
                                     <div class="fs-1 text-center m-0">Libro: <span class="fw-bold">' . $res['tituloLibro'] . '</span></div>
                                     <div class="fs-2 text-center m-0"> Capitulo: <span class="fw-bold"> ' . $res['tituloCapitulo'] . '</span></div>
-                                    <div class="fs-4 m-0 text-center "> ' . $res['last_name'] .' '. $res['first_name'] . '</div>
+                                    <div class="fs-4 m-0 text-center "> ' . $res['lastName'] .' '. $res['first_name'] . '</div>
                                     <div class="row row-columns-1 row-cols-md-2 m-5 ">
                                         <div class="fs-4 m-0 "><span class="fw-bold">Sector: </span>' . $res['sectorEstrategico'] . '</div>
                                         <div class="fs-4 m-0 "><span class="fw-bold">Area: </span> ' . $res['areaConocimiento'] . '</div>

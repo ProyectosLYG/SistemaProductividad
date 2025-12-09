@@ -5,8 +5,8 @@
     $conn = connect();
 
     $sql = "SELECT 
-            u.last_name,
-            u.first_name,
+            u.lastName,
+            u.firstName,
             t.idTesis,
             t.tituloTesis,
             t.grado,
@@ -20,22 +20,26 @@
             t.evidencia1
             FROM tesis t 
             INNER JOIN user_profile u 
-            ON u.user_id = t.id_res 
-            WHERE u.user_id = :userId";
+            ON u.userId = t.userId 
+            WHERE u.userId = :userId";
 
-    $stmt = $conn -> prepare($sql);
-    $stmt -> execute(['userId' => $_GET['id']]);
-
+    try{
+        $stmt = $conn -> prepare($sql);
+        $stmt -> execute(['userId' => $_GET['id']]);
+    } catch( PDOException $e ) {
+        $html = '<p>Hubo un problema al cargar la base de datos.</p>';
+    }
+        
     $html ='';
     while($res = $stmt -> fetch()){
-        $html = '
+        $html .= '
         <div class = "col">
             <div class="  proyecto d-flex flex-column rounded  m-2 auto h-100">
                 <img src="../researchers/thesisImages/'. $res['evidencia1'] .'" class="img-fluid mx-auto mt-4 rounded" width="300" height="400" alt="Imágen de libro">
                 <div class="mx-5">
                     <p class="fs-1 fw-bold m-0">'. $res['tituloTesis'] .'</p>
                     <p class="text-start m-0">'. $res['fecha'] .'</p>
-                    <p class="align-content-center fs-2 fst-italic m-0"> '. $res['last_name'] . ' ' . $res['first_name'] .' | ISC</p>
+                    <p class="align-content-center fs-2 fst-italic m-0"> '. $res['lastName'] . ' ' . $res['firstName'] .' | ISC</p>
                     <button 
                     type="button" 
                     class="boton-claro rounded d-flex justify-content-center w-75 mx-auto"

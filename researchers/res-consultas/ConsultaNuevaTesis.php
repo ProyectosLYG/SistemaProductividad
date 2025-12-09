@@ -105,7 +105,7 @@
 */
     $sql = "INSERT INTO tesis
     (
-        id_res,
+        userId,
         tituloTesis,
         grado,
         proposito,

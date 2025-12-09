@@ -37,7 +37,7 @@
         exit;
     }
 
-    $sqlInsert = "INSERT INTO users ( username, email, email_ver, pwd ) VALUES ( :user, :email, :emailVer, :pwd )";
+    $sqlInsert = "INSERT INTO users ( username, email, emailVer, pwd ) VALUES ( :user, :email, :emailVer, :pwd )";
     $stmt = $conn -> prepare($sql);
     $stmt -> execute([
         'user' => $user,
@@ -80,3 +80,103 @@
         header("Location ../");
         exit;
     }
+
+
+
+
+
+
+
+
+class Registrar {
+
+    private $id;
+    private $conn;
+    private $user;
+    private $area;
+    private $role;
+    private $pwd;
+    private $pwdRep;
+    private $email;
+    private $error;
+    
+    function __construct(){
+        $this -> id = substr( md5( uniqid(rand(), true ) ), 0, 16);
+        $this -> user = '';
+        $this -> area = '';
+        $this -> role = '';
+        $this -> pwd = '';
+        $this -> pwdRep = '';
+        $this -> email = '';
+        $this -> error = '';
+    }
+
+    //validar si el usuario es valido
+    public function validateUser( $user ){
+        $this -> user = $user;
+        if( empty( $this -> user ) ){
+            $this -> error = "Todos los campos son obligatorios";
+        }
+    }
+
+    // public function validateUserDB(){
+    //     $this -> conn
+    // }
+
+    //Valida el area y que exista en el sistema
+    /* */
+    public function validateArea( $area ){
+        $validAreas = [
+            'ISC' => 'Ingeniería en Sistemas Computacionales',
+            'IM' => 'Ingeniería Mecatrónica',
+            'IL' => 'Ingeniería Logística',
+            'CP' => 'Contabilidad Pública',
+            'IGE' => 'Ingeniería en Gestión Empresarial',
+            'IQ' => 'Ingeniería Química',
+            'IAE' => 'Ingeniería en Administracíon',
+            'IT' => 'Ingeniería en Tecnologías de la Información y Comunicaciones',
+            'IS' => 'Ingeniería en Semiconductores',
+            'II' => 'Ingeniería Industrial'
+        ];
+        $this -> area = $area;
+        if( !array_key_exists( $this -> area, $validAreas)){
+            $this -> error = "El área no es valida.";
+        }
+    }
+
+    //validarion de rol
+    public function validateRole( $role ){
+        $validRoles = [
+            'admin',
+            'researchers',
+            'leaderchip',
+            'student'
+        ];
+        $this -> role = $role;
+        if( !in_array( $this -> role, $validRoles ) ){
+            $this -> error = "El rol no es valido.";
+        }
+    }
+
+    //validacion de correos de investigadores y administradores
+    public function validateResEmail( $email ){
+        $emailRegex = "/^[a-zA-Z0-9._%+-]+@cuautitlan+\.tecnm+\.mx$/";
+        $this -> email = $email;
+        if( !preg_match( $emailRegex, $this -> email ) ){
+            $this -> error = "El correo no es valido";
+        }
+    }
+
+    //validacion de correos institucionales de alumnos
+    public function validateStudentEmail( $email ){
+        $emailRegex = "/^[0-9]{9}+@cuautitlan+\.tecnm+\.mx$/";
+        $this -> email = $email;
+        if( !preg_match( $emailRegex, $this -> email ) ){
+            $this -> error = "No es un correo valido";
+        }
+    }
+
+    public function validatePwd( $pwd ) {
+        
+    }
+}

@@ -1,8 +1,8 @@
 <?php
 
-include '../build/utilities/nav.php';
-include '../build/config/sesssionValidation.php';
-include 'consultasModulos/LibroModulo.php';
+include_once __DIR__ . '/../build/utilities/nav.php';
+include_once __DIR__ . '/../build/config/sesssionValidation.php';
+include_once __DIR__ . '/consultasModulos/LibroModulo.php';
 if (authAdmin($_SESSION['role']) != true && authResearcher($_SESSION['role']) != true) {
     header("Location: ../login.php");
     exit;

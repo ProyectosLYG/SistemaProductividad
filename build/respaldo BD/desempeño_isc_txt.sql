@@ -3,78 +3,73 @@ CREATE DATABASE desemp;
 USE desemp;
 
 CREATE TABLE users (
-	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	id VARCHAR(50) NOT NULL PRIMARY KEY,
 	username varchar(50) NOT NULL,
 	email varchar(100) NOT NULL UNIQUE, 
-	email_ver BOOLEAN,
+	emailVer BOOLEAN,
 	pwd varchar(255) NOT NULL,
 	created DATETIME DEFAULT CURRENT_TIMESTAMP,
 	updated DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
 CREATE TABLE user_verification (
-	id_user int not null,
-	code varchar(10),
-	FOREIGN KEY ( id_user ) REFERENCES users( id ) ON DELETE CASCADE
+	userId VARCHAR(50) PRIMARY KEY,
+	code VARCHAR(10),
+	FOREIGN KEY ( userId ) REFERENCES users( id ) ON DELETE CASCADE
 );
 
 CREATE TABLE user_roles (
-	user_id INT NOT NULL PRIMARY KEY,
+	UserId VARCHAR(50) NOT NULL PRIMARY KEY,
 	role ENUM('admin','researcher','student','leadership') default 'student',
-	FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+	FOREIGN KEY (userId) REFERENCES users(id) ON DELETE CASCADE
 );
 
 CREATE TABLE user_profile (
-	user_id INT NOT NULL PRIMARY KEY,
-	first_name VARCHAR(50),
-    last_name VARCHAR(50),
+	userId VARCHAR(50) NOT NULL PRIMARY KEY,
+	firstName VARCHAR(50),
+    lastName VARCHAR(50),
     area VARCHAR(50),
     bio TEXT,
-    avatar_url VARCHAR(255),
-    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+    avatarUrl VARCHAR(255),
+    FOREIGN KEY (userId) REFERENCES users(id) ON DELETE CASCADE
 );
 
+#limbo
 CREATE TABLE user_sessions (
-	id INT AUTO_INCREMENT PRIMARY KEY,
-	user_id INT NOT NULL,
-	session_token VARCHAR(255) UNIQUE,
+	userId VARCHAR(50) PRIMARY KEY,
+	session_token VARCHAR(255),
 	last_login DATETIME,
-	FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE	
+	FOREIGN KEY (userId) REFERENCES users(id) ON DELETE CASCADE	
 );
 
 
 CREATE TABLE chap_book(
 	idLibro int PRIMARY KEY AUTO_INCREMENT,
-	id_res int,
+	userId int NOT NULL,
 	tituloCapitulo varchar(150) NOT NULL,
 	resumen VARCHAR(850) NOT NULL,
 	autores VARCHAR(150) NOT NULL,
 	posicionAuto INT,
 	paginas VARCHAR(9) NOT NULL,
-	
 	sectorEstrategico VARCHAR(50) NOT NULL, 
 	areaConocimiento VARCHAR(50) NOT NULL,	
-
 	tituloLibro VARCHAR(150) NOT NULL,
 	edicion VARCHAR(5) NOT NULL,
 	casaEditorial VARCHAR(60) NOT NULL,
 	fechaPublicacion DATE NOT NULL,
 	isbn VARCHAR(26) NOT NULL,
 	editorial VARCHAR(60) NOT NULL,
-	
-	fechaAdicion DATETIME CURRENT_TIMESTAMP,
-	
+	fechaAdicion DATETIME DEFAULT CURRENT_TIMESTAMP,
 	evidencia VARCHAR(255) NOT NULL,
 	evidencia2 VARCHAR(255),
 	evidencia3 VARCHAR(255),
-	FOREIGN KEY (id_res) REFERENCES users(id) ON DELETE CASCADE
+	FOREIGN KEY (userId) REFERENCES users(id) ON DELETE CASCADE
 );
 
-drop table chap_book;
 
 CREATE TABLE articulos (
 	idArticulo INT AUTO_INCREMENT PRIMARY KEY,
-	id_res INT NOT NULL,
+	userId INT NOT NULL,
     tituloArticulo VARCHAR(150),
     nombreRevista VARCHAR(150),
     autoresArticulo VARCHAR(150),
@@ -89,12 +84,12 @@ CREATE TABLE articulos (
     rangoPaginas VARCHAR(10),
     indiceRegistro VARCHAR(30),
     issn VARCHAR(25),
-    FOREIGN KEY (id_res) REFERENCES users(id)
+    FOREIGN KEY (userId) REFERENCES users(id)
 );
 
 CREATE TABLE tesis (
-	id_res INT NOT NULL,
 	idTesis INT PRIMARY KEY AUTO_INCREMENT,
+	userId INT NOT NULL,
 	tituloTesis VARCHAR(100),
 	grado VARCHAR(50),
 	proposito VARCHAR(50),
@@ -107,11 +102,11 @@ CREATE TABLE tesis (
 	evidencia1 VARCHAR(200),
 	evidencia2 VARCHAR(200),
 	evidencia3 VARCHAR(200),
-	FOREIGN KEY (id_res) REFERENCES users(id)
+	FOREIGN KEY (userId) REFERENCES users(id)
 );
 
 CREATE TABLE congreso (
-	id_res int not null,
+	userId int not null,
 	idCongreso int primary key not null auto_increment,
 	nombreCongreso VARCHAR(100),
 	acronimo VARCHAR(100),
@@ -125,10 +120,8 @@ CREATE TABLE congreso (
 	rol VARCHAR(50),
 	tituloProyecto VARCHAR(100),
 	tipo VARCHAR(50),
-	FOREIGN KEY (id_res) REFERENCES users(id)
+	FOREIGN KEY (userId) REFERENCES users(id)
 );
-
-
 
 
 

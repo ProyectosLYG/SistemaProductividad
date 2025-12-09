@@ -1,26 +1,26 @@
 <?php
 
-    use mailerConf\PHPMailer;
-    use mailerConf\SMTP;
-    use mailerConf\Exception;
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\SMTP;
+    use PHPMailer\PHPMailer\Exception;
 
     require "mailerConf/Exception.php";
     require "mailerConf/PHPMailer.php";
     require "mailerConf/SMTP.php";
 
-    $mail = new PHPMailer;
+    $mail = new PHPMailer();
 
     $mail -> isSMTP();
-    $mail -> Host = 'smtp-mail.outlook.com';
+    $mail -> Host = 'smtp.gmail.com';
     $mail -> SMTPAuth = true;
-    $mail -> Username = '223107472@cuautitlan.tecnm.mx';
-    $mail -> Password = 'Gerardo101010__';
-    $mail -> SMTPSecure = 'ssl';
-    $mail -> Port = '587';
+    $mail -> Username = 'desemptesci@gmail.com';
+    $mail -> Password = 'qfzw orjc ykxt ylcx';
+    $mail -> SMTPSecure = 'tls';
+    $mail -> Port = 587;
 
-    $mail -> setForm('223107472@cuautitlan.tecnm.mx');
+    $mail -> setFrom('desemptesci@gmail.com');
 
-    $mail -> setAddress('o.galicia.0812@gmail.com');
+    $mail -> addAddress('o.galicia.0812@gmail.com');
 
     $mail -> Subject = 'Prueba de php mailer';
 

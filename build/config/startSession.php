@@ -11,9 +11,9 @@
     "SELECT u.id,r.role, p.area
     FROM users u 
     INNER JOIN user_roles r 
-    ON u.id = r.user_id 
+    ON u.id = r.userId 
     INNER JOIN user_profile p
-    ON u.id = p.user_id
+    ON u.id = p.userId
     WHERE u.username = ? 
     AND u.pwd = ?;";
 

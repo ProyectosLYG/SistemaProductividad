@@ -10,24 +10,24 @@
     $conn = connect();
     $datos = [];
     $sql = "SELECT 
-            p.first_name,
-            p.last_name,
+            p.firstName,
+            p.lastName,
             p.area,
-            COUNT(cha.id_res) AS capLibros,
-            COUNT(con.id_res) AS congresos,
-            COUNT(tes.id_res) AS tesis,
-            COUNT(art.id_res) AS articulos
+            COUNT(cha.userId) AS capLibros,
+            COUNT(con.userId) AS congresos,
+            COUNT(tes.userId) AS tesis,
+            COUNT(art.userId) AS articulos
             FROM user_profile p
             LEFT JOIN chap_book cha
-            ON p.user_id = cha.id_res
+            ON p.userId = cha.userId
             LEFT JOIN congreso con 
-            ON p.user_id = con.id_res
+            ON p.userId = con.userId
             LEFT JOIN tesis tes
-            ON p.user_id = tes.id_res
+            ON p.userId = tes.userId
             LEFT JOIN articulos art
-            ON p.user_id = art.id_res
-            WHERE p.user_id = :userId
-            GROUP BY p.first_name, p.last_name, p.area
+            ON p.userId = art.userId
+            WHERE p.userId = :userId
+            GROUP BY p.firstName, p.lastName, p.area
     ";
     $stmt = $conn -> prepare($sql);
     $stmt -> execute(['userId' => $_GET['id']]);
@@ -47,7 +47,7 @@
 
         <div class="card texto-card p-5 text-center"> 
             <div>
-                <h3 class="fw-semibold lh-2"><?php echo $res['last_name'] . ' ' . $res['first_name'];  ?></h3>
+                <h3 class="fw-semibold lh-2"><?php echo $res['lastName'] . ' ' . $res['firstName'];  ?></h3>
                 <p class="lh-1">ORCID: 223107037</p>
                 <p class="lh-1">Area: <?php echo $res['area']; ?></p>
                 <section>
