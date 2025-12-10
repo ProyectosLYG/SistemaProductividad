@@ -83,11 +83,6 @@
 
 
 
-
-
-
-
-
 class Registrar {
 
     private $id;
@@ -97,16 +92,19 @@ class Registrar {
     private $role;
     private $pwd;
     private $pwdRep;
+    private $crptdPwd;
     private $email;
     private $error;
     
     function __construct(){
         $this -> id = substr( md5( uniqid(rand(), true ) ), 0, 16);
+        $this -> conn = connect();
         $this -> user = '';
         $this -> area = '';
         $this -> role = '';
         $this -> pwd = '';
         $this -> pwdRep = '';
+        $this -> crptdPwd = '';
         $this -> email = '';
         $this -> error = '';
     }
@@ -119,9 +117,21 @@ class Registrar {
         }
     }
 
-    // public function validateUserDB(){
-    //     $this -> conn
-    // }
+    public function validateUserDB(  ){
+        $sql = "SELECT * FROM users WHERE username = :user";
+
+        try{
+            $stmt = $this -> conn -> prepare( $sql );
+            $stmt -> execute( [ 'user' => $this -> user ] );
+            $res = $stmt -> fetch();
+
+            if( $res ){
+                $this -> error = 'El usuario ya existe.';
+            }
+        } catch( PDOException $e ) {
+            $this -> error = "Hubo un problema al verificar si ya existe un usuario.";
+        }
+    }
 
     //Valida el area y que exista en el sistema
     /* */
@@ -176,7 +186,41 @@ class Registrar {
         }
     }
 
-    public function validatePwd( $pwd ) {
-        
+    public function validatePwd( $pwd, $pwdRep ) {
+        $this -> pwd = $pwd;
+        $this -> pwdRep = $pwdRep;
+
+        if ( empty( $this -> pwd ) && empty( $this -> pwdRep ) ){
+            $this -> error = 'Las contraseñas no son validas';
+        }
+
+        if( $pwd !== $pwdRep ){
+            $this -> error = 'Debe ingresar la misma contraseña 2 veces.';
+        }
+    }
+
+    public function cryptPwd(){
+        $this -> crptdPwd = crypt( $this -> pwd, PASSWORD_BCRYPT_DEFAULT_COST );
+    }
+
+    public function createUser(){
+        $sql = "INSERT INTO users ( id, username, email, emailVer, pwd, created, updated) VALUES ( :id, :username, :email, 0, :pwd, CURDATE(), CURDATE() )";
+        try{
+            $stmt = $this -> conn -> prepare( $sql );
+            $stmt -> execute( [
+                'id' => $this -> id,
+                'username' => $this -> user,
+                'email' => $this -> email,
+                'pwd' => $this -> crptdPwd
+            ] );
+            $res = $stmt -> fetch();
+            if( !$res ){
+                $this -> error = 'Hubo un problema a la hora de crear el usuario ( 1 ).';
+            }
+            
+        } catch( PDOException $e ) {
+            $this -> error = 'Hubo un problema al crear el usuario ( 0 ).';
+        }
+
     }
 }
