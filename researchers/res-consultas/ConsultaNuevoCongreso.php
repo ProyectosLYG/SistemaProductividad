@@ -1,5 +1,11 @@
 <?php
     session_start();
+
+    include '../../build/config/connection.php';
+    $_SESSION['errores'] = "";
+    $errores = [];
+    $conn = connect();
+
     $id_res = $_SESSION['user'];
     $fileSizeLimit = 3 * 1024 * 1024;
     $folderName = '../congressImages';
@@ -7,24 +13,27 @@
     $imageTmpName = '';
     $imageName = '';
     $imageNames = [];
+    $imgQuantity = 0;
 
-    echo '<pre>';
-    echo var_dump($_FILES);
-    echo '</pre>';
-    echo '<br>';
-    echo '<pre>';
-    echo var_dump($_POST);
-    echo'</pre>';
-    exit;
+
+    // echo '<pre>';
+    // echo var_dump($_FILES);
+    // echo '</pre>';
+    // echo '<br>';
+    // echo '<pre>';
+    // echo var_dump($_POST);
+    // echo'</pre>';
+    // exit;
     
 
     (!isset($_POST['nombreCongreso']) || empty($_POST['nombreCongreso'])) ?
         $errores[] = "El nombre del congreso es obligatorio." :
         $nombreCongreso = $_POST['nombreCongreso'];
-
+    
     (!isset($_POST['acronimo']) || empty($_POST['acronimo'])) ?
         $errores[] = "El acrónimo es obligatorio." :
         $acronimo = $_POST['acronimo'];
+
     (!isset($_POST['institucion']) || empty($_POST['institucion'])) ?
         $errores[] = "El nombre de la institución es obligatoria.":
         $institucion = $_POST['institucion'];
@@ -60,6 +69,10 @@
         $errores[] = "El titulo del proyecto es obligatorio.":
         $tituloProyecto = $_POST['tituloProyecto'];
 
+    (!isset($_POST['tipo']) || empty($_POST['tipo'])) ?
+        $errores[] = "El tipo del proyecto es obligatorio.":
+        $tipo = $_POST['tipo'];
+
     // imgs validation
     foreach($_FILES['evidencia']['error'] as $i => $error){
         if($error === UPLOAD_ERR_OK &&  !empty($_FILES['evidencia']['name'][$i])){
@@ -74,7 +87,7 @@
         }
         $imgQuantity++;
         $imageNames[] = [
-            'tmp' => $_FILES['evidencia']['tmp'][$i],
+            'tmp' => $_FILES['evidencia']['tmp_name'][$i],
             'ext' => pathInfo($_FILES['evidencia']['name'][$i], PATHINFO_EXTENSION) 
         ];
     }
@@ -89,7 +102,7 @@
     }
 
     $sql = "INSERT INTO congreso (
-    id_res,
+    userId,
     nombreCongreso,
     acronimo,
     institucion,
@@ -102,9 +115,7 @@
     rol,
     tituloProyecto,
     tipo,
-    evidencia1,
-    evidencia2,
-    evidencia3
+    evidencia
     ) VALUES (
     :id_res,
     :nombreCongreso,
@@ -118,7 +129,8 @@
     :fecha,
     :rol,
     :tituloProyecto,
-    :tipo
+    :tipo,
+    :evidencia
     );";
     try{
         if(!is_dir($folderName)){
@@ -126,7 +138,7 @@
         }
         foreach($imageNames as $i => $tmp){
             $imageTmpName = md5(uniqid((rand()) , true ));
-            $imageName = $imageName .'.'. $tmp['ext'];
+            $imageName = $imageTmpName .'.'. $tmp['ext'];
             move_uploaded_file($tmp['tmp'], $folderName .'/'.$imageName);
             $evidencia[$i] = $imageName;
         }
@@ -144,9 +156,10 @@
             'fecha' => $fecha,
             'rol' => $rol,
             'tituloProyecto' => $tituloProyecto,
-            'tipo' => $tipo
+            'tipo' => $tipo,
+            'evidencia' => $evidencia[0]
             ]);
-        $res = $stmt -> fetch();
+        $res = $stmt -> rowCount();
         if($res > 0){
             header("Location: ../congresos.php");
             exit;
@@ -168,4 +181,5 @@
     rol
     tituloProyecto
     tipo
+    ) VALUES (
 */

@@ -2,88 +2,45 @@
     session_start();
     require_once(__DIR__ . '/../build/config/connection.php');
 
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\SMTP;
+    use PHPMailer\PHPMailer\Exception;
+
+    require "./../build/PHPMailer/mailerConf/Exception.php";
+    require "./../build/PHPMailer/mailerConf/PHPMailer.php";
+    require "./../build/PHPMailer/mailerConf/SMTP.php";
+
     $conn = connect();
 
-    ( !isset( $_POST['user'] ) || !isset( $_POST['email'] ) || !isset( $_POST['pwd'] ) || !isset( $_POST['pwdRep'] ) || !isset( $_POST['role '] ) || !isset( $_POST['area'] ) || empty( $_POST['user'] ) || empty( $_POST['email'] ) || empty( $_POST['pwd'] ) || empty( $_POST['pwdRep'] ) || empty( $_POST['role'] ) || empty( $_POST['area'] ) ) ? $error = "Es necesario llenar todos los campos." : null;
-    
-    if( !empty($error)  ){
-        $_SESSION['error'] = $error;
-        header("Location: ../");
-        exit;
-    }
-    
-    if( $pwd !== $pwdRep ){
-        $_SESSION['error'] = "Las contraseñas no coinciden.";
-        header( "Location: ../" );
-        exit;
-    }
+    // echo '<pre>';
+    // echo var_dump( $_POST );
+    // echo '</pre>';
+    // exit;
 
-    $user = $_POST['user'];
-    $email = $_POST['email'];
-    $pwd = password_hash($_POST['pwd'], PASSWORD_DEFAULT);
-    $role = $_POST['role'];
-    $area = $_POST['area'];
-    $emailVer = 0;
-    $verificationCode = bin2hex(random_bytes(16));
-
-    $sql = "SELECT username FROM users WHERE username = :user ";
-
-    $stmt = $conn -> prepare($sql);
-    $stmt -> execute(['user' => $user]);
-    $res = $stmt -> rowCount();
-    if( $res !== 0 ){
-        $_SESSION['error'] = "El nombre de usuario ya existe";
-        header("Location ../");
-        exit;
-    }
-
-    $sqlInsert = "INSERT INTO users ( username, email, emailVer, pwd ) VALUES ( :user, :email, :emailVer, :pwd )";
-    $stmt = $conn -> prepare($sql);
-    $stmt -> execute([
-        'user' => $user,
-        'email' => $email,
-        'emailVer' => $emailVer,
-        'pwd' => $pwd
-    ]);
-    $res = $stmt -> rowCount();
-    if( $res > 0 ){
-        $sql = "SELECT id FROM users WHERE username = :user ";
-        $stmt = $conn -> prepare($sql);
-        $stmt -> execute(['user' => $user]);
-        $res = $stmt -> fetch();
-        $id = $res['id'];
-        $sql_role = "INSERT INTO user_roles ( user_id, role ) VALUES (:id, :role)";
-        $stmt = $conn -> prepare($sql_role);
-        $stmt -> execute([
-            'id' => $id,
-            'role' => $role
-        ]);
-        $res = $stmt -> rowCount();
-        if( $res > 0 ){
-            $sql_profile = "INSERT INTO user_profile ( id, area ) VALUES (:id, :area)";
-            $stmt = $conn -> prepare($sql_profile);
-            $stmt -> execute([
-                'id' => $id,
-                'area' => $area
-            ]);
-            $res = $stmt -> rowCount();
-            if( $res > 0 ){
-                
+    if( $_SERVER['REQUEST_METHOD'] === 'POST' ){
+        $registrar = new Registrar();
+        $registrar -> validateUser( $_POST['user'] );
+        $registrar -> validateUserDB();
+        $registrar -> validateArea( $_POST['area'] );
+        $registrar -> validateRole( $_POST['role'] );
+        if( !isset( $_POST['nmd'] ) ){
+            if( $_POST['nmd'] === 'nmd' ){
+                $registrar -> validateResEmail( $_POST['email'] );
+            }else{
+                $registrar -> validateStudentEmail( $_POST['email'] );
             }
-        }else{
-            $_SESSION['error'] = "Hubo un problema al ingresar el usuario a la base de datos. Intente de nuevo más tarde. Error code: (2)";
-            header('Location: ../');
-            exit;
         }
-    }else{
-        $_SESSION['error'] = "Hubo un problema al ingresar el usuario a la base de datos. Intente de nuevo más tarde. Error code: (1)";
-        header("Location ../");
-        exit;
+        $registrar -> validatePwd( $_POST['pwd'], $_POST['pwdRep'] );
+        $registrar -> cryptPwd();
+        $registrar -> createUser();
+        $registrar -> createRole();
+        $registrar -> createProfile();
+        $registrar -> createToken();
+        $registrar -> insertUserToken();
+        $registrar -> sendMail();    
     }
 
-
-
-class Registrar {
+    class Registrar {
 
     private $id;
     private $conn;
@@ -94,6 +51,7 @@ class Registrar {
     private $pwdRep;
     private $crptdPwd;
     private $email;
+    private $token;
     private $error;
     
     function __construct(){
@@ -106,6 +64,7 @@ class Registrar {
         $this -> pwdRep = '';
         $this -> crptdPwd = '';
         $this -> email = '';
+        $this -> token = substr( md5( uniqid( rand(), true ) ), 0, 6 );
         $this -> error = '';
     }
 
@@ -114,6 +73,7 @@ class Registrar {
         $this -> user = $user;
         if( empty( $this -> user ) ){
             $this -> error = "Todos los campos son obligatorios";
+            self::errorVerify();
         }
     }
 
@@ -130,6 +90,7 @@ class Registrar {
             }
         } catch( PDOException $e ) {
             $this -> error = "Hubo un problema al verificar si ya existe un usuario.";
+            self::errorVerify();
         }
     }
 
@@ -151,6 +112,7 @@ class Registrar {
         $this -> area = $area;
         if( !array_key_exists( $this -> area, $validAreas)){
             $this -> error = "El área no es valida.";
+            self::errorVerify();
         }
     }
 
@@ -165,6 +127,7 @@ class Registrar {
         $this -> role = $role;
         if( !in_array( $this -> role, $validRoles ) ){
             $this -> error = "El rol no es valido.";
+            self::errorVerify();
         }
     }
 
@@ -174,6 +137,7 @@ class Registrar {
         $this -> email = $email;
         if( !preg_match( $emailRegex, $this -> email ) ){
             $this -> error = "El correo no es valido";
+            self::errorVerify();
         }
     }
 
@@ -183,6 +147,7 @@ class Registrar {
         $this -> email = $email;
         if( !preg_match( $emailRegex, $this -> email ) ){
             $this -> error = "No es un correo valido";
+            self::errorVerify();
         }
     }
 
@@ -192,15 +157,17 @@ class Registrar {
 
         if ( empty( $this -> pwd ) && empty( $this -> pwdRep ) ){
             $this -> error = 'Las contraseñas no son validas';
+            self::errorVerify();
         }
 
         if( $pwd !== $pwdRep ){
             $this -> error = 'Debe ingresar la misma contraseña 2 veces.';
+            self::errorVerify();
         }
     }
 
     public function cryptPwd(){
-        $this -> crptdPwd = crypt( $this -> pwd, PASSWORD_BCRYPT_DEFAULT_COST );
+        $this -> crptdPwd = crypt( $this -> pwd, PASSWORD_BCRYPT, ['cost' => 12] );
     }
 
     public function createUser(){
@@ -212,15 +179,105 @@ class Registrar {
                 'username' => $this -> user,
                 'email' => $this -> email,
                 'pwd' => $this -> crptdPwd
-            ] );
-            $res = $stmt -> fetch();
-            if( !$res ){
-                $this -> error = 'Hubo un problema a la hora de crear el usuario ( 1 ).';
+                ] );
+                $res = $stmt -> rowCount();
+                if( !$res ){
+                    $this -> error = 'Hubo un problema a la hora de crear el usuario ( 1 ).';
+                    self::errorVerify();
+                }
+            } catch( PDOException $e ) {
+                $this -> error = 'Hubo un problema al crear el usuario ( 0 ).';
+                self::errorVerify();
             }
-            
-        } catch( PDOException $e ) {
-            $this -> error = 'Hubo un problema al crear el usuario ( 0 ).';
         }
-
+    public function createRole(  ){
+        $sqlRoles = "INSERT INTO user_roles ( userId, role ) VALUES ( :userId, :role )";
+        try{
+            $stmt = $this -> conn -> prepare( $sqlRoles );
+            $stmt -> execute([
+                'userId' => $this -> id,
+                'role' => $this -> role
+            ]);
+            $res = $stmt -> rowCount();
+        } catch( PDOException $e ) {
+            $this -> error = 'Hubo un error al crear el rol ( 2 ).';
+            self::errorVerify();
+        }
     }
+    public function createProfile() { 
+        $sqlProfile = "INSERT INTO user_profile ( userId, area) VALUES ( :id, :area )";
+        try{
+            $stmt = $this -> conn -> prepare( $sqlProfile );
+            $stmt -> execute([
+                'id' => $this -> id,
+                'area' => $this -> area 
+            ]);
+            $res = $stmt -> rowCount();
+        } catch ( PDOException $e) {
+            $this -> error = 'Hubo un error al ingresar los datos de perfil del usuario. ( 3 )';
+            self::errorVerify();
+        }
+    }
+
+    public function createToken(){
+        $this -> token = substr( md5( uniqid( rand(), true ) ), 0, 6 );
+    }
+
+    public function insertUserToken () {
+        $sql = 'INSERT INTO user_verification ( userId, code, fecha ) VALUES ( :userId, :code, NOW() ) ';
+
+        try{
+            $stmt = $this -> conn -> prepare( $sql );
+            $stmt -> execute([
+                'userId' => $this -> id,
+                'code' => $this -> token
+            ]);
+        } catch ( PDOException $e ) {
+            $this -> error = 'Hubo un error al registrar el token.';
+            self::errorVerify();
+        }
+    }
+    
+    public function sendMail() {
+
+        $mail = new PHPMailer();
+
+        $mail -> isSMTP();
+        $mail -> Host = 'smtp.gmail.com';
+        $mail -> SMTPAuth = true;
+        $mail -> Username = 'desemptesci@gmail.com';
+        $mail -> Password = 'qfzw orjc ykxt ylcx';
+        $mail -> SMTPSecure = 'tls';
+        $mail -> Port = 587;
+
+        $mail -> setFrom('desemptesci@gmail.com');
+        
+        $mail -> addAddress( $this -> email );
+        
+        $mail -> Subject = 'Desempeño ISC - Correo de cambio de contraseña';
+        
+        $mail -> isHTML(true);
+        
+        $mailContent = '
+        <h1> Bienvenido a Desempeño ISC</h1>
+        <p> Codigo de ferificacion de cuenta es: <strong>'. $this -> token .'</strong></p>
+        <p>Si usted no solicitó este token, no lo comparta y solo ignorelo.</p>
+        ';
+
+        $mail -> Body = $mailContent;
+        
+        if(!$mail -> send()){
+            $this -> error = 'Hubo un probelma con mandar el mensaje. Error: ' . $mail -> ErrorInfo;
+            self::errorVerify();
+        }
+    }
+
+    public function errorVerify(){
+        if ( !empty( $this -> error ) ) {
+            $_SESSION['error'] = $this -> error;
+            header( 'Location: ./registInvest.php' );
+            exit;
+        }
+    }
+    //fncion que guarda en el usuario el codigo mandado al correo, tiempo y cambio de contraseñas
 }

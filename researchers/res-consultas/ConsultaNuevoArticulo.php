@@ -71,7 +71,7 @@
 
     $sql = "INSERT INTO articulos
     (
-    id_res,
+    userId,
     tituloArticulo,
     nombreRevista,
     autoresArticulo,

@@ -29,7 +29,7 @@
         <div class=" row row-cols-1 row-cols-md-3 g-3 justify-content-around align-items-center my-5">
             <?php 
             $sql = "SELECT 
-                    a.id_res,
+                    a.userId,
                     a.tituloArticulo,
                     a.nombreRevista,
                     a.autoresArticulo,
@@ -44,12 +44,12 @@
                     a.rangoPaginas,
                     a.indiceRegistro,
                     a.issn,
-                    u.last_name, 
-                    u.first_name 
+                    u.lastName, 
+                    u.firstName 
                     FROM articulos a 
                     INNER JOIN user_profile u
-                    ON u.user_id = a.id_res
-                    WHERE u.user_id = :userId";
+                    ON u.userId = a.userId
+                    WHERE u.userId = :userId";
             $stmt = $conn -> prepare($sql);
             $stmt -> execute(['userId' => $userId]);
             while($res = $stmt -> fetch()): 

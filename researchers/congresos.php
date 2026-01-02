@@ -1,4 +1,17 @@
-<?php include '../build/utilities/nav.php'; ?>
+<?php 
+    include_once __DIR__ . '/../build/utilities/nav.php'; 
+    include_once __DIR__ . '/../build/config/sesssionValidation.php';
+    include_once __DIR__ . '/consultasModulos/CongresoModulo.php';
+
+    if (authAdmin($_SESSION['role']) != true && authResearcher($_SESSION['role']) != true) {
+        header("Location: ../login.php");
+        exit;
+    }
+    moduloCongreso::init();
+    $userId = $_SESSION['user'];
+    $role = $_SESSION['role'];
+    $area = $_SESSION['area'];
+?>
 
     
     <!-- titulo u busqueda -->    
@@ -27,4 +40,13 @@
             </div>
         </div>
     </section>
+    <!-- congresos de bd -->
+        <div class=" my-5 row row-cols-1 row-cols-md-2 row-cols-xl-3 g-5 justify-content-around align-items-center">
+            <?php 
+                $modulo = new moduloCongreso();
+                echo $modulo -> getCongreso( $userId, $area, $role );
+            ?>    
+        </div>
+    </main>
 
+<?php include '../build/utilities/footer.php'; 

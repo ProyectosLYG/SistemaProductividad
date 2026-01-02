@@ -1,4 +1,14 @@
-<?php include '../build/utilities/head.php'; ?>
+<?php 
+    session_start();
+
+    if( isset( $_SESSION['error'] ) && !empty( $_SESSION['error'] ) ){
+        $error = $_SESSION['error'];
+        $_SESSION['error'] = '';
+    }
+
+    include '../build/utilities/head.php'; 
+
+?>
 <body class="login-bg overflow-hidden">
 
 <section class="d-flex justify-content-center align-items-center vh-100 gap-0">
@@ -58,7 +68,7 @@
                     </select>
                 </fieldset>
             </div>
-            <button type="submit" class="btn btn-dark letra2 py-4 fw-bold">Registrar</button>
+            <button name="nmd" value="nmd" type="submit" class="btn btn-dark letra2 py-4 fw-bold">Registrar</button>
         </form>
     </div>
     <div class="card p-4 login-card2 d-flex flex-column align-self-center justify-content-center login-container rounded-0" >
