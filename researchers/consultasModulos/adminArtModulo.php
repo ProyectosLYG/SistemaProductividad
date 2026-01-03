@@ -5,7 +5,7 @@
     $conn = connect();
 
 $sql = "SELECT 
-                    a.id_res,
+                    a.userId,
                     a.tituloArticulo,
                     a.nombreRevista,
                     a.autoresArticulo,
@@ -20,12 +20,12 @@ $sql = "SELECT
                     a.rangoPaginas,
                     a.indiceRegistro,
                     a.issn,
-                    u.last_name, 
-                    u.first_name 
+                    u.lastName, 
+                    u.firstName 
                     FROM articulos a 
                     INNER JOIN user_profile u
-                    ON u.user_id = a.id_res
-                    WHERE u.user_id = :userId";
+                    ON u.userId = a.userId
+                    WHERE u.userId = :userId";
 
     $stmt = $conn -> prepare($sql);
     $stmt -> execute(['userId' => $_GET['id']]);
@@ -42,7 +42,7 @@ $sql = "SELECT
                             </p>
                             <p class="text-start mx-auto">'.$res['fechaArticulo'] .'</p>
                             
-                            <p class="text-start mx-auto">'. $res['last_name'] .' '. $res['first_name'] .' | ISC</p>
+                            <p class="text-start mx-auto">'. $res['lastName'] .' '. $res['firstName'] .' | ISC</p>
                             <button
                             type="button"
                             class="boton-claro rounded d-flex justify-content-center w-75 mx-auto"
