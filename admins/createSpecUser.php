@@ -18,18 +18,20 @@
     // exit;
 
     if( $_SERVER['REQUEST_METHOD'] === 'POST' ){
+        
         $registrar = new Registrar();
         $registrar -> validateUser( $_POST['user'] );
         $registrar -> validateUserDB();
         $registrar -> validateArea( $_POST['area'] );
         $registrar -> validateRole( $_POST['role'] );
-        if( !isset( $_POST['nmd'] ) ){
+        if( isset( $_POST['nmd'] ) ){
             if( $_POST['nmd'] === 'nmd' ){
                 $registrar -> validateResEmail( $_POST['email'] );
             }else{
                 $registrar -> validateStudentEmail( $_POST['email'] );
             }
         }
+        $registrar -> verifyEmail();
         $registrar -> validatePwd( $_POST['pwd'], $_POST['pwdRep'] );
         $registrar -> cryptPwd();
         $registrar -> createUser();
@@ -38,6 +40,8 @@
         $registrar -> createToken();
         $registrar -> insertUserToken();
         $registrar -> sendMail();    
+        header( 'Location: /' );
+        exit;
     }
 
     class Registrar {
@@ -87,6 +91,7 @@
 
             if( $res ){
                 $this -> error = 'El usuario ya existe.';
+                self::errorVerify();
             }
         } catch( PDOException $e ) {
             $this -> error = "Hubo un problema al verificar si ya existe un usuario.";
@@ -98,6 +103,8 @@
     /* */
     public function validateArea( $area ){
         $validAreas = [
+            'admin' => 'admin',
+            'leadership' => 'leadership',
             'ISC' => 'Ingeniería en Sistemas Computacionales',
             'IM' => 'Ingeniería Mecatrónica',
             'IL' => 'Ingeniería Logística',
@@ -121,7 +128,7 @@
         $validRoles = [
             'admin',
             'researchers',
-            'leaderchip',
+            'leadership',
             'student'
         ];
         $this -> role = $role;
@@ -133,7 +140,7 @@
 
     //validacion de correos de investigadores y administradores
     public function validateResEmail( $email ){
-        $emailRegex = "/^[a-zA-Z0-9._%+-]+@cuautitlan+\.tecnm+\.mx$/";
+        $emailRegex = "/^[a-zA-Z0-9._%+-]+@cuautitlan\.tecnm\.mx$/";
         $this -> email = $email;
         if( !preg_match( $emailRegex, $this -> email ) ){
             $this -> error = "El correo no es valido";
@@ -143,10 +150,26 @@
 
     //validacion de correos institucionales de alumnos
     public function validateStudentEmail( $email ){
-        $emailRegex = "/^[0-9]{9}+@cuautitlan+\.tecnm+\.mx$/";
+        $emailRegex = "/^[0-9]{9}@cuautitlan\.tecnm\.mx$/";
         $this -> email = $email;
         if( !preg_match( $emailRegex, $this -> email ) ){
             $this -> error = "No es un correo valido";
+            self::errorVerify();
+        }
+    }
+
+    public function verifyEmail() {
+        $sql = "SELECT * FROM users where email = :email";
+        try{
+            $stmt = $this -> conn -> prepare( $sql );
+            $stmt -> execute( [ 'email' => $this -> email ] );
+            $res = $stmt -> fetch();
+            if( $res ){
+                $this -> error = "El correo ya está registrado.";
+                self::errorVerify();
+            }
+        } catch( PDOException $e  ) {
+            $this -> error = "Hubo un error al verificar el correo, intentelo de nuevo mas tarde, o contacte al administrador.";
             self::errorVerify();
         }
     }
@@ -155,7 +178,7 @@
         $this -> pwd = $pwd;
         $this -> pwdRep = $pwdRep;
 
-        if ( empty( $this -> pwd ) && empty( $this -> pwdRep ) ){
+        if ( empty( $this -> pwd ) || empty( $this -> pwdRep ) ){
             $this -> error = 'Las contraseñas no son validas';
             self::errorVerify();
         }
@@ -167,7 +190,7 @@
     }
 
     public function cryptPwd(){
-        $this -> crptdPwd = crypt( $this -> pwd, PASSWORD_BCRYPT, ['cost' => 12] );
+        $this->crptdPwd = password_hash($this->pwd, PASSWORD_BCRYPT, ['cost' => 12]);
     }
 
     public function createUser(){
@@ -272,8 +295,9 @@
         }
     }
 
-    public function errorVerify(){
+    private function errorVerify(){
         if ( !empty( $this -> error ) ) {
+            echo $this -> error;
             $_SESSION['error'] = $this -> error;
             header( 'Location: ./registInvest.php' );
             exit;

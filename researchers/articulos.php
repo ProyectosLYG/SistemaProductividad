@@ -1,10 +1,19 @@
 <?php 
-    include '../build/utilities/nav.php'; 
-    include '../build/config/connection.php';
+    include_once __DIR__ . '/../build/utilities/nav.php'; 
+    include_once __DIR__ . '/../build/config/sesssionValidation.php';
+    include_once __DIR__ . '/consultasModulos/ArticuloModulo.php';
 
-    $conn = connect();
+    if (authAdmin($_SESSION['role']) != true && authResearcher($_SESSION['role']) != true) {
+        header("Location: ../login.php");
+        exit;
+    }
+    moduloArticulo::init();
     $userId = $_SESSION['user'];
+    $role = $_SESSION['role'];
+    $area = $_SESSION['area'];
 ?>
+
+    
 
     
     <main class="principal contenedor">
@@ -28,95 +37,9 @@
         
         <div class=" row row-cols-1 row-cols-md-3 g-3 justify-content-around align-items-center my-5">
             <?php 
-            $sql = "SELECT 
-                    a.userId,
-                    a.tituloArticulo,
-                    a.nombreRevista,
-                    a.autoresArticulo,
-                    a.propositoAutor,
-                    a.resumen,
-                    a.estadoArticulo,
-                    a.fechaArticulo,
-                    a.casaEditorial,
-                    a.sectorArticulo,
-                    a.areaConocimiento,
-                    a.tipoArticulo,
-                    a.rangoPaginas,
-                    a.indiceRegistro,
-                    a.issn,
-                    u.lastName, 
-                    u.firstName 
-                    FROM articulos a 
-                    INNER JOIN user_profile u
-                    ON u.userId = a.userId
-                    WHERE u.userId = :userId";
-            $stmt = $conn -> prepare($sql);
-            $stmt -> execute(['userId' => $userId]);
-            while($res = $stmt -> fetch()): 
+                $modulo = new ModuloArticulo();
+                echo $modulo -> getArticulo( $userId, $area, $role );
             ?>
-                    <div class=" col">
-                        <div class="proyecto d-flex flex-column radius-3 p-5 mx-2 my-2 h-100">
-                            <p class="fs-1 fw-bold my-0 mx-auto"><?php echo $res['tituloArticulo']; ?></p>
-                            <p class="mx-auto my-5">
-                                <?php echo $res['resumen']; ?>
-                            </p>
-                            <p class="text-start mx-auto"><?php $res['fechaArticulo']; ?></p>
-                            
-                            <p class="text-start mx-auto"><?php echo $res['last_name'] .' '. $res['first_name'] ?> | ISC</p>
-                            <button
-                            type="button"
-                            class="boton-claro rounded d-flex justify-content-center w-75 mx-auto"
-                            data-bs-toggle="modal"
-                            data-bs-target="#verMas<?php echo $res['idArticulo']?>"
-                            >Ver mas</button>
-                        </div>
-                    </div>
-                    <div 
-                    class="modal fade"
-                    id="verMas<?php echo $res['idArticulo']; ?>"
-                    tabindex="-1"
-                    aria-labelledby="verMas<?php echo $res['idLibro'] ?>Label"
-                    aria-hidden="true"
-                    >
-                        <div class="modal-dialog modal-dialog-centered modal-xl">
-                            <div class="modal-content">
-                                <div class="modal-header d-flex justify-content-between">
-                                    <h5 class="modal-title fs-1"><?php echo $res['tituloArticulo'] ?></h5>
-                                    
-                                </div>
-                                <div class="modal-body">
-                                    <div class="d-flex justify-content-center align-items-center">
-                                        <div class="text-black p-2 d-flex justify-content-center flex-column">
-                                            <div class="text-center"><span class="fw-bold">Titulo articulo: </span> <?php echo $res['tituloArticulo'] ?></div>
-                                            <div class="text-center"><span class="fw-bold">Nombre revista: </span> <?php echo $res['nombreRevista'] ?></div>
-                                            <div class="text-center"><span class="fw-bold">Autores Articulo: </span> <?php echo $res['autoresArticulo'] ?></div>
-                                            <div class="row-cols-1 row-cols-xl-2">
-                                                <div class="row row-cols-1 row-cols-md-2 my-5 mx-auto">
-                                                    <div class="text-center"><span class="fw-bold">Proposito: </span> <?php echo $res['propositoAutor'] ?></div>
-                                                    <div class="text-center"><span class="fw-bold">Estado: </span> <?php echo $res['estadoArticulo'] ?></div>
-                                                    <div class="text-center"><span class="fw-bold">Fecha: </span> <?php echo $res['fechaArticulo'] ?></div>
-                                                    <div class="text-center"><span class="fw-bold">Casa editorial: </span> <?php echo $res['casaEditorial'] ?></div>
-                                                    <div class="text-center"><span class="fw-bold">Sector: </span> <?php echo $res['sectorArticulo'] ?></div>
-                                                    <div class="text-center"><span class="fw-bold">Area: </span> <?php echo $res['areaConocimiento'] ?>></div>
-                                                    <div class="text-center"><span class="fw-bold">Tipo: </span> <?php echo $res['tipoArticulo'] ?></div>
-                                                    <div class="text-center"><span class="fw-bold">Rango paginas: </span> <?php echo $res['rangoPaginas'] ?></div>
-                                                    <div class="text-center"><span class="fw-bold">Indice Registro: </span> <?php echo $res['indiceRegistro'] ?></div>
-                                                    <div class="text-center"><span class="fw-bold"> ISSN: </span> <?php echo $res['issn'] ?></div>
-                                                </div>
-                                                <div class="mx-auto">
-                                                    <?php echo $res['resumen'] ?></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button"  class="btn button-secondary p-1" data-bs-dismiss="modal">Close</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-            <?php endwhile; ?>
         </div>
     </main>
 

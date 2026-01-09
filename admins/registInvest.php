@@ -1,12 +1,11 @@
 <?php 
-    session_start();
-
+    include '../build/utilities/head.php'; 
+    $error = '';
     if( isset( $_SESSION['error'] ) && !empty( $_SESSION['error'] ) ){
         $error = $_SESSION['error'];
         $_SESSION['error'] = '';
     }
 
-    include '../build/utilities/head.php'; 
 
 ?>
 <body class="login-bg overflow-hidden">
@@ -74,7 +73,10 @@
     <div class="card p-4 login-card2 d-flex flex-column align-self-center justify-content-center login-container rounded-0" >
         <div class="d-flex flex-column align-self-center justify-content-center">
             <div class=" mb-5">
-                <img src="../build/img/escudo_isc.png" alt="Descripción" class="img-fluid d-flex align-self-start" style="max-width: 1000px;">
+                <?php if( !empty( $error ) ): ?>
+                    <p class="text-white fw-bold w-100 bg-danger rounded px-5 py-1 text-center">Error: <?php echo $error ?></p>
+                <?php endif; ?>
+                <img src="../build/img/escudo_isc.png" alt="Descripción" class="img-fluid d-flex align-self-start mx-auto" style="max-width: 1000px;">
             </div>
         </div>
     </div>
