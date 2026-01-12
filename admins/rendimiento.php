@@ -4,22 +4,25 @@
     include '../build/config/connection.php';
 
     $conn = connect();
-
-    $sqlVerifyEmail = "SELECT emailVer FROM users WHERE userId = :userId";
-    try{
-        $stmt = $conn -> prepare( $sqlVerifyEmail );
-        $stmt -> execute( [ 'userId' => $_SESSION['user'] ] );
-        $res = $stmt -> fetch();
-    } catch( PDOException $e ) {
-        $error = 'Hubo un problema al consultar la base de datos';
-        header('Location: /');
-        exit;
+    
+    if( isset( $_SESSION['role'] ) && !empty( $_SESSION['role'] && $_SESSION['role'] !== 'guest' ) ){
+        $sqlVerifyEmail = "SELECT emailVer FROM users WHERE id = :userId";
+        try{
+            $stmt = $conn -> prepare( $sqlVerifyEmail );
+            $stmt -> execute( [ 'userId' => $_SESSION['user'] ] );
+            $res = $stmt -> fetch();
+        } catch( PDOException $e ) {
+            $error = 'Hubo un problema al consultar la base de datos';
+            header('Location: /');
+            exit;
+        }
+        
+        if( !$res ){
+            header('Location: ../codeConfirmation.php');
+            exit;
+        }
     }
 
-    if( !$res ){
-        header('Location: ./codeConfirmation.php');
-        exit;
-    }
     $datos = [];
 
     if(!authAdmin($_SESSION['role'])){

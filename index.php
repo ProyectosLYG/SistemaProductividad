@@ -1,28 +1,28 @@
 <?php 
-  include "./build/utilities/nav.php" ;
   include './build/config/connection.php';
+  include "./build/utilities/nav.php" ;
 
-    $conn = connect();
 
-    
-    if( isset( $_SESSION['role'] ) && !empty( $_SESSION['role'] && $_SESSION['role'] !== 'guest' ) ){
+  $conn = connect();
+  
+  if( isset( $_SESSION['role'] ) && !empty( $_SESSION['role'] && $_SESSION['role'] !== 'guest' ) ){
       $sqlVerifyEmail = "SELECT emailVer FROM users WHERE id = :userId";
       try{
-        $stmt = $conn -> prepare( $sqlVerifyEmail );
-        $stmt -> execute( [ 'userId' => $_SESSION['user'] ] );
-        $res = $stmt -> fetch();
+          $stmt = $conn -> prepare( $sqlVerifyEmail );
+          $stmt -> execute( [ 'userId' => $_SESSION['user'] ] );
+          $res = $stmt -> fetch();
+          if( $res['emailVer'] !== '0' ){
+            header('Location: ./codeConfirmation.php');
+            exit;
+          }
       } catch( PDOException $e ) {
-        $error = 'Hubo un problema al consultar la base de datos';
-        header('Location: /');
-        exit;
+          $error = 'Hubo un problema al consultar la base de datos';
+          header('Location: /');
+          exit;
       }
       
-      if( !$res ){
-        header('Location: ./codeConfirmation.php');
-        exit;
-      }
-    }
-
+      
+  }
 ?>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">

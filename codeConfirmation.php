@@ -1,5 +1,5 @@
 <?php 
-    include '../build/utilities/head.php'; 
+    include './build/utilities/head.php'; 
     $error = '';
     if( isset( $_SESSION['error'] ) && !empty( $_SESSION['error'] ) ){
         $error = $_SESSION['error'];
@@ -9,8 +9,6 @@
 <body class="login-bg overflow-hidden">
 
 <section class="d-flex justify-content-center align-items-center vh-100 gap-0">
-
-    <!-- FORMULARIO -->
     <div class="card p-4 login-card2 d-flex flex-column align-self-center justify-content-center login-container rounded-0">
         <form action="./confirmToken.php" method="POST"
             class="formlogin d-flex flex-column align-self-center justify-content-center">
@@ -43,8 +41,6 @@
             </button>
         </form>
     </div>
-
-    <!-- PANEL DERECHO -->
     <div class="card p-4 login-card2 d-flex flex-column align-self-center justify-content-center login-container rounded">
         <div class="d-flex flex-column align-self-center justify-content-center">
 
@@ -54,11 +50,12 @@
                         Error: <?php echo $error ?>
                     </p>
                 <?php endif; ?>
-
-                <img src="../build/img/escudo_isc.png"
-                    alt="Descripción"
-                    class="img-fluid d-flex align-self-start mx-auto"
-                    style="max-width: 1000px;">
+                <a href="/">
+                    <img src="../build/img/escudo_isc.png"
+                        alt="Descripción"
+                        class="img-fluid d-flex align-self-start mx-auto"
+                        style="max-width: 1000px;">
+                </a>
             </div>
 
         </div>

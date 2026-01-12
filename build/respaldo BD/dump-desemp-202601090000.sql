@@ -19,6 +19,7 @@
 --
 -- Table structure for table `articulos`
 --
+SET FOREIGN_KEY_CHECKS=0;
 
 DROP TABLE IF EXISTS `articulos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -317,6 +318,7 @@ INSERT INTO `users` VALUES
 UNLOCK TABLES;
 commit;
 
+SET FOREIGN_KEY_CHECKS=1;
 --
 -- Dumping routines for database 'desemp'
 --
