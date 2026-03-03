@@ -1,31 +1,30 @@
 <?php
     session_start();
 
-    include 'connection.php';
-    $conn = connect();
-
     $user = $_POST['user'];
     $pwd = $_POST['pwd'];
     
-    $sql = 
-    "SELECT u.id,r.role, p.area
-    FROM users u 
-    INNER JOIN user_roles r 
-    ON u.id = r.userId 
-    INNER JOIN user_profile p
-    ON u.id = p.userId
-    WHERE u.username = ? 
-    AND u.pwd = ?;";
+    $data = json_encode(["user" => $user, "pwd" => $pwd]);
 
-    $stmt =  $conn->prepare($sql);
-    $stmt->execute([$user, $pwd]);
-    $res = $stmt->fetch();
-    if($res){
-        $_SESSION['user'] = $res['id'];
-        $_SESSION['role'] = $res['role'];
-        $_SESSION['area'] = $res['area'];
+    $aux = curl_init('http://localhost:3000/api/login');
+
+    curl_setopt($aux, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($aux, CURLOPT_POST, true);
+    curl_setopt($aux, CURLOPT_POSTFIELDS, $data);
+    curl_setopt($aux, CURLOPT_HTTPHEADER,['Content-Type:application/json']);
+
+    curl_setopt($aux, CURLOPT_HEADER, false);
+
+    $response = curl_exec($aux);
+    $result = json_decode($response);
+  
+    if($result -> status == 200){
+        $_SESSION['user'] = $result -> body -> user -> user;
+        $_SESSION['role'] = $result -> body -> user -> role;
+        $_SESSION['area'] = $result -> body -> user -> area;
         header("Location: ../../index.php");
     }else{
+        $_SESSION['error'] = $result -> message;
         header("Location: ../../login.php");
         exit;
     }

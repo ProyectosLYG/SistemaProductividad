@@ -5,22 +5,7 @@
 
   $conn = connect();
   
-  if( isset( $_SESSION['role'] ) && !empty( $_SESSION['role'] && $_SESSION['role'] !== 'guest' ) ){
-      $sqlVerifyEmail = "SELECT emailVer FROM users WHERE id = :userId";
-      try{
-          $stmt = $conn -> prepare( $sqlVerifyEmail );
-          $stmt -> execute( [ 'userId' => $_SESSION['user'] ] );
-          $res = $stmt -> fetch();
-          if( $res['emailVer'] !== '0' ){
-            header('Location: ./codeConfirmation.php');
-            exit;
-          }
-      } catch( PDOException $e ) {
-          $error = 'Hubo un problema al consultar la base de datos';
-          header('Location: /');
-          exit;
-      }
-      
+  if( isset( $_SESSION['role'] ) && !empty( $_SESSION['role'] ) && $_SESSION['role'] !== 'guest'  ){
       
   }
 ?>
@@ -70,7 +55,7 @@
       <div class="carousel-item">
         <div class="carousel-image bg-img4">
           <div class="carousel-caption d-flex flex-column justify-content-center align-items-center">
-            <h1 class="display-4 fw-bold">DESEMPEÑO ISC</h1>
+            <h1 class="display-4 fw-bold">DESEMPEÑO ISC</h1> 
             <p class="lead lead_hero">Impulsa tu productividad, fortalece tu impacto.</p>
           </div>
         </div>

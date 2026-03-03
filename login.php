@@ -1,4 +1,15 @@
-<?php include './build/utilities/head.php'; ?>
+<?php 
+
+    include './build/utilities/head.php'; 
+
+    if(!empty($_SESSION['error'])){
+        $error = $_SESSION['error'];
+        $_SESSION['error'] = '';
+    }
+
+?>
+
+
 <body class="login-bg overflow-hidden">
 
 <section class="d-flex justify-content-center align-items-center vh-100">
@@ -11,6 +22,9 @@
 
             <h3 class="text-center mb-5 letra1 text-white fw-bold">Iniciar Sesión</h3>
 
+            <?php if(!empty($error)): ?>
+                <p class="border-danger text-danger text-center border-rounded"><?php echo $error ?>   </p>
+            <?php endif; ?>
 
             <div>
                 <fieldset class='mb-5 fildset-border'>
