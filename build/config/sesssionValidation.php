@@ -10,6 +10,16 @@ function authAdmin ( $page ) {
     }
 }
 
+function authLeadership( $page ){
+    if( $page !== 'leadership' ){
+        return false;
+        exit;
+    }else{
+        return true;
+        exit;
+    }
+}
+
 function authResearcher( $page ){
     if( $page !== 'researcher' ){
         return false;

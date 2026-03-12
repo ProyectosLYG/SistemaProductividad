@@ -3,7 +3,7 @@
 
 ?>
 
-<body>
+<body class="d-flex flex-column justify-content-between" style="min-height:100vh">
     <header class="navegador position-fixed z-3 ">
         <div class=" container d-flex flex-column flex-xl-row flex-wrap align-items-center justify-content-between py-3 px-5 mb-4 border-bottom">
             

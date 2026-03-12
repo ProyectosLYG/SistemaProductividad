@@ -1,8 +1,11 @@
-<?php session_start(); 
+<?php 
+    session_start(); 
+
+    include_once __DIR__ . "/../../GetEnv.php";
+
     (!isset($_SESSION['user']) && !isset($_SESSION['role'])) ? $_SESSION['role'] = 'guest': 0;
     
-
-
+    GetEnv::getEnv();
 ?>
 <!DOCTYPE html>
 <html lang="es">

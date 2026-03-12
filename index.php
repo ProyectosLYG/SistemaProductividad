@@ -1,6 +1,6 @@
 <?php 
-  include './build/config/connection.php';
-  include "./build/utilities/nav.php" ;
+  include_once __DIR__ . '/build/config/connection.php';
+  include_once __DIR__ . "/build/utilities/nav.php" ;
 
 
   $conn = connect();

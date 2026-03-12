@@ -1,21 +1,12 @@
 <?php 
     include_once __DIR__ . '/../build/utilities/nav.php'; 
     include_once __DIR__ . '/../build/config/sesssionValidation.php';
-    include_once __DIR__ . '/consultasModulos/ArticuloModulo.php';
 
-    if (authAdmin($_SESSION['role']) != true && authResearcher($_SESSION['role']) != true) {
+    if (authAdmin($_SESSION['role']) != true && authResearcher($_SESSION['role']) != true && authLeadership($_SESSION['role']) != true) {
         header("Location: ../login.php");
         exit;
     }
-    moduloArticulo::init();
-    $userId = $_SESSION['user'];
-    $role = $_SESSION['role'];
-    $area = $_SESSION['area'];
 ?>
-
-    
-
-    
     <main class="principal contenedor">
         <div class="header-proyectos">
             <h2>Artículos</h2>
@@ -37,9 +28,24 @@
         
         <div class=" row row-cols-1 row-cols-md-3 g-3 justify-content-around align-items-center my-5">
             <?php 
-                $modulo = new ModuloArticulo();
-                echo $modulo -> getArticulo( $userId, $area, $role );
-            ?>
+                $session = $_COOKIE['session'] ?? null;
+                $aux = curl_init(getenv('API_SERVER'). '/api/getArticles');
+
+                curl_setopt($aux, CURLOPT_RETURNTRANSFER, true);
+                curl_setopt($aux, CURLOPT_VERBOSE, true);
+                curl_setopt($aux, CURLOPT_HTTPHEADER, [
+                    'Content-Type:application/json',
+                    'Cookie: session='.$session,
+                    ]);
+                curl_setopt($aux, CURLOPT_HEADER, false);
+                
+                $response = curl_exec($aux);
+                $result = json_decode($response, true);
+                
+                foreach($result['body'] as $res){
+                    include __DIR__ . "/cards/articlesCards.php";
+                }
+            ?> 
         </div>
     </main>
 

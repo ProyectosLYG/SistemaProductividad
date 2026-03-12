@@ -13,11 +13,23 @@
     curl_setopt($aux, CURLOPT_POSTFIELDS, $data);
     curl_setopt($aux, CURLOPT_HTTPHEADER,['Content-Type:application/json']);
 
-    curl_setopt($aux, CURLOPT_HEADER, false);
+    curl_setopt($aux, CURLOPT_HEADER, true);
 
     $response = curl_exec($aux);
-    $result = json_decode($response);
-  
+
+    $headerSize = curl_getinfo($aux, CURLINFO_HEADER_SIZE);
+
+    $headers = substr($response, 0 , $headerSize);
+    $body = substr($response, $headerSize);
+
+    preg_match('/Set-Cookie:\s*([^\r\n]+)/i',  $headers, $matches);
+
+    $cookie = $matches[1];
+
+    header("Set-Cookie: $cookie");
+
+    $result = json_decode($body);
+    
     if($result -> status == 200){
         $_SESSION['user'] = $result -> body -> user -> user;
         $_SESSION['role'] = $result -> body -> user -> role;
