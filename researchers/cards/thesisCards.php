@@ -1,6 +1,6 @@
 <div class = "col">
                         <div class="  proyecto d-flex flex-column rounded  m-2 auto h-100">
-                            <img src="../researchers/thesisImages/<?= $res['evidencia1'] ?>" class="img-fluid mx-auto mt-4 rounded" width="300" height="400" alt="Imágen de libro">
+                            <img src="../researchers/thesisImages/<?= $res['evidencia'] ?>" class="img-fluid mx-auto mt-4 rounded" width="300" height="400" alt="Imágen de libro">
                             <div class="mx-5">
                                 <p class="fs-1 fw-bold m-0"><?= $res['tituloTesis'] ?></p>
                                 <p class="text-start m-0"><?= $res['fecha'] ?></p>
@@ -33,7 +33,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <div class="d-flex flex-column flex-xl-row justify-content-around">
-                                        <img src="../researchers/thesisImages/<?= $res['evidencia1'] ?>" alt="" width="300" height="auto" class="my-auto mx-auto">
+                                        <img src="../researchers/thesisImages/<?= $res['evidencia'] ?>" alt="" width="300" height="auto" class="my-auto mx-auto">
                                         <div class="text-black p-2">
                                             <div class="fs-1 text-center fw-bold m-0"><?= $res['tituloTesis'] ?></div>
                                             <div class="fs-4 m-0 text-center "><?= $res['autores'] ?></div>

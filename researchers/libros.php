@@ -1,17 +1,12 @@
 <?php
 
-include_once __DIR__ . '/../build/utilities/nav.php';
-include_once __DIR__ . '/../build/config/sesssionValidation.php';
-include_once __DIR__ . '/consultasModulos/LibroModulo.php';
-if (authAdmin($_SESSION['role']) != true && authResearcher($_SESSION['role']) != true) {
-    header("Location: ../login.php");
-    exit;
-}
-moduloLibro::init();
-$userId = $_SESSION['user'];
-$role = $_SESSION['role'];
-$area = $_SESSION['area'];
-
+    include_once __DIR__ . '/../build/utilities/nav.php';
+    include_once __DIR__ . '/../build/config/sesssionValidation.php';
+    
+    if (authAdmin($_SESSION['role']) != true && authResearcher($_SESSION['role']) != true && authLeadership($_SESSION['role']) != true) {
+        header("Location: ../login.php");
+        exit;
+    }
 ?>
 
 <!-- titulo u busqueda -->
@@ -47,9 +42,24 @@ $area = $_SESSION['area'];
     <!-- libros de bd -->
     <div class=" my-5 row row-cols-1 row-cols-md-2 row-cols-xl-3 g-5 justify-content-around align-items-center">
         <?php 
-            $modulo = new moduloLibro();
-            echo $modulo -> getBook($userId, $area, $role);
-        ?>
+            $session = $_COOKIE['session'] ?? null;
+            $aux = curl_init(getenv('API_SERVER'). '/api/getChapters');
+
+            curl_setopt($aux, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($aux, CURLOPT_VERBOSE, true);
+            curl_setopt($aux, CURLOPT_HTTPHEADER, [
+                'Content-Type:application/json',
+                'Cookie: session='.$session,
+                ]);
+            curl_setopt($aux, CURLOPT_HEADER, false);
+            
+            $response = curl_exec($aux);
+            $result = json_decode($response, true);
+            
+            foreach($result['body'] as $res){
+                include __DIR__ . "/cards/chaptersCards.php";
+            }
+            ?> 
 
     </div>
 </section>

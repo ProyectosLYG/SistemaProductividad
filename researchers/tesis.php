@@ -56,7 +56,7 @@
                 $result = json_decode($response, true);
                 
                 foreach($result['body'] as $res){
-                    include __DIR__ . "/cards/articlesCards.php";
+                    include __DIR__ . "/cards/thesisCards.php";
                 }
             ?> 
 
