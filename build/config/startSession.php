@@ -1,12 +1,14 @@
 <?php
     session_start();
+    include_once __DIR__  . "/../../GetEnv.php";
+    GetEnv::getEnv();
 
     $user = $_POST['user'];
     $pwd = $_POST['pwd'];
     
     $data = json_encode(["user" => $user, "pwd" => $pwd]);
-
-    $aux = curl_init('http://localhost:3000/api/login');
+    $url = getenv('API_SERVER');
+    $aux = curl_init($url."/api/login");
 
     curl_setopt($aux, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($aux, CURLOPT_POST, true);

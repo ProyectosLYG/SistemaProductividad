@@ -83,7 +83,7 @@
                             De
                             <input
                             id="pp_inicio"
-                            name="pp_inicio"
+                            name="ppInicio"
                             class="input-label" 
                             placeholder="Inicio"
                             type="number" 
@@ -91,7 +91,7 @@
                             a
                             <input
                             id="pp_fin"
-                            name="pp_final"
+                            name="ppFinal"
                             class="input-label" 
                             placeholder="Fin"
                             type="number"

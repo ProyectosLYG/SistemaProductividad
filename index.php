@@ -1,8 +1,9 @@
 <?php 
   include_once __DIR__ . '/build/config/connection.php';
   include_once __DIR__ . "/build/utilities/nav.php" ;
+  include_once __DIR__ . "/GetEnv.php";
 
-
+  GetEnv::getEnv();
   $conn = connect();
   
   if( isset( $_SESSION['role'] ) && !empty( $_SESSION['role'] ) && $_SESSION['role'] !== 'guest'  ){
