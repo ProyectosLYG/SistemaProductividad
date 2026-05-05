@@ -1,6 +1,9 @@
 <?php
     session_start();
 
+    include_once __DIR__ . "/../../GetEnv.php";
+    GetEnv::getEnv();
+
     $_SESSION['errores'] = "";
     $errores = [];
 
@@ -12,6 +15,9 @@
     $imageName = '';
     $imageNames = [];
     $imgQuantity = 0;
+
+    $location = 'Location: ./../nuevo-congreso.php';
+    $locationSuccess = 'Location: ./../congresos.php';
 
     // echo '<pre>';
     // echo var_dump($_FILES);
@@ -60,7 +66,37 @@
             move_uploaded_file($tmp['tmp'], $folderName .'/'.$imageName);
             $evidencia[$i] = $imageName;
         }
-        
+        $cookie = $_COOKIE['session'] ?? null;
+        $_POST['evidencia'] = $imageName;
+        $data = json_encode($_POST);
+        $url = getEnv('API_SERVER');
+
+        $aux = curl_init($url . '/api/createCongress');
+
+        curl_setopt($aux, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($aux, CURLOPT_POST, true);
+        curl_setopt($aux, CURLOPT_POSTFIELDS, $data);
+        curl_setopt($aux, CURLOPT_HTTPHEADER, [
+            'Content-Type:application/json',
+            'Cookie: session=' . $cookie
+            ]);
+
+        curl_setopt($aux, CURLOPT_HEADER, false);
+
+        $response = curl_exec($aux);
+        $result = json_decode($response, true);
+
+        if($result && $result['status'] == 200){
+            $_SESSION['success'] = true;
+            header($locationSuccess);
+            exit;
+        }else{
+            $_SESSION['errores'] = $result['message'];
+            header($location);
+            exit;
+        }
     }catch(Exception $error){
-        echo "Error: " . $error -> getMessage();
+        $_SESSION['errores'] = "Error: " . $error -> getMessage();
+        header($location);
+        exit;
     }

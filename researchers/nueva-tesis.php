@@ -1,8 +1,7 @@
 <?php 
     include '../build/utilities/nav.php'; 
-    $errores = [];
-    if(isset($_SESSION['errores'])){
-        $errores = $_SESSION['errores'];
+    if(!empty($_SESSION['errores'])){
+        $error = $_SESSION['errores'];
         unset($_SESSION['errores']);
     }
 ?>
@@ -10,11 +9,11 @@
     
     <main class="principal contenedor">
         <div class="header-proyectos">
+            <h2> Agregar Tesis Dirigida</h2>
         </div>
-        <h1> Agregar Tesis Dirigida</h1>
-        <?php foreach($errores as $error): ?>
+        <?php if(!empty($error)): ?>
             <p class="alert alert-danger text-center"><?php echo $error; ?></p>
-        <?php endforeach; ?>
+        <?php endif; ?>
         <form action="res-consultas/ConsultaNuevaTesis.php" method="POST" enctype="multipart/form-data" >
             <fieldset>
                 <legend>INFORMACIÓN BÁSICA</legend>

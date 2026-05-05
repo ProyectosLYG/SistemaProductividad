@@ -57,7 +57,7 @@
     
 
 
-    if(empty($errores)){
+    try{
         if(!is_dir($imageFolder)){
             mkdir($imageFolder);
         }
@@ -93,12 +93,12 @@
             header($locationSuccess);
             exit;
         }else{
-            $_SESSION['error'] = $result['message'];
+            $_SESSION['errores'] = $result['message'];
             header($location);
             exit;
         }
-    }else{
-        $_SESSION['errores'] = $errores;
-        header("Location: ../nuevo-capitulo-libro.php");
+    }catch(PDOException $e){
+        $_SESSION['errores'] = "Error: " . $error -> getMessage();
+        header($location);
         exit;
     }

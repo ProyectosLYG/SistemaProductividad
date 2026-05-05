@@ -1,20 +1,19 @@
 <?php 
     include '../build/utilities/nav.php'; 
-    $errores = [];
-    if(isset($_SESSION['errores']) ){
-        $errores = $_SESSION['errores'];
-        unset($_SESSION['errores']);  
+    if(!empty($_SESSION['errores'])){
+        $error = $_SESSION['errores'];
+        unset($_SESSION['errores']);
     }
 ?>
 
     
     <main class="principal container">
         <div class="d-flex align-items-center ms-4">
-            <h1>Añadir congreso</h1>
+            <h2>Añadir congreso</h2>
         </div>
-        <?php foreach($errores as $error): ?>
+        <?php if(!empty($error)): ?>
             <p class="alert alert-danger text-center"><?php echo $error; ?></p>
-        <?php endforeach; ?>
+        <?php endif; ?>
 
         <form action="./res-consultas/ConsultaNuevoCongreso.php" method="POST" enctype="multipart/form-data">
             <div class="alertas text-danger">Los campos con (*) son obligatorios.</div>

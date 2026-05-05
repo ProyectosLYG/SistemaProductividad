@@ -1,21 +1,18 @@
 <?php 
     include '../build/utilities/nav.php';
-    $errores = [];
-    if(isset($_SESSION['errores'])){
-        $errores = $_SESSION['errores'];
+    if(!empty($_SESSION['errores'])){
+        $error = $_SESSION['errores'];
         unset($_SESSION['errores']);
     }
-        
 ?>
 <main class="principal contenedor"> 
     <div class="header-proyectos">
         <h2>Agregar nuevo artículo</h2>
     </div>
 
-    <?php foreach($errores as $error): ?>
+    <?php if(!empty($error)): ?>
         <p class="alert alert-danger text-center"><?php echo $error; ?></p>
-    <?php endforeach; ?>
-
+    <?php endif; ?>
     <form action="res-consultas/ConsultaNuevoArticulo.php" method="POST" class="formulario">
         <div class="aviso-rojo">Todos los datos con (*) son obligatorios.</div>
         <fieldset>
