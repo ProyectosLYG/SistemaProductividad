@@ -1,18 +1,14 @@
 <?php 
     session_start();
-    include "../../build/config/connection.php";
-    $conn = connect();
+
+    include_once __DIR__ . "/../../GetEnv.php";
+    GetEnv::getEnv();
+
     $userId = $_SESSION['user'];
     $_SESSION['errores'] = "";
-    $errores = [];
     $location = 'Location: ./../nuevo-articulo.php';
     $locationSuccess = 'Location: ./../articulos.php';
 
-    if(!empty($errores)){
-        $_SESSION['errores'] = $errores;
-        header("Location: ../nuevo-articulo.php");
-        exit;
-    }
     try{
         $cookie = $_COOKIE['session'] ?? null;
         $data = json_encode($_POST);
@@ -43,6 +39,7 @@
             exit;
         }
     }catch(PDOException $e){
-        echo "Error: " . $e->getMessage();
+        $_SESSION['errores'] = "Error: " . $e -> getMessage();
+        header($location);
         exit;
     }

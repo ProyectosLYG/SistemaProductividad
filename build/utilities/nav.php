@@ -1,6 +1,5 @@
 <?php 
     include 'head.php'; 
-
 ?>
 
 <body class="d-flex flex-column justify-content-between" style="min-height:100vh">
