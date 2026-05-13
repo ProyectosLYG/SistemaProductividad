@@ -3,9 +3,7 @@
 
     include_once __DIR__ . "/../../GetEnv.php";
     GetEnv::getEnv();
-
-    $userId = $_SESSION['user'];
-    $_SESSION['errores'] = "";
+    
     $location = 'Location: ./../nuevo-articulo.php';
     $locationSuccess = 'Location: ./../articulos.php';
 
@@ -38,7 +36,7 @@
             header($location);
             exit;
         }
-    }catch(PDOException $e){
+    }catch(Exception $e){
         $_SESSION['errores'] = "Error: " . $e -> getMessage();
         header($location);
         exit;
